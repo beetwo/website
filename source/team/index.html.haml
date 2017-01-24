@@ -1,0 +1,10 @@
+---
+title: Team
+---
+
+#team.ui.container
+  %h1.ui.header Team
+
+  #members.ui.items
+    - data.team.each do |member|
+      = partial("partials/teamMember", :locals => { :member => member })

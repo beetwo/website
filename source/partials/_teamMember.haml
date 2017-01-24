@@ -1,0 +1,11 @@
+.ui.segment.item
+  %img.ui.avatar.image{:src => "#{member.img}"}
+  .content.ui.middle.aligned.one.column.grid
+    .row
+      .column.no-padding
+        .header= "#{member.name}"
+        .meta= "#{member.role}"
+      / .column
+      /   %p.description= "#{member.description}"
+    / .extra
+  

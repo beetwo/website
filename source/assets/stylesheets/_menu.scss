@@ -1,0 +1,26 @@
+.ui.menu{
+  border: none;
+  box-shadow: none;
+
+  .item {
+    @for $i from 1 through length($sections) {
+      &.#{nth($sections, $i)} {
+          color: nth($sectionColors, $i);
+          background-color: $white;
+          
+          $transition-duration: 0.3s;
+          $transition-ease: ease-in-out;
+
+          // $transition-duration: 0.3s;
+          // $transition-ease: linear;
+          
+          @include transition(color $transition-duration $transition-ease, background-color $transition-duration $transition-ease);
+
+          &:hover, &.active {
+            background-color: nth($sectionColors, $i);
+            color: $darkGrey;
+          }
+      }
+    }  
+  }
+}

@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+@import "bourbon/app/assets/stylesheets/bourbon";
+@import "variables";
+@import "semantic-ui";
+@import "fonts";
+@import "typecsset";
+// @import "text-stroke";
+@import "overrides";
+@import "menu";
+@import "pattern";
+@import "team";
+@import "news";
+
+body {
+  font-size: 1rem;
+  // font-family: 'Signika';
+  font-family: 'Source-Sans';
+  font-weight: 400;
+  color: $darkGrey;
+  @for $i from 1 through length($sections) {
+    &.#{nth($sections, $i)} {
+      background-color: nth($sectionColors, $i);
+    }
+  }  
+  // &.team        { background: $teamColor }
+}
+
+.full-size {
+  width: 100vw;
+  height: 100vh;
+}
+
+.mask {
+  overflow: hidden;
+}
+
+.menu-offset {
+  padding-top: 6rem;
+}
+
+.invisible {
+  visibility: hidden;
+  display: none;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+p {
+  font-family: $font-family-body;
+  font-weight: 400;
+}
+
+// @import "custom";

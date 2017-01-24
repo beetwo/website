@@ -1,0 +1,5 @@
+.ui.large.top.fixed.menu
+  .ui.fluid.container
+    - data.index.each do |i|
+      %a{:class => "#{menu_class(i)}", :href => "#{i.href.nil? ? 'index.html' : i.href}"}
+        = "#{i.text}"

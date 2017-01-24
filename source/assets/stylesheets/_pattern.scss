@@ -1,0 +1,120 @@
+#pattern {
+  @include user-select(none);
+  background: $backgroundColor;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    // border: solid 2px $red;
+
+    rect.debug {
+      fill: none;
+      stroke: $orange;
+      stroke-width: 2 }
+    // @include transform(scale(0.8));
+    // @include transform-origin(center center);
+
+    .links {
+      stroke: $grey-medium;
+      stroke-opacity: 0.2;
+    }
+    
+    .cell {
+      // pointer-events: none !important;
+      stroke-width: 0;
+      stroke: $cellColor;
+      fill: none;
+      cursor: auto;
+      @for $i from 1 through length($sections) {
+        &[content="#{nth($sections, $i)}"] {
+            fill: nth($sectionColors, $i);
+            stroke: none;
+        }
+      }  
+
+      &.content {
+        &:hover {
+          cursor: pointer;  
+        }
+        
+      }
+
+      // &.border { 
+      //   &.top   { fill:  rgba($red, 0.4) }
+      //   &.right { fill:  rgba($yellow, 0.4) }
+      //   &.bottom{ fill:  rgba($blue, 0.4) }
+      //   &.left  { fill:  rgba($green, 0.4) }
+      // }
+      // &.inner   { fill: rgba($mediumGrey, 0.4) }
+    }
+
+    .vertices {
+      fill: $red;
+      stroke: none;
+    }
+    
+    .content {
+      text {
+        // pointer-events: none !important ;
+        stroke: none;
+        fill: $darkGrey;
+        &.head {
+          font-size: 5rem;
+        }
+      }
+
+      circle.perimiter {
+        fill: $red;
+        opacity: 0.4;
+      }
+    }
+
+    .simulation {
+      .node {
+        r: 4;
+        &.site  { fill: $orange}
+        &.mouse { 
+          fill: $blue; 
+          opacity: 0
+        }  
+      }
+    }
+
+    #bg-gradient{
+      .s0 { stop-color: $red }
+      .s100 { stop-color: $darkGrey }  
+    }
+  }
+}
+
+body.about {
+  #pattern {
+    background: $aboutColor;
+
+    .cell{
+      fill: none;
+      &.content {
+        fill: $white;
+      }
+    }
+  }
+}
+
+//   .link{
+//     &:hover {
+//       cursor: pointer; 
+//     }
+
+//     .indicator {
+//       &.index {
+//         fill: $indexColor;
+//       }
+//       &.about{
+//         fill: $aboutColor;
+//       }
+//       &.team{
+//         fill: $teamColor;
+//       }
+//     }
+//   }
+// }

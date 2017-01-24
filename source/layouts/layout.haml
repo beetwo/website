@@ -1,0 +1,59 @@
+!!!
+%html.no-js{:lang => "en"}
+  %head
+    = auto_display_meta_tags(separator: '-')
+    %meta{:charset => "utf-8"}
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
+
+    // Mobile Specific Metas
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %meta{:name => "mobile-web-app-capable", :content => "yes"}
+    
+    %meta{:name => "description", :content => "#{data.site.description}"}
+    %meta{:name => "robots", :content => "index,follow"}
+
+    // Twitter
+    / %meta{:name => "twitter:card", :content => page_twitter_card_type}
+    %meta{:name => "twitter:site", :content => "#{current_page.data.title || 'BeeTwo'}"}
+    %meta{:name => "twitter:title", :content => "#{data.site.twitter_handle}"}
+    %meta{:name => "twitter:description", :content => "#{data.site.description}"}
+    %meta{:name => "twitter:creator", :content => "#{data.site.twitter_handle}"}
+    / %meta{:name => "twitter:image:src", :content => "#{data.site.image}"}
+
+    // Open Graph General (Facebook & Pinterest)
+    / %meta{:property => 'og:url',          :content => "#{data.site.url}"}
+    %meta{:property => 'og:title',        :content => "#{data.site.title}"}
+    %meta{:property => 'og:description',  :content => "#{data.site.description}"}
+    %meta{:property => 'og:site_name',    :content => "#{data.site.title}"}
+    / %meta{:property => 'og:image',        :content => "#{data.site.image}"}
+    / %meta{:property => 'og:app_id',       :content => '--xxx--'}
+    %meta{:property => 'og:type',         :content => 'website'}
+
+    // Google Plus
+    %meta{:itemprop => 'name',  :content => "#{data.site.title}"}
+    %meta{:itemprop => 'description',  :content => "#{data.site.description}"}
+    / %meta{:itemprop => 'image',  :content => "#{data.site.image}"}
+    
+    %link{:rel => "manifest", :href => "/manifest.json"}
+    %title= current_page.data.title || "BeeTwo"
+
+    = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
+
+    = stylesheet_link_tag "index.bundle"
+    = javascript_include_tag "head.bundle"
+
+  %body{:class => page_classes}
+
+    / don't render the menu iff we're on the index page
+    - if !page_classes.split(" ").include? 'index'
+      = partial "partials/menu"
+
+    .pusher
+      = yield
+      
+    / Footer
+    / footer
+    / = link_to 'Sitemap', 'sitemap'
+
+    = javascript_include_tag "index.bundle"
+    = yield_content :javascripts

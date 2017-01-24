@@ -1,0 +1,25 @@
+#team {
+
+  $avatarSize: 12rem;
+
+  #members{
+    padding-top: 3rem;
+    
+    .item {
+      margin-top: $avatarSize/-4.8;
+      margin-bottom: 0;
+      &:nth-child(even) {
+        margin-left: $avatarSize/2; } }
+
+    & > .item > .image + .content {
+      padding-left: 0; } }
+
+
+  .ui.avatar.images .image,
+  .ui.avatar.images img,
+  .ui.avatar.images svg,
+  .ui.avatar.image img,
+  .ui.avatar.image svg,
+  .ui.avatar.image {
+    width: $avatarSize;
+    height: $avatarSize; } }

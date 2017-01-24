@@ -1,0 +1,58 @@
+
+.ui.header { color: $darkGrey }
+
+i.icon {
+  font-family: 'Material Icons';
+  // font-family: 'Semantic Icons';
+  display: inline-block;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  opacity: 1;
+  margin: 0em 0.25rem 0em 0em;
+  width: 1.18em;
+  height: 1em;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  text-align: center;
+  text-transform: none;
+  letter-spacing: normal;
+  speak: none;
+  font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+
+  &.angle.down:before {
+    content: "\E313";
+  }
+} 
+
+.ui.items > .item {
+
+   .meta {
+      @include typecsset-font-size(12px);
+      font-family: 'Source-Sans'; 
+      color: $darkGrey }
+
+   & > .content {
+      @include typecsset-font-size(16px);
+      font-family: 'Source-Sans';
+
+      & > .header      { color: $darkGrey }
+      & > .description { color: $darkGrey }
+   }
+}

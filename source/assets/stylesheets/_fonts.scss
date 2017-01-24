@@ -1,0 +1,32 @@
+@import "./fonts/source-sans";
+@import "./fonts/signika";
+
+//  _
+// (_)__ ___ _ _  ___
+// | / _/ _ \ ' \(_-<
+// |_\__\___/_||_/__/
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/material-icons/MaterialIcons-Regular.eot"); /* For IE6-8 */
+  src: url("../fonts/material-icons/MaterialIcons-Regular.woff2") format('woff2'),
+       url('../fonts/material-icons/MaterialIcons-Regular.woff') format('woff'),
+       url('../fonts/material-icons/MaterialIcons-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-decoration: inherit;
+  text-transform: none;
+}
+
+//                                             _
+//  _ __  ___ _ _  ___ ____ __  __ _ __ ___ __| |
+// | '  \/ _ \ ' \/ _ (_-< '_ \/ _` / _/ -_) _` |
+// |_|_|_\___/_||_\___/__/ .__/\__,_\__\___\__,_|
+//                       |_|
+@font-face {
+  font-family: 'Monofur';
+  src: url('../fonts/monofur/monofur.ttf') format('truetype');
+}
+
