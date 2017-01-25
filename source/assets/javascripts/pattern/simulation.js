@@ -26,8 +26,6 @@
       focusΔ        = DEFAULT_FOCUS_STRENGTH
 
   var debugStrength = 0
-
- 
   
   function _constructMouseNode(index) {
     return  { index:    index,
@@ -88,8 +86,15 @@
         focusForce.strength(focusΔ)
       else focusΔ = MAX_FOCUS_STRENGTH } }
 
-  function _focus(position) {
+  function _focus(position, domSVG) {
     var node = find(position)
+
+    // hackedy hack to get the mouse cursor to change into a pointer
+    // setting css :hover neither works neither on .cell, nor on svg:path nor on svg:use elements
+    if(node.content) 
+      $(domSVG).addClass('focused')
+    else 
+      $(domSVG).removeClass('focused')
 
     if(node.inFocus) return
 
@@ -106,7 +111,7 @@
       focusForce.focusNode(node) }}
 
   // called when a mouse event occurs
-  function _mouseHandler(mouse) {
+  function _mouseHandler(mouse, domSVG) {
     if(_.isNil(previousMouse)) 
       previousMouse = _.clone(mouse)
 
@@ -124,12 +129,12 @@
 
     previousMouse = _.clone(mouse)
 
-    _focus(mouse)
+    _focus(mouse, domSVG)
   }
 
   
 
-   function find(position) {
+  function find(position) {
     var closestNode = _(nodes)
                         .map(function(n) { return [vector.δSq(n, position), n] })
                         .sortBy(function([δ, n]) { return δ })

@@ -52,7 +52,7 @@
       // // …event handlers
       dom.vis.on('mousemove', function() { 
         // update the simulation
-        simulation.mouseHandler(_mouse(this))
+        simulation.mouseHandler(_mouse(this), dom.vis.node())
         // d3.event.stopPropagation() 
       })
 

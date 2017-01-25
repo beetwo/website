@@ -31,14 +31,6 @@
             stroke: none;
         }
       }  
-
-      &.content {
-        &:hover {
-          cursor: pointer;  
-        }
-        
-      }
-
       // &.border { 
       //   &.top   { fill:  rgba($red, 0.4) }
       //   &.right { fill:  rgba($yellow, 0.4) }
@@ -47,6 +39,11 @@
       // }
       // &.inner   { fill: rgba($mediumGrey, 0.4) }
     }
+
+    &.focused {
+        cursor: pointer;  
+    }
+
 
     .vertices {
       fill: $red;

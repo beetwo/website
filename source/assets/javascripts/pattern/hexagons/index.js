@@ -23,8 +23,7 @@
                                   i0 = d3.interpolate(p0, p1)(0.19)
                                   i1 = d3.interpolate(p0, p1)(0.81)
                                   result.push(i0, i1, p1);
-                                  return result
-                                }, [])
+                                  return result }, [])
                         .map(function(v) { return _unfloat(v) })
                         .value()
     // copy the centroid
@@ -38,10 +37,7 @@
       var svgPath = config.POLYGON_LINE(polygon)
       d3.select(this)
         .attr('transform', function(d) { 
-            if(d.content && d.content.id === 'index' )
-              return 'translate(' + d.polygon.data[0] + ',' + d.polygon.data[1] + ') scale(0.75)'
-            else
-              return 'translate(' + d.polygon.data[0] + ',' + d.polygon.data[1] + ') scale(0.94)'})  
+            return 'translate(' + d.polygon.data[0] + ',' + d.polygon.data[1] + ') scale(0.94)'})  
         .attr('d', svgPath) }}
 
   function _updateClip({polygon}) {
@@ -51,10 +47,7 @@
       var svgPath = config.POLYGON_LINE(polygon)
       d3.select(this)          
         .attr('transform', function(d, i) { 
-            if(d.content && d.content.id === 'index' )
-              return 'translate(' + d.offset.x + ',' + d.offset.y + ') scale(0.75)'
-            else 
-              return 'translate(' + d.offset.x + ',' + d.offset.y + ') scale(0.94)'})  
+            return 'translate(' + d.offset.x + ',' + d.offset.y + ') scale(0.94)'})  
         .select('path')
           .attr('d', svgPath)
           .attr('cursor', 'pointer'  ) 

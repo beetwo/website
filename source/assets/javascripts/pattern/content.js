@@ -46,13 +46,9 @@
   // ————————————————————————————————
   function _fitHead(node, numChars) {
     var width       = $(this).width(),
-        scale       = node.content.type === 'head' ? 0.8 : 0.36,
-        // tspans      = d3.select(this).select('tspan'),
+        scale       = node.content.type === 'head' ? 0.75 : 0.36,
         fontSize    = parseInt(d3.select(this).style('font-size').replace('px', ''))
     
-    if(node.content.id === 'index' )
-      scale = 0.62
-
     var ratio       = scale * node.dimensions.x / width,
         newSize     = math.round(fontSize * ratio)
 
