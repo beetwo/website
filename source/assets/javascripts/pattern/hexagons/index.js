@@ -37,7 +37,7 @@
       var svgPath = config.POLYGON_LINE(polygon)
       d3.select(this)
         .attr('transform', function(d) { 
-            return 'translate(' + d.polygon.data[0] + ',' + d.polygon.data[1] + ') scale(0.94)'})  
+            return 'translate(' + d.polygon.data[0] + ',' + d.polygon.data[1] + ') scale(' + config.POLYGON_SCALE + ')'})  
         .attr('d', svgPath) }}
 
   function _updateClip({polygon}) {
@@ -76,7 +76,7 @@
         γ     = δ.cells,
 
         // generate the sites (which will be used for rendering)
-        // by combining data from the simulation nodes with the diagram.cells & the diagram.polygons
+        // by augmenting the simulation nodes with data from the diagram.cells & the diagram.polygons
         sites = _.map(γ, function(cell, i) {
           if(_.isNil(cell)) return {index: i}
           var site      = cell.site,
@@ -87,21 +87,18 @@
               offset    = { x: node.x - node.baseX,
                             y: node.y - node.baseY }
 
-
           if( !_.isNil(polygon) ) {
             νPolygon = _.map(polygon, function(p){
                           var x = p[0] - polygon.data[0],
                               y = p[1] - polygon.data[1]
                           return [x, y]})
             νPolygon.data = polygon.data
-            νPolygon = _resample(νPolygon)
-          }
+            if(config.RESAMPLE) νPolygon = _resample(νPolygon)
+            node.polygon  = νPolygon }
 
-          return  { index:    index,
-                    polygon:  νPolygon,
-                    focus:    node.inFocus,
-                    content:  node.content,
-                    offset:   offset }}),
+          node.offset   = offset 
+          
+          return node }),
 
         contentSites = _.filter(sites, function(n){ 
           return !_.isNil(n.content)})
@@ -124,32 +121,6 @@
         hexagons  = { voronoi: d3.voronoi().extent([[-ε, -ε], [dimensions.x + ε, dimensions.y + ε]]) }
     hexagons.update   = _update
     hexagons.polygons = require('./render').initialize(simulationNodes, dom)
-
-
-    console.log('hexagons.polygons', hexagons.polygons)
-
-    // hexagons.polygons.use
-    //   .on('click', function(n) {
-    //     console.log('use click!', n)
-    //   })
-
-    // hexagons.polygons.def
-    //   .attr('f00', function(n){
-    //     console.log('def', n)
-    //   })
-    //   .on('click', function(n) {
-    //     console.log('def click!', n)
-    //   })
-
-    // hexagons.polygons.clip
-    //   .attr('f00', function(n){
-    //     console.log('clip', n)
-    //   })
-    //   .on('click', function(n) {
-    //     console.log('clip click!', n)
-    //   })
-    
-    
     return hexagons }
 
 

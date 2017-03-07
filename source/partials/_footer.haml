@@ -1,0 +1,13 @@
+#footer.ui.vertical.footer.segment
+  .baseline
+  .ui.container
+    .ui.stackable.inverted.divided.equal.height.stackable.grid
+      .ten.wide.column
+        -# .header Imprint
+        #imprint.ui.list
+          .item{:id => "imprint-name"}=    data.imprint.name           
+          .item{:id => "imprint-role"}=    data.imprint.role 
+          .item{:id => "imprint-street"}=  data.imprint.address.street 
+          .item{:id => "imprint-town"}=    data.imprint.address.town 
+          %a.item{:id => "imprint-phone", :href => "tel:#{data.imprint.phone}"}=   data.imprint.phone 
+          %a.item{:id => "sitemap", :href => "/sitemap.html"} Sitemap

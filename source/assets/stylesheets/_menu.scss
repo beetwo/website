@@ -2,25 +2,145 @@
   border: none;
   box-shadow: none;
 
-  .item {
-    @for $i from 1 through length($sections) {
-      &.#{nth($sections, $i)} {
-          color: nth($sectionColors, $i);
-          background-color: $white;
-          
-          $transition-duration: 0.3s;
-          $transition-ease: ease-in-out;
+  object {
+    pointer-events: none;
+  }
 
-          // $transition-duration: 0.3s;
-          // $transition-ease: linear;
+  // .item {
+  //   @for $i from 1 through length($sections) {
+  //     &.#{nth($sections, $i)} {
+  //         color: nth($sectionColors, $i);
+  //         // background-color: $white;
           
-          @include transition(color $transition-duration $transition-ease, background-color $transition-duration $transition-ease);
+  //         $transition-duration: 0.3s;
+  //         $transition-ease: ease-in-out;
 
-          &:hover, &.active {
-            background-color: nth($sectionColors, $i);
-            color: $darkGrey;
-          }
-      }
-    }  
+  //         // $transition-duration: 0.3s;
+  //         // $transition-ease: linear;
+          
+  //         @include transition(color $transition-duration $transition-ease, background-color $transition-duration $transition-ease);
+
+  //         &:hover, &.active {
+  //           background-color: nth($sectionColors, $i);
+  //           color: $darkGrey;
+  //         }
+  //     }
+  //   }  
+  // }
+}
+
+.ui.fixed.menu {
+  line-height: 1;
+  box-shadow: none;
+  background: transparent;
+
+  .column {
+    margin-top: 0.5rem;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
+
+#logo {
+  i {
+    background-image: url('/assets/images/hex-dark.svg') !important;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: left, center; 
+    height: 2.8rem;
+    width: 2.8rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: inline-block;
+    // margin-top: 0.25rem;
+  }
+}
+
+
+#toc {
+  // margin-top: 0.75rem;
+  height: 2.8rem;
+  width: 2.8rem;
+  color: $darkGrey;
+  display: inline-block;
+  background: transparent;
+  border: none;
+  user-select: none;
+
+  path {
+    @include transition(fill);
+    fill: $darkGrey
+  }
+
+  &.open {
+    path {
+      fill: $white;
+    }
+  }
+}
+
+.hidden.menu {
+    display: none;
+}
+
+.ui.secondary.pointing.menu {
+  border-bottom: none;
+  box-shadow: none;
+  .toc.item { 
+    display: none;
+    @include mobile {
+      display: block;
+    } 
+  }
+}
+
+.ui.sidebar.menu {
+  @extend .baseline;
+  .ui.container {
+    margin-top: 4.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .item {
+    @extend h4;
+    padding-top: 1.5rem;
+    padding-bottom: calc(1.5rem - 1px);
+    margin-bottom: 0;
+    border-bottom: 1px solid $white; 
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &.active {
+      background: transparent;
+      color: $blue;
+    }
+  }
+}
+
+
+// @media only screen and (max-width: 700px) {
+//   .ui.fixed.menu {
+//     display: none !important;
+//   }
+//   .secondary.pointing.menu .item,
+//   .secondary.pointing.menu .menu {
+//     display: none;
+//   }
+//   .secondary.pointing.menu .toc.item {
+//     display: block;
+//   }
+//   .masthead.segment {
+//     min-height: 350px;
+//   }
+//   .masthead h1.ui.header {
+//     font-size: 2em;
+//     margin-top: 1.5em;
+//   }
+//   .masthead h2 {
+//     margin-top: 0.5em;
+//     font-size: 1.5em;
+//   }
+// }

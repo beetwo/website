@@ -34,7 +34,11 @@
                
     g.append('svg:use')
       .attr('xlink:href', function(n) {return '#poly-' + n.index})
-      
+      .attr('filter', function(n){
+              if(_.isNil(n.content)) return
+              else return 'url(#cell-shadow)' })
+
+
                
     return  g}
 

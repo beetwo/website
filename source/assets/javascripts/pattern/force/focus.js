@@ -53,9 +53,10 @@
 
     // getters and setters
     // ————————————————
-    function _initialize(_nodes) { 
-      φ.nodes = _nodes
+    function _initialize(nodes) { 
+      φ.nodes = nodes
       return f }
+
 
     function _strength(_strength) {
       if( arguments.length === 0) return φ.strength 
@@ -71,15 +72,21 @@
       return f }
   
     function _focusNode(_focusNode) {
-      if(arguments.length === 0) return φ.focusNode
+      if(_.isNil(_focusNode)) return φ.focusNode
       φ.focusNode = _focusNode
       φ.strength  = _strengthFn(φ.strengthValue, _focusNode)
       return f }
 
-    f.initialize  = _initialize
-    f.strength    = _strength
-    f.iterations  = _iterations
-    f.focusNode   = _focusNode
+    function _nodeAndStrength(_focusNode, _strength) {
+      φ.focusNode     = _focusNode
+      φ.strengthValue = _strength
+      φ.strength      = _strengthFn(_strength, _focusNode) }
+
+    f.initialize      = _initialize
+    f.strength        = _strength
+    f.iterations      = _iterations
+    f.focusNode       = _focusNode
+    f.nodeAndStrength = _nodeAndStrength
     return f }})()
 
 

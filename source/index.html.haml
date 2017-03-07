@@ -2,9 +2,47 @@
 title: BeeTwo
 ---
 
-.mask.full-size
-  #pattern.full-size
+-# .mask.full-size
+  -# #pattern.full-size
 
-%ul#cells.invisible
-  - data.index.each do |c|
-    %li= "#{c}"
+
+
+#home.ui.vertical.masthead.segment
+  .ui.fluid.flex.container
+    %h1.ui.header= data.site.title
+    %h6.ui.sub-header= data.site.description 
+    %a.ui.circular.right.floated.icon.button{:href => '#areas-of-focus'}
+      %i.large.angle.double.down.icon
+    
+
+#areas-of-focus.ui.vertical.stripe.segment
+  .ui.middle.aligned.stackable.grid.container
+    .row
+      .sixteen.wide.column
+        %h3.ui.header Areas of Focus
+        %p What we're good at
+        %ul#focus
+          - data.focus.each do |f|
+            %li= "#{f.text}"
+
+#principles.ui.vertical.stripe.segment
+  .ui.middle.aligned.stackable.grid.container        
+    .row
+      .sixteen.wide.column
+        %h3.ui.header Our principles
+        %ul#focus
+          - data.principles.each do |p|
+            %li= "#{p.text}"
+
+#team.ui.vertical.stripe.segment
+  .ui.middle.aligned.stackable.grid.container                
+    .row
+      .sixteen.wide.column
+        %h3.ui.header That's us
+        %ul#team
+          - data.team.each do |t|
+            %li= "#{t.name}"
+
+-# %ul#cells.invisible
+-#   - data.index.each do |c|
+-#     %li= "#{c}"

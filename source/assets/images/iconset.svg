@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 48 48" style="background-color:#ffffff00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
+    <g id="close" style="display:none">
+        <path d="M14.399999999999999 14L23.7 23.3L33 14L35.4 16.4L26.1 25.7L35.4 35L33 37.4L23.7 28.1L14.399999999999999 37.4L12 35L21.3 25.7L12 16.4L14.399999999999999 14z" fill="#333333"/>
+        <path d="M0,0 L48,0 C48,0 48,28.5 48,48 L0,48 L0,0 Z" fill="none"></path>
+    </g>
+     <g id="tok" style="display:none">
+        <path d="M-1.0658141e-14,20 C3,20 36,20 36,20 L36,16 L-1.0658141e-14,16 C-1.0658141e-14,16 -9.76996262e-15,18 -1.0658141e-14,20 Z" fill="#333333"></path>
+        <path d="M-1.0658141e-14,12 C3,12 36,12 36,12 L36,8 L-1.0658141e-14,8 C-1.0658141e-14,8 -9.76996262e-15,10 -1.0658141e-14,12 Z" fill="#333333"></path>
+        <path d="M-1.0658141e-14,4 C3,4 36,4 36,4 L36,0 L-1.0658141e-14,0 C-1.0658141e-14,0 -9.76996262e-15,2 -1.0658141e-14,4 Z" fill="#333333"></path>
+    </g>
+</svg>

@@ -1,6 +1,6 @@
 (function positionForceDefinition() {
 
-  var vector    = require('victor'),
+  var vector    = require('../../vector'),
       config    = require('../../config')
 
   var x, y,

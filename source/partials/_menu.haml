@@ -1,5 +1,19 @@
-.ui.large.top.fixed.menu
-  .ui.fluid.container
+-# Following Menu
+.ui.fixed.menu
+  .ui.two.column.grid.fluid.container
+    .column
+      %a#logo
+        %i
+    .right.aligned.column
+      %button#toc
+        = partial "partials/iconset"
+
+-# Sidebar Menu
+.ui.vertical.inverted.sidebar.menu.right
+  .ui.right.aligned.container
     - data.index.each do |i|
       %a{:class => "#{menu_class(i)}", :href => "#{i.href.nil? ? 'index.html' : i.href}"}
-        = "#{i.text}"
+        - if i.icon 
+          %img.ui.icon{:src => "/assets/images/#{i.icon}"}
+        - if i.text 
+          %span= "#{i.text}"

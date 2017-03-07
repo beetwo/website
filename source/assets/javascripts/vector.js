@@ -11,6 +11,10 @@
     return {x: x, y: y} }
 
   function multiply(v0, v1) {
+    // if v1 is a scalar, multiply both x and y of the first vector with it
+    if(_.isNumber(v1)) 
+      return {x: v0.x * v1, y: v0.y * v1}
+
     var x = v0.x * v1.x,
         y = v0.y * v1.y
     return {x: x, y: y} }

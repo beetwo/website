@@ -2,10 +2,11 @@
 
   var 
     d3        = require('d3'),
-    util      = require('./util')
+    util      = require('./util'),
+    config    = require('../config')
 
-  function _debugScale(all, w, h) {
-    var scale = 0.92,
+  function _frameScale(all, w, h) {
+    var scale = config.FRAME_SCALE,
         δx    = 0.5 * w * (1 - scale),
         δy    = 0.5 * h * (1 - scale)
     all.attr('transform', 'translate(' + δx + ',' + δy + ') scale( ' + scale + ' )')
@@ -19,26 +20,37 @@
   
   function initDOM(parentId) {
     $(parentId).empty(); // remove everything below the parents
-    var vis         = d3.select(parentId).append('svg:svg'),
-        defs        = vis.append('svg:defs'),
-        all         = vis.append('svg:g').attr('id', 'everything'),
-        defPoly     = defs.append('svg:g').attr('id', 'poly'),
-        polygon     = all.append('svg:g').attr('class', 'polygons'),
-        simulation  = all.append('svg:g').attr('class', 'simulation'),
-        clipPoly    = defs.append('svg:g').attr('id', 'clip-poly'),
-        content     = all.append('svg:g').attr('class', 'content'),
-        gradient    = defs.append('svg:g')
+    var 
+        width         = $(parentId).width(),
+        height        = $(parentId).height(),
+        vis           = d3.select(parentId).append('svg:svg'),
+  
+        defs          = vis.append('svg:defs'),
+        shadowz       = defs.append('svg:g').attr('id', 'shadowz'),
+        defPoly       = defs.append('svg:g').attr('id', 'poly'),
+        clipPoly      = defs.append('svg:g').attr('id', 'clip-poly'),
+        gradient      = defs.append('svg:g'),
+  
+        gradientRect  = vis.append('svg:rect').attr('class', 'gradient'),
+        all           = vis.append('svg:g').attr('id', 'everything'),
+        polygon       = all.append('svg:g').attr('class', 'polygons'),
+        simulation    = all.append('svg:g').attr('class', 'simulation'),
+        content       = all.append('svg:g').attr('class', 'content')
 
-    _debugScale(all, $(parentId).width(), $(parentId).height())
+    require('./filter').initShadowz(shadowz)
+    
+    _frameScale(all, width, height)
 
 
-    return  { vis       : vis,
-              polygon   : polygon,
-              content   : content,
-              simulation: simulation,
-              defs      : { defPoly:  defPoly,
-                            clipPoly: clipPoly,
-                            gradient: gradient} } }
+    return  { vis         : vis,
+              gradientRect: gradientRect,
+              polygon     : polygon,
+              content     : content,
+              simulation  : simulation,
+              defs        : { shadowz:  shadowz,
+                              defPoly:  defPoly,
+                              clipPoly: clipPoly,
+                              gradient: gradient} } }
 
 
   var vertexColorScale  = d3.scaleLinear()

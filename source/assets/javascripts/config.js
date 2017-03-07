@@ -9,11 +9,16 @@
     GRID_RANDOMIZE      : false,
     SITE_PADDING        : 0.012,
     WITH_CONTENT        : false,
+    // FRAME_SCALE         : 0.92,
+    FRAME_SCALE         : 1,
+    POLYGON_SCALE       : 0.94,
     // SITE_PADDING        : 0.12,
     TRANSITION_DURATION : 0,
     // TRANSITION_DURATION : 640,
     POLYGON_LINE        : d3.line().curve(d3.curveBasisClosed),
     // POLYGON_LINE        : d3.line().curve(d3.curveLinearClosed),
+    RESAMPLE            : true,
+
     CELL_FONT_SIZE      : 18,
     IMAGE_PATH          :'/assets/images/',
 
@@ -32,13 +37,8 @@
     NOISE_SCALE         : d3.scaleLinear().domain([-1, 1]).rangeRound([-24, 24]),
     NOISE_TIME_SCALE    : d3.scaleLinear().domain([0, 1000]).range([0, math.PI /24]),
 
-    positionForce       : function() {
-                            return { strength: 0.1 }},
-    mouseForce         : function() {
-                            return {
-                              strength:     -0.001 }},
-    focusForce         : function() {
-                            return {
-                              strength:     320}}
-
+    positionForce       : function() { return { strength:   0.032 }},
+    mouseForce          : function() { return { strength:  -0.002 }},
+    focusForce          : function() { return { strength: 240 }},
+    repelForce          : function() { return {}}
   }})()

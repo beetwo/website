@@ -1,6 +1,8 @@
 @charset "utf-8";
 
 @import "bourbon/app/assets/stylesheets/bourbon";
+// @import "functions";
+@import "mixins";
 @import "variables";
 @import "semantic-ui";
 @import "fonts";
@@ -10,7 +12,26 @@
 @import "menu";
 @import "pattern";
 @import "team";
+@import "areas-of-focus";
 @import "news";
+@import "custom";
+
+
+//————————————————————————————————
+// debug
+//————————————————————————————————
+.baseline {
+  background-color: transparent;
+  background-image: url('/assets/images/baseline.png') !important;
+  background-repeat: repeat;
+}
+
+.pusher {
+  // @extend .baseline;
+}
+
+#areas-of-focus {
+}
 
 body {
   font-size: 1rem;
@@ -24,6 +45,80 @@ body {
     }
   }  
   // &.team        { background: $teamColor }
+}
+
+a {
+  color: $darkGrey;
+  text-decoration: underline;
+  &:hover {
+    color: $red;
+  }
+}
+
+// ————————————————————————————————
+// Footer
+// ————————————————————————————————
+#footer {
+  background: $blue;
+  // @extend .baseline; 
+
+  .header {
+    @extend h5;
+    font-weight: 400;
+  }
+
+  a.item {
+    display: block;
+  }
+  #imprint-name{
+    font-weight: 700;
+  }
+  
+  #imprint-tagline,
+  #imprint-role {
+    @extend .small.text; 
+  }
+  
+  #imprint-street,
+  #imprint-phone{
+    margin-top: 0.75rem;
+  }
+  
+  #sitemap {
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba($darkGrey, 0.62);
+    margin-top: 0.75rem;
+  }
+}
+
+
+
+.masthead {
+  @include mobile {
+    height: 100vh;
+  }
+
+  display: flex;
+  align-items: center;
+
+  & > .flex.container {
+    flex: 0 1 auto;
+    // @extend .baseline;
+  }
+
+  .ui.header {
+    margin-bottom: 0;
+  }
+
+  .sub-header {
+    font-weight: 400;
+  }
+
+  .ui.button {
+    margin-top: 1.5rem;
+    background: $darkGrey;
+    color: $yellow;
+  }
 }
 
 .full-size {
@@ -52,5 +147,67 @@ p {
   font-family: $font-family-body;
   font-weight: 400;
 }
+
+.ui.vertical.stripe {
+  padding-top: 4.5rem;
+  padding-bottom: calc(1.5rem-1px);
+}
+
+// .hidden.menu {
+//   display: none;
+// }
+
+// .masthead.segment {
+//   min-height: 700px;
+//   padding: 1em 0em;
+// }
+// .masthead .logo.item img {
+//   margin-right: 1em;
+// }
+// .masthead .ui.menu .ui.button {
+//   margin-left: 0.5em;
+// }
+// .masthead h1.ui.header {
+//   margin-top: 3em;
+//   margin-bottom: 0em;
+//   font-size: 4em;
+//   font-weight: normal;
+// }
+// .masthead h2 {
+//   font-size: 1.7em;
+//   font-weight: normal;
+// }
+
+
+// .ui.vertical.stripe h3 {
+//   font-size: 2em;
+// }
+// .ui.vertical.stripe .button + h3,
+// .ui.vertical.stripe p + h3 {
+//   margin-top: 3em;
+// }
+// .ui.vertical.stripe .floated.image {
+//   clear: both;
+// }
+// .ui.vertical.stripe p {
+//   font-size: 1.33em;
+// }
+// .ui.vertical.stripe .horizontal.divider {
+//   margin: 3em 0em;
+// }
+
+// .quote.stripe.segment {
+//   padding: 0em;
+// }
+// .quote.stripe.segment .grid .column {
+//   padding-top: 5em;
+//   padding-bottom: 5em;
+// }
+
+// .footer.segment {
+//   padding: 5em 0em;
+// }
+
+
 
 // @import "custom";

@@ -67,4 +67,15 @@ $typecsset-show-baseline:       false !default;
 $typecsset-magic-number:        $typecsset-base-line-height;
 $typecsset-magic-ratio:         $typecsset-base-line-height / $typecsset-base-font-size;
 
+//————————————————————————————————
+// Breakpoints 
+// (taken from semantic-ui)
+//————————————————————————————————
+$mobile-breakpoint:       320px;
+$tablet-breakpoint:       768px;
+$computer-breakpoint:     992px;
+$large-screen-breakpoint: 1200px;
+$widescreen-breakpoint:   1920px;
+
+
 

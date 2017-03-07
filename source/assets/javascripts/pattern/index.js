@@ -3,6 +3,7 @@
       vector      = require('../vector'),
       util        = require('./util'),
       dom         = require('./dom'),
+      grad        = require('./gradient'),
       hex         = require('./hexagons/index'),
       sim         = require('./simulation'),
       config      = require('../config')
@@ -19,15 +20,18 @@
           height          = math.round($(parentId).height()), // the height of the svg canvas
           dimensions      = {x: width, y: height},
 
+          // DOM
+          // ————————————————
+          dom             = require('./dom').init(parentId),
+
           // grid
           // ————————————————
           grid            = require('./grid').make(dimensions),
 
-          // Ϟ               = console.log('grid', grid),
-
-          // DOM
+          // content
+          // #obacht: must be initialzied before the simulation AND the pattern
           // ————————————————
-          dom             = require('./dom').init(parentId),
+          content         = require('./content').initialize(contentId, grid, dom),
 
           // simulation
           // ————————————————
@@ -35,12 +39,7 @@
 
           // gradient
           // ————————————————
-          // gradient        = require('./gradient').initialize(dimensions, dom),          
-
-          // content
-          // #obacht: must be initialzied before the pattern
-          // ————————————————
-          content         = require('./content').initialize(contentId, simulation.nodes(), dom),
+          gradient        = grad.initialize(dimensions, dom),          
 
           // pattern
           // ————————————————
@@ -49,22 +48,21 @@
       // …render the simulation (for debug)
       // simulation.render(dom.simulation)
 
-      // // …event handlers
+      // …event handlers
       dom.vis.on('mousemove', function() { 
         // update the simulation
         simulation.mouseHandler(_mouse(this), dom.vis.node())
-        // d3.event.stopPropagation() 
-      })
+        d3.event.stopPropagation() })
 
       dom.vis.on('click', function() {
-          var n = sim.find(_mouse(this)) 
-          if(n.content.href)
+          var m = _mouse(this),
+              n = sim.find(m) 
+          if(n.content && n.content.href)
             window.location.href = n.content.href })
 
       simulation.on('tick', function(i) { 
         simulation.update()
-        hexagons.update(simulation.nodes()) 
-      })
+        hexagons.update(simulation.nodes()) })
   }} 
 
   function init(parentId, contentId) {

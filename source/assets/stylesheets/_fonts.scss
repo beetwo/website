@@ -1,3 +1,6 @@
+
+$font-path: '/assets/fonts';
+
 @import "./fonts/source-sans";
 @import "./fonts/signika";
 
@@ -6,13 +9,13 @@
 // | / _/ _ \ ' \(_-<
 // |_\__\___/_||_/__/
 @font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/material-icons/MaterialIcons-Regular.eot"); /* For IE6-8 */
-  src: url("../fonts/material-icons/MaterialIcons-Regular.woff2") format('woff2'),
-       url('../fonts/material-icons/MaterialIcons-Regular.woff') format('woff'),
-       url('../fonts/material-icons/MaterialIcons-Regular.ttf') format('truetype');
+  font-family: 'FontAwesome';
+  src:  url('#{$font-path}/fontawesome/fontawesome-webfont.eot');
+  src:  url('#{$font-path}/fontawesome/fontawesome-webfont.eot') format('embedded-opentype'),
+        url('#{$font-path}/fontawesome/fontawesome-webfont.woff2') format('woff2'),
+        url('#{$font-path}/fontawesome/fontawesome-webfont.woff') format('woff'),
+        url('#{$font-path}/fontawesome/fontawesome-webfont.ttf') format('truetype'),
+        url('#{$font-path}/fontawesome/fontawesome-webfont.svg') format('svg');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;

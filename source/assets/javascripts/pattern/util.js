@@ -115,19 +115,25 @@
       max = math.max(_.map(site.polygon, function(p) { return p.y }))
     return max - min }
 
+  function color2Matrix(c) {
+    c = c.rgb() // convert to rgb color space
+    return '0 0 0 0 ' + (c.r/255) + ', 0 0 0 0 ' + (c.g/255) + ', 0 0 0 0 ' + (c.b/255) + ', 0 0 0 1 0' }
+
+
   module.exports = {
-    vectorize     : vectorize,
-    devectorize   : devectorize,
-    resample      : resample,
-    // sort          : sortClockwise,
-    sort          : sortPoints,
-    pretty        : pretty,
-    radToDeg      : radToDeg,
-    degToRad      : degToRad,
-    guid          : guid,
-    average       : average,
-    polygonWidth  : polygonWidth,
-    polygonHeight : polygonHeight
+    vectorize:      vectorize,
+    devectorize:    devectorize,
+    resample:       resample,
+    // sort:          sortClockwise,
+    sort:           sortPoints,
+    pretty:         pretty,
+    radToDeg:       radToDeg,
+    degToRad:       degToRad,
+    guid:           guid,
+    average:        average,
+    polygonWidth:   polygonWidth,
+    polygonHeight:  polygonHeight,
+    color2Matrix:   color2Matrix
   }
 
 })();

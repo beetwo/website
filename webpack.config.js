@@ -21,7 +21,7 @@ module.exports = {
     head: './source/assets/javascripts/head.js' },
 
   resolve: {
-    root:       path.join(__dirname, '/source/assets') },
+    root: path.join(__dirname, '/source/assets') },
 
   output: {
     path: path.join(__dirname, '/.tmp/dist'),
@@ -85,5 +85,4 @@ module.exports = {
       d3              :'d3'
     }),
   ]
-
-};
+}
