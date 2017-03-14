@@ -4,7 +4,7 @@
     %title= page_title
     %meta{:name => 'description', :content => page_description}
   %body
-    - root_url = data.site.url
+    - root_url = data.meta.url
     %ul
       - sitemap.resources.each do |page|
         - if page.path =~ /\.html/ && page.path != 'sitemap.html'

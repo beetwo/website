@@ -1,23 +1,23 @@
 # Methods defined in the helpers block are available in templates
 module SeoTemplateHelpers
   def page_title
-    current_page.data.title || data.site.title
+    current_page.data.title || data.meta.title
   end
 
   def page_description
-    current_page.data.description || data.site.description
+    current_page.data.description || data.meta.description
   end
 
   def current_page_url
-    "#{data.site.url}#{current_page.url}"
+    "#{data.meta.url}#{current_page.url}"
   end
 
   def site_url
-    "#{data.site.url}"
+    "#{data.meta.url}"
   end
 
   def page_url page
-    "#{data.site.url}#{page.url}"
+    "#{data.meta.url}#{page.url}"
   end
 
   def page_twitter_card_type
@@ -25,18 +25,18 @@ module SeoTemplateHelpers
   end
 
   def page_image
-    current_page.data.image_path || data.site.logo_image_path
+    current_page.data.image_path || data.meta.logo_image_path
   end
 
   # Social share URLs
   def twitter_url
     "https://twitter.com/share?text=“#{page_title}”" +
                                "&url=#{current_page_url}" +
-                               "&via=#{data.site.twitter_handle}"
+                               "&via=#{data.meta.twitter_handle}"
   end
 
   def facebook_url
-    "https://www.facebook.com/dialog/feed?app_id=#{data.site.facebook_app_id}" +
+    "https://www.facebook.com/dialog/feed?app_id=#{data.meta.facebook_app_id}" +
                                           "&caption=#{page_title}" +
                                           "&picture=#{page_image}" +
                                           "&name=“#{page_title}”" +
@@ -55,6 +55,6 @@ module SeoTemplateHelpers
                                           "&url=#{current_page_url}" +
                                           "&title=#{page_title}" +
                                           "&summary=#{page_description}" +
-                                          "&source=#{data.site.url}"
+                                          "&source=#{data.meta.url}"
   end
 end

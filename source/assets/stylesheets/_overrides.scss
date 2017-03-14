@@ -1,6 +1,4 @@
 
-.ui.header { color: $darkGrey }
-
 //  _
 // (_)__ ___ _ _
 // | / _/ _ \ ' \
@@ -46,8 +44,26 @@ button {
   &:focus {
     outline: none;
   }
+
 }
 
+.ui.button{
+  background: $darkGrey;
+  color: $white;
+  &.icon {
+    padding: 0.75rem; 
+    margin-bottom: 0.5rem;
+  }  
+}
+
+//                             _
+//  ___ ___ __ _ _ __  ___ _ _| |_
+// (_-</ -_) _` | '  \/ -_) ' \  _|
+// /__/\___\__, |_|_|_\___|_||_\__|
+//         |___/
+.ui.vertical.segment {
+  border: none;
+}
 
 //  _ __  ___ _ _ _  _
 // | '  \/ -_) ' \ || |
@@ -77,26 +93,10 @@ button {
   padding-bottom: 1.5rem;
 }
 
-.ui.items > .item {
-
-  .meta {
-    @include typecsset-font-size(12px);
-    font-family: 'Source-Sans'; 
-    color: $darkGrey }
-
-  & > .content {
-    @include typecsset-font-size(16px);
-    font-family: 'Source-Sans';
-    & > .header      { color: $darkGrey }
-    & > .description { color: $darkGrey }
-  }
-}
-
 body.pushable {
-  background: inherit;
-  
+  background: $darkGrey !important; 
   & > .pusher {
-    background: $white; 
+    background: transparent !important; 
   }
 }
 
@@ -104,20 +104,114 @@ body.pushable {
   padding: 1.5rem 0;
 }
 
+//             _        _
+//  __ ___ _ _| |_ __ _(_)_ _  ___ _ _
+// / _/ _ \ ' \  _/ _` | | ' \/ -_) '_|
+// \__\___/_||_\__\__,_|_|_||_\___|_|
+.ui.text.container {
+  font-size: unset; }
+
+
+.ui.items {
+  margin: 1.5rem 0;
+  & > .item {
+
+    @include mobile {
+      margin: 1.5rem 0; 
+
+      & > .image {
+        max-height: unset !important;
+        & > img {
+          margin-left: -3rem;
+          margin-right: 0;
+          max-width: 100vw !important;
+          width: 100vw !important;
+          height: unset;
+          max-height: unset !important; 
+        }
+      }
+    }
+
+    & > .content{ 
+      & > .header:not(.ui) {
+        @extend %typecsset-vertical-rhythm;
+        @include typecsset-font-size($typecsset-h6-size);
+        margin-bottom: calc(1.5rem + 1px);
+        font-weight: 700; 
+        color: $darkGrey; 
+        }
+      & > .description {
+        @extend %typecsset-vertical-rhythm;
+        @include typecsset-font-size($typecsset-base-font-size);
+        color: $darkGrey; }
+    }
+  }
+}
+
+// /* Mobile Only */
+// @media only screen and (max-width: 767px) {
+//   .ui.items > .item {
+//     -webkit-box-orient: vertical;
+//     -webkit-box-direction: normal;
+//     -webkit-flex-direction: column;
+//     -ms-flex-direction: column;
+//     flex-direction: column;
+//     margin: 2em 0em; }
+//   .ui.items > .item > .image {
+//     display: block;
+//     margin-left: auto;
+//     margin-right: auto; }
+//   .ui.items > .item > .image,
+  
+//   .ui.items > .item > .image + .content {
+//     display: block;
+//     padding: 1.5em 0em 0em; } }
+
+
+
+// /* Mobile Only */
+// @media only screen and (max-width: 767px) {
+//   .ui.items > .item {
+//     -webkit-box-orient: vertical;
+//     -webkit-box-direction: normal;
+//     -webkit-flex-direction: column;
+//     -ms-flex-direction: column;
+//     flex-direction: column;
+//     margin: 2em 0em; }
+//   .ui.items > .item > .image {
+//     display: block;
+//     margin-left: auto;
+//     margin-right: auto; }
+//   .ui.items > .item > .image,
+//   .ui.items > .item > .image > img {
+//     max-width: 100% !important;
+//     width: auto !important;
+//     max-height: 250px !important; }
+//   .ui.items > .item > .image + .content {
+//     display: block;
+//     padding: 1.5em 0em 0em; } }
+
 //           _    _
 //  __ _ _ _(_)__| |
 // / _` | '_| / _` |
 // \__, |_| |_\__,_|
 // |___/
 .ui.grid {
-  margin-top: -1.5rem;
-  margin-bottom: -1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 
   & > .row,
   & > .column:not(.row) {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+
+    &.no.padding {
+      padding: 0;
+      background: $red;
+    }
   }
+
+
 }
 
 .ui.stackable.grid > .row > .wide.column,
@@ -128,7 +222,11 @@ body.pushable {
 .ui.stackable.grid > .column:not(.row),
 .ui.grid > .stackable.stackable.row > .column {
   @include mobile {
-    padding: 1.5rem 1rem !important;
+    padding: 1.5rem 1rem 0 1rem !important;
+
+    &:first-child {
+      padding-top: 0 !important;
+    }
   }
 }
 
@@ -140,3 +238,35 @@ body.pushable {
     padding-bottom: 1.5rem !important;
   }
 }
+
+
+//                        _ _
+//  __ _ __ __ ___ _ _ __| (_)___ _ _
+// / _` / _/ _/ _ \ '_/ _` | / _ \ ' \
+// \__,_\__\__\___/_| \__,_|_\___/_||_|
+.ui.accordion:not(.styled) {
+  .title {
+    &:not(.ui) {
+      color: $darkGrey;
+    }
+
+    & ~ .content:not(.ui) { padding: 0 }
+  } 
+
+}
+
+//  _
+// | |_  _ _
+// | ' \| '_|
+// |_||_|_|
+hr {
+  box-shadow: none;
+  border: 0;
+  margin: 0;
+  border-bottom: 1px solid $darkGrey;
+  margin-top: calc(1.5rem - 1px);
+
+}
+
+
+

@@ -47,3 +47,18 @@
     @content;
   }
 }
+
+@function schlagschatten($size: 4, $color: #cccccc) {
+  $stroke: ();
+  @for $i from 0 through $size {
+    $x: $i;
+    $y: $i;
+    $stroke: append($stroke, $x*1px $y*1px $color, comma);
+  }
+  @return $stroke;
+}
+
+@mixin schlagschatten($size: 2, $color: #cccccc) {
+  text-shadow: schlagschatten($size, $color);
+}
+

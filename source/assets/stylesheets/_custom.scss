@@ -5,3 +5,37 @@
 .tiny.text {
  @include typecsset-font-size(12px); 
 }
+
+.ui.hexagonal.button {
+
+  background: transparent;
+  background-image: url('#{$image-path}/hex-dark.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  
+  // Sizes
+  // ————————————————
+  &.mini {
+    font-size: 0.78571429rem; }
+  
+  &.tiny {
+    font-size: 0.85714286rem; }
+  
+  &.small {
+    font-size: 0.92857143rem; }
+  
+  &.button {
+    font-size: 1rem; }
+  
+  &.large {
+    font-size: 1.14285714rem; }
+  
+  &.big {
+    font-size: 1.28571429rem; }
+  
+  &.huge {
+    font-size: 1.42857143rem; }
+  
+  &.massive {
+    font-size: 1.71428571rem; }
+}

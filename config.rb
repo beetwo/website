@@ -21,21 +21,22 @@ activate :external_pipeline,
 # General configuration
 activate :meta_tags
 
-# set :css_dir, 'beetwo/assets/stylesheets'
-# set :js_dir, 'beetwo/assets/javascripts'
-# set :images_dir, 'beetwo/assets/images'
-set :relative_links, true
-set :css_dir, 'assets/stylesheets'
-set :js_dir, 'assets/javascripts'
-set :images_dir, 'assets/images'
+set :relative_links,  true
+# set :http_prefix,     'beetwo'
+set :css_dir,         'assets/stylesheets'
+set :js_dir,          'assets/javascripts'
+set :images_dir,      'assets/images'
+
 
 # Build-specific configuration
+set :build_dir, "beetwo"
 configure :build do
   set :trailing_slash, false
-  set :protocol, "https://"
-  # set :host, "rossta.net"
-  set :google_analytics_id, 'XXXXXXXX'
-  set :mailchimp_form_id,   'XXXXXXXX'
+
+  # set :protocol, "https://"
+  # set :google_analytics_id, 'XXXXXXXX'
+
+  # set :mailchimp_form_id,   'XXXXXXXX'
 
   # activate :asset_hash, ignore: [/touch-icon.*png/]
   activate :gzip, exts: %w(.js .css .html .htm .svg .ttf .otf .woff .eot)
@@ -49,46 +50,6 @@ configure :development do
   set :port, '4567'
   activate :livereload # Reload the browser automatically whenever files change
 end
-
-# Blog
-# ————————————————
-
-# before activating the blog, copy the news items from the data folder into the source folder
-puts 'loading news'
-puts '————————————————'
-news = Dir['data/news/*']
-news.each do |src|
-  dst = src.gsub(/\.md$/, '.html.md')
-  dst.gsub!(/data\/news\//, 'source/news/')
-  FileUtils.copy(src, dst)
-end
-
-activate :blog do |blog|
-  # This will add a prefix to all links, template references and source paths
-  # blog.prefix = "blog"
-
-  # blog.permalink = "{year}/{month}/{day}/{title}.html"
-  # Matcher for blog source files
-  blog.sources = 'news/{year}-{month}-{day}-{title}.html'
-  # blog.taglink = "tags/{tag}.html"
-  # blog.layout = "layout"
-  # blog.summary_separator = /(READMORE)/
-  # blog.summary_length = 250
-  # blog.year_link = "{year}.html"
-  # blog.month_link = "{year}/{month}.html"
-  # blog.day_link = "{year}/{month}/{day}.html"
-  # blog.default_extension = ".markdown"
-
-  # blog.tag_template = "tag.html"
-  # blog.calendar_template = "calendar.html"
-
-  # Enable pagination
-  # blog.paginate = true
-  # blog.per_page = 10
-  # blog.page_link = "page/{num}"
-end
-
-# set :markdown_engine, :redcarpet
 
 ###
 # Page options, layouts, aliases and proxies
@@ -133,12 +94,4 @@ helpers do
   end
 end
 
-# Build-specific configuration
-configure :build do
-  # Minify CSS on build
-  # activate :minify_css
-
-  # Minify Javascript on build
-  # activate :minify_javascript
-end
 

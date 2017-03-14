@@ -43,7 +43,7 @@
 
 #logo {
   i {
-    background-image: url('/assets/images/hex-dark.svg') !important;
+    background-image: url('#{$image-path}/hex-dark.svg') !important;
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: left, center; 
@@ -95,7 +95,6 @@
 }
 
 .ui.sidebar.menu {
-  @extend .baseline;
   .ui.container {
     margin-top: 4.5rem;
     padding-left: 1rem;

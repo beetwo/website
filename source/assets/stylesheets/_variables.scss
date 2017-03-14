@@ -24,16 +24,20 @@ $principles-color : $yellow;
 $budgeting-color  : $white;
 $co-creation-color: $white;
 
+//————————————————————————————————
+// paths
+//————————————————————————————————
+$image-path: '/assets/images';
+$font-path: '/assets/fonts';
+// $font-path: '/assets/fonts';
 
 //————————————————————————————————
 // Semantic UI
 //————————————————————————————————
 $import-google-fonts: false !default;
-$font-url: 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin,latin-ext' !default;
-$font-name: 'Source-Sans' !default;
-$font-family: $font-name, 'Helvetica Neue', Arial, Helvetica, sans-serif !default;
-
-$font-family-body: 'Source-Sans' !default;
+$font-url:            'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin,latin-ext' !default;
+$display-font-family: 'Signika', 'System Font' !default;
+$font-family:         'Source-Sans', 'System Font' !default;
 
 //————————————————————————————————
 // Typecsset

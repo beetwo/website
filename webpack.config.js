@@ -11,8 +11,6 @@ var webpack           = require('webpack'),
                           __VERSION__:     (new Date().getTime().toString()) }),
     styleVariables    = 'data/style.yml'
 
-console.log('styleVariables', styleVariables)
-
 module.exports = {
   entry: {
     index: [
@@ -44,23 +42,15 @@ module.exports = {
         loader: 'expose?math' },
       { test: require.resolve('d3'), 
         loader: 'expose?d3' },
+
+      // images
+      { test: /\.(jpe?g|png|gif|svg)$/i, loader: "file-loader?name=assets/images/[name].[ext]"},
       
-      // { test: /[\\\/]vendor[\\\/]modernizr\.js$/,
-      //   loader: 'imports?this=>window!exports?window.Modernizr' },
-
-      // Load SCSS
+      // SCSS
       { test: /\.scss$/, 
-        // loader: ExtractTextPlugin.extract('style', 'css!ymltosass?path=' + styleVariables + '!sass?includePaths[]=' + (path.resolve(__dirname, './node_modules')))
-        loader: ExtractTextPlugin.extract('style', 'css' + '!sass?includePaths[]=' + (path.resolve(__dirname, './node_modules') + '!ymltosass?path=' + styleVariables ))
+        loader: ExtractTextPlugin.extract('style', 'css' + '!sass?includePaths[]=' + (path.resolve(__dirname, './node_modules') + '!ymltosass?path=' + styleVariables ))},
 
-        // loader: "style!css!sass!ymltosass?path="+ styleVariables,
-        // loaders: [
-                  // "style!css!sass!ymltosass?path="+ styleVariables,
-                  // ExtractTextPlugin.extract('style', 'css!sass?includePaths[]=' + (path.resolve(__dirname, './node_modules')))
-                  // ] 
-      },
-
-      // Font Definitions
+      // Fonts
       { test: /\.svg$/,     loader: 'url?limit=65000&mimetype=image/svg+xml&name=assets/fonts/[name].[ext]' },
       { test: /\.woff$/,    loader: 'url?limit=65000&mimetype=application/font-woff&name=assets/fonts/[name].[ext]' },
       { test: /\.woff2$/,   loader: 'url?limit=65000&mimetype=application/font-woff2&name=assets/fonts/[name].[ext]' },
