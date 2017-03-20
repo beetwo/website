@@ -10,10 +10,9 @@
 @import "text-stroke";
 @import "overrides";
 @import "menu";
-@import "pattern";
-@import "team";
-@import "areas-of-focus";
-@import "news";
+// @import "team";
+// @import "areas-of-focus";
+// @import "news";
 @import "custom";
 
 // $display-font-family
@@ -140,19 +139,18 @@ a {
 
 
 .masthead {
-  height: 100vh;
-
-  display: flex;
-  // align-items: center;
-  align-items: flex-end;
+  min-height: 100vh;
   color: $white;
-  background: $darkGrey;
-  padding-bottom: 3rem !important;
+  // background: $darkGrey;
+  background: rgba($red, 0.6);
 
-  // .container {
-  //   @extend .baseline;  
-  // }
-  
+  // padding-bottom: 3rem !important;
+
+  .ui.container {
+    margin-top: 38vh;
+    @extend .baseline;
+  }
+
   .ui.circular.icon.button {
     margin-top: 1.5rem;
     color: $white;
@@ -167,8 +165,6 @@ a {
     & > i {
       color: $darkGrey;
       font-size: 2rem;
-
-
     }
   }
 
@@ -178,14 +174,13 @@ a {
       @include schlagschatten($size: 2, $color: $darkGrey)  
     }
   }
-  opacity: 1;
-  $transition-duration: 1s;
-  $transition-ease: 'ease';
-  @include transition(opacity $transition-duration $transition-ease);
-  &.transparent {
-    opacity: 0;
+
+  .mission {
+    @extend %typecsset-vertical-rhythm;
+    @include typecsset-font-size($typecsset-h5-size);
+    @include schlagschatten($size: 2, $color: $darkGrey);
+    font-weight: 200;
   }
-  
 }
 
 .header {

@@ -7,39 +7,15 @@ title: BeeTwo
 
 #index.ui.vertical.masthead.segment
   .ui.container
-    .ui.header= data.meta.title
-    .ui.sub.header= data.meta.description 
-    %a.ui.circular.right.floated.icon.button{:href => '#focus'}
-      %i.angle.double.down.icon
-
-#focus.ui.vertical.stripe.segment
-  .ui.text.container
-    .ui.section.header Areas of Focus
-    .ui.section.sub.header What we're good at
-    .ui.items
-      - data.focus.each do |f|
-        .item
-          .content
-            %a.header= f.title
-            .description
-              %p= f.tagline
-      
-
-#principles.ui.vertical.stripe.segment
-  .ui.text.container        
-    .ui.section.header Principles
-    .ui.section.sub.header Those maximes whereby we act and —at the same time, will that they should become a universal law.
-    .ui.items
-      - data.principles.each do |p|
-        .item
-          .content
-            .description= p.text
-
+    .ui.header= data.en.title
+    .ui.sub.header= data.en.tagline 
+    .ui.mission= data.en.missionStatement 
+    
 #team.ui.vertical.stripe.segment
   .ui.text.container
-    .ui.section.header The team
+    .ui.section.header= data.en.team.headline
   .ui.stackable.grid.fluid.container
-    - data.team.each do |t|
+    - data.en.team.members.each do |t|
       .member.eight.wide.column
         .ui.accordion
           .title
@@ -55,18 +31,12 @@ title: BeeTwo
               %i.ui.slack.icon
             %hr
 
-
--# #team.ui.vertical.stripe.segment
--#   .ui.text.container                
--#     .ui.section.header The team
--#     %dl.accordion
--#       - data.team.each do |t|
--#         .container.item
--#           %div{:class => "#{t.id} image"}
--#           %dt
--#             %a{:href => ""} #{t.name}
--#           %dd= t.description
-
--# %ul#cells.invisible
--#   - data.index.each do |c|
--#     %li= "#{c}"
+#principles.ui.vertical.stripe.segment
+  .ui.text.container        
+    .ui.section.header Principles
+    .ui.section.sub.header Those maximes whereby we act and —at the same time, will that they should become a universal law.
+    .ui.items
+      - data.principles.each do |p|
+        .item
+          .content
+            .description= p.text

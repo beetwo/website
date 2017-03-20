@@ -4,7 +4,8 @@
         vector      = require('../vector')
 
   const HEXAGON   = 'M-6.935577799999997 -59.9957423C-3.105163900000001 -62.20723276 3.0986864999999995 -62.21097249 6.935577800000004 -59.9957423L48.490048 -36.0042577C52.320462000000006 -33.7927672 55.425625999999994 -28.421945 55.425625999999994 -23.9914846L55.425625999999994 23.991484600000007C55.425625999999994 28.414465500000006 52.326938999999996 33.7890275 48.490048 36.00425799999999L6.935577800000004 59.99574200000001C3.1051638999999938 62.207233 -3.0986864999999995 62.210972 -6.935577799999997 59.99574200000001L-48.490048099999996 36.00425799999999C-52.3204619 33.7927672 -55.42562584 28.421944999999994 -55.42562584 23.991484600000007L-55.42562584 -23.9914846C-55.42562584 -28.4144655 -52.3269393 -33.7890275 -48.490048099999996 -36.0042577L-6.935577799999997 -59.9957423z'
-  const PALLETE   = ['#ffcf97', '#9edee4', '#dff8ac', '#b3ebbc', '#f46064', '#afa5fb']
+  // const PALLETE   = [yellow, orange, red, purple, blue, green ]
+  const PALLETE   = ["#ffdb69", "#ff9e4f", "#ff6b67", "#655e7e", "#5ca6b2", "#a6c85d"]
   const SECTIONS  = ['index', 'focus', 'principles', 'team']
   const COUNT     = 4
   const DURATION  = 1000
@@ -16,8 +17,8 @@
   function radToDeg(rad)        { return math.round(rad *  180 / math.pi) }
   function degToRad(deg)        { return deg * math.pi / 180 }
   function color(index)         { return _.nth(PALLETE, (index % COUNT)) }
-  function xFocus(w)            { return w * 0.25 }
-  function yFocus(h)            { return h * 0.38 }
+  function xFocus(w)            { return w * 0.33 }
+  function yFocus(h)            { return h * 0.24 }
   function section(index)       { if(index < _.size(SECTIONS)) return _.nth(SECTIONS, index) 
                                   return null }
   function _getSegment(β, {id}) { return _.find(β.segments, (σ) => { return σ.id === id })}

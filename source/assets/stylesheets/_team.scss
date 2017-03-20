@@ -1,6 +1,4 @@
 #team{
-  // @extend .baseline;
-
   .ui.fluid.container {
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -18,11 +16,7 @@
         margin-left: -3rem;
       }
 
-      // display: flex;
-      // flex-direction:column;
-      // align-items: center;
       position: relative;
-
       img {
         width: 100%;
         display: inline-block;
@@ -47,98 +41,5 @@
       margin-top: 0;
       margin-bottom: 1.5rem;
     }
-
-    
   }
-
-
-
-  // .accordion {
-  //   margin-top: 1.5rem;   
-
-  //   @include mobile {
-  //     margin-left: -3rem;
-  //     width: 100vw;
-  //   }
-
-  //   & > .item {
-  //     min-height: 12rem;
-  //     display: flex;
-  //     align-items: flex-end;
-  //     flex-direction: row;
-  //     flex-wrap: wrap;
-  //     margin-top: 3rem;
-  //     position: relative;
-
-  //     box-shadow: 0 4px 2px 0 rgba($darkGrey, 0.81);
-
-  //     &.open {
-  //       & > .image {
-  //         $blurRadius: 15px;
-  //         -webkit-filter: blur($blurRadius);
-  //         -moz-filter: blur($blurRadius);
-  //         -o-filter: blur($blurRadius);
-  //         -ms-filter: blur($blurRadius);
-  //         filter: blur($blurRadius);
-  //       }
-  //     }
-
-  //     & > .image {
-  //       z-index: 0;
-  //       width: 100%;
-  //       height: 100%;
-  //       position: absolute;
-  //       background: transparent;
-  //       background-position: center center;
-  //       background-repeat: no-repeat;
-  //       background-size: cover;
-  //       pointer-events:none;
-
-  //       @include transition(filter 1s);
-
-  //       &.annunziata {
-  //         background-image: url('#{$image-path}/annunziata.jpg');
-  //       }
-  //       &.emanuel {
-  //         background-image: url('#{$image-path}/emanuel.jpg');
-  //       }  
-  //       &.laura {
-  //         background-image: url('#{$image-path}/laura.jpg');
-  //       }  
-  //       &.lowi {
-  //         background-image: url('#{$image-path}/lowi.jpg');
-  //       }  
-  //     }
-      
-
-  //     dt, dd {
-  //       z-index: 1;
-  //       padding-top: 1.5rem;
-  //       padding-left: 3rem;
-  //       padding-right: 1rem;
-  //       align-self: flex-end;
-  //       flex: 1 1 auto;
-  //       @extend %typecsset-vertical-rhythm;
-  //       @include typecsset-font-size($typecsset-base-font-size);
-  //     }
-
-  //     dt > a {
-  //       @extend h3;
-  //       @include schlagschatten($size: 4, $color: $darkGrey);
-  //       color: $white;
-  //       text-decoration: none;
-
-  //       &:hover {
-  //         @include schlagschatten($size: 4, $color: $red);
-  //         color: $white;
-  //       }
-  //     }
-
-  //     dd {
-  //       margin-bottom: 0;
-  //       padding-bottom: 1.5rem;
-  //       background: rgba($white, 0.62);
-  //     }
-  //   }
-  // }
 }

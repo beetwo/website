@@ -1,14 +1,8 @@
-
 //————————————————————————————————
 // Colors
 //————————————————————————————————
-
-$grey-light: $lightGrey;
-$grey-medium: $mediumGrey;
-$grey-dark: $darkGrey;
-
-$primary-color    : $grey-light;
-$bg-color         : $grey-dark;
+$primary-color    : $white !default;
+$bg-color         : $darkGrey !default;
 $secondary-color  : $yellow !default;
 $success-color    : $green !default;
 $error-color      : $red !default;
