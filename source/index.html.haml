@@ -30,13 +30,3 @@ title: BeeTwo
             %a.ui.circular.icon.button{:href => "mailto:#{t.slack}", :target => "_top"}
               %i.ui.slack.icon
             %hr
-
-#principles.ui.vertical.stripe.segment
-  .ui.text.container        
-    .ui.section.header Principles
-    .ui.section.sub.header Those maximes whereby we act and —at the same time, will that they should become a universal law.
-    .ui.items
-      - data.principles.each do |p|
-        .item
-          .content
-            .description= p.text
