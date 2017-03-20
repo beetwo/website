@@ -1,0 +1,31 @@
+darkGrey:         "#333333"
+mediumGrey:       "#4e4e4e"
+white:            "#fcfcfc"
+
+yellow:           "#ffdb69"
+orange:           "#ff9e4f"
+red:              "#ff6b67"
+purple:           "#655e7e"
+blue:             "#5ca6b2"
+green:            "#a6c85d"
+
+indexColor:       "$blue"
+newsColor:        "$red"
+teamColor:        "$yellow"
+aboutColor:       "$orange"
+focusColor:       "$yellow"
+
+cellColor:        "rgba($mediumGrey, 0.1)"
+backgroundColor:  "$white"
+
+sections:
+- "index"
+- "news"
+- "about"
+- "team"
+
+sectionColors: 
+- "$indexColor"
+- "$newsColor"
+- "$aboutColor"
+- "$teamColor"

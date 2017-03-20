@@ -1,0 +1,41 @@
+title:            BeeTwo
+tagline:          where digital innovation meets social impact
+role:             Verein für digitale Lösungen mit sozialer Wirkung
+missionStatement: Our purpose is to generate social impact. We are a group of software developers, designers, and anthropologist with a deep experience in imagining, planning, developing and passion for social Impact. We want to apply our digital and design skills to create social impact. We do this by listening and co-creating to gain a deep insight into societal challenges.
+
+sections:
+  - text: Home 
+  - text: Team 
+  - text: F00 
+  - text: bar 
+    
+team:
+  headline: Who we are
+  members:
+    - id:           'annunziata'
+      name:         'Annunziata'
+      role:         'Managing Director'
+      img:          '/assets/images/annunziata.jpg'
+      email:        'annunziata@beetwo.at'
+      description:  'Annunziata started her career working with street children in Romania for Concordia, opening a house in Bucharest and following this, advised refugees in Austria for Caritas Wien. Annunziata is in the founding association of Zweite Sparkasse. Since 2008, she has worked for good.bee, a microfinance venture, and has set up a science centre for financial literacy (FLiP) . Annunziata holds an MSc in Anthropology and Development Studies from the London School of Economics and Political Science. She studied photography at the London College of Printing and continues her passion for photography, exhibiting in Paris and Vienna.'
+    
+    - id:           'laura'
+      name:         'Laura'
+      role:         "To be determined"
+      img:          '/assets/images/laura.jpg'
+      email:        'laura@beetwo.at'
+      description:  "Laura has degrees in psychology and in the fine arts. She is very good in what she does."
+    
+    - id:           'emanuel'
+      name:         'Emanuel'
+      role:         "To be determined"
+      img:          '/assets/images/emanuel.jpg'
+      email:        'emanuel@beetwo.at'
+      description:  "Emanuel holds a BA in media design from Vorarlberg University of Applied Sciences and an MA in communication design from Zurich University of the Arts. Before joining BeeTwo Emanuel has worked at Sägenvier and spitzar in Dornbirn, think moto in Berlin and EN GARDE in Graz & the Impact Hub Zürich. He is into epic things."
+    
+    - id:           'lowi'
+      name:         'Lowi'
+      role:         "To be determined"
+      img:          '/assets/images/lowi.jpg'
+      email:        'stephan@beetwo.at'
+      description:  "Stephan holds a MSc in computer-science and specializes in human-computer-interaction. He likes pretty things."
