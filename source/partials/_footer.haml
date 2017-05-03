@@ -1,14 +1,22 @@
 #footer.ui.bloom.segment
   .ui.text.container
-    .header= data.en.title
-    .sub.header= data.en.role
-    .ui.items
-      .item
-        .content
-          %a.address{:href => "#{data.en.contact.mapLink}", :target => "_blank"}
-            = data.en.contact.address.street
-            %br
-            = data.en.contact.address.city
-      .item
-        .content
-          %a.email{:href => "mailto:#{data.en.contact.email}"}= data.en.contact.email
+    .align
+      .header= data.en.title
+      %p.sub.header= data.en.role
+      %a.email{:href => "mailto:#{data.en.contact.email}"}= data.en.contact.email
+      .space
+      .tiny.text ZVR: #{data.en.contact.ZVR}
+
+  #map-frame
+    #map
+    -#.ui.items
+    -#  .item
+    -#    .content
+    -#
+    -#      %a.address{:href => "#{data.en.contact.mapLink}", :target => "_blank"}
+    -#        = data.en.contact.address.street
+    -#        %br
+    -#        = data.en.contact.address.city
+    -#  .item
+    -#    .content
+    -#      %a.email{:href => "mailto:#{data.en.contact.email}"}= data.en.contact.email

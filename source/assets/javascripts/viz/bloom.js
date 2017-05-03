@@ -1,10 +1,12 @@
 import OpenSimplexNoise from 'open-simplex-noise'
 
-let d3      = require('d3')
+// debug flag for rendering force-circles
+let RENDER_CIRCLES = false
 
+let d3      = require('d3')
 let HEXAGON   = 'M-6.935577799999997 -59.9957423C-3.105163900000001 -62.20723276 3.0986864999999995 -62.21097249 6.935577800000004 -59.9957423L48.490048 -36.0042577C52.320462000000006 -33.7927672 55.425625999999994 -28.421945 55.425625999999994 -23.9914846L55.425625999999994 23.991484600000007C55.425625999999994 28.414465500000006 52.326938999999996 33.7890275 48.490048 36.00425799999999L6.935577800000004 59.99574200000001C3.1051638999999938 62.207233 -3.0986864999999995 62.210972 -6.935577799999997 59.99574200000001L-48.490048099999996 36.00425799999999C-52.3204619 33.7927672 -55.42562584 28.421944999999994 -55.42562584 23.991484600000007L-55.42562584 -23.9914846C-55.42562584 -28.4144655 -52.3269393 -33.7890275 -48.490048099999996 -36.0042577L-6.935577799999997 -59.9957423z'
-// let PALLETE   = ["#00FFFE", "#a6c85d", "#5ca6b2", "#ff6b67", "#ff9e4f", "#ffdb69", "#655e7e"]
-let PALLETE   = _.shuffle(["#00FFFE", "#a6c85d", "#5ca6b2", "#ff6b67", "#ff9e4f", "#ffdb69", "#655e7e"])
+let PALLETE   = ["#5ca6b2",  "#a6c85d", "#ff6b67", "#ff9e4f", "#ffdb69", "#655e7e"]
+// let PALLETE   = _.shuffle(["#00FFFE", "#a6c85d", "#5ca6b2", "#ff6b67", "#ff9e4f", "#ffdb69", "#655e7e"])
 let MAX_SCALE = 12
 
 let noise   = new OpenSimplexNoise(_.now()),
@@ -14,23 +16,26 @@ let noise   = new OpenSimplexNoise(_.now()),
     noiseΣ  = d3.scaleLinear()
                 .domain([-1, 1])
                 .range([-0.5, 0.5]),
+    targetXΣ = d3.scaleLinear(),
+    targetYΣ = d3.scaleLinear(),
     hexΣ    = d3.scaleLinear()
                 .domain([320, 1920])
                 .range([1, 3.2]) // the width of the scaled hexagon
 
 
-function radToDeg(rad) { return math.round(rad * 180 / math.pi) }
-function degToRad(deg) { return deg * math.pi / 180 }
 function color(index) { return _.nth(PALLETE, index) }
-function xFocus(w) { return w * 0.33 }
-function yFocus(h) { return h * 0.24 }
+function xFocus(w) { return 0.24 * w }
+function yFocus(h) { return 0.24 * h }
 
-function _hexWidth(){ return $('#hex').width() }
+// function _hexWidth(){ return $('#hex').width() }
+function _hexWidth(){ return $('#hex')[0].getBoundingClientRect().width }
 function _windowHeight(){ return $(window).height() }
 
 // obacht! dirty dirty hack. hard code the selectors which should be —and partially are— configurable
 function _totalHeight(){
-  return $(document).height() - $('.pusher > .bloom.segment').last().outerHeight()
+  // return $(document).height() - $('.pusher > .bloom.segment').last().outerHeight()
+  let ε = $('.pusher > .bloom.segment').last()
+  return ε.offset().top + ε.outerHeight() - _windowHeight()
 }
 
 //              _
@@ -48,12 +53,14 @@ function _domain({id, top, height}) {
   return _.values(stops) }
 
 function _sizeRange({id, top, height}) {
+
+  let MIN_SCALE = 0.62
   let stops = { 'startExpand':    1,
                 'stopExpand':     1,
                 'startGrowing':   1,
                 'stopGrowing':    1,
                 'startShrinking': 1,
-                'stopShrinking':  1 }
+                'stopShrinking':  MIN_SCALE }
 
   // first screen
   if (top === 0)
@@ -62,7 +69,7 @@ function _sizeRange({id, top, height}) {
               'startGrowing': 1,
               'stopGrowing':  MAX_SCALE,
               'startShrink':  MAX_SCALE,
-              'stopShrink':   1 }
+              'stopShrink':   MIN_SCALE }
 
   return _.values(stops) }
 
@@ -71,6 +78,8 @@ function _forceRange({id, top, height}) {
   let MIN_SCALE = 4,
       // the with depends on the size of the hexagon template
       w = 0.81 * _hexWidth() / hexΣ($(window).width()),
+
+      Ϟ = console.log('w w', $(window).width(), _hexWidth(), w),
 
       stops = { 'startExpand':  MIN_SCALE,
                 'stopExpand':   w,
@@ -85,7 +94,7 @@ function _forceRange({id, top, height}) {
               'startGrow':    w,
               'stopGrow':     w * MAX_SCALE,
               'startShrink':  w * MAX_SCALE,
-              'stopShrink':   MIN_SCALE }
+              'stopShrink':   4 * MIN_SCALE }
 
   return _.values(stops) }
 
@@ -113,11 +122,18 @@ function _resize(β) {
   let width       = $(window).width(),
       height      = $(window).height()
 
-  console.log('totalHeight', _totalHeight())
+  targetXΣ.domain([0, _totalHeight()]).range([0, 0.42 * width])
+  targetYΣ.domain([0, _totalHeight()]).range([0, -0.08 * height])
+
+  β.xΦ.x(targetXΣ(0))
+  β.yΦ.y(targetYΣ(0))
 
   β.svg.attr('width', width).attr('height', height)
   β.group.attr('transform', 'translate(' + xFocus(width) + ',' + yFocus(height) + ')')
   β.hex.attr('transform', 'scale(' + hexΣ(width) + ')')
+
+  β.node.style('transform', () => {
+    return 'translate3d(' + (targetXΣ(0) + math.random(-64, 64)) + 'px,' + (targetYΣ(0) + math.random(-64, 64))  + 'px, 0)' })
 
   // initialize the segment scales
   β.segments = _resizeSegments(β.segments)
@@ -135,15 +151,16 @@ function  ticked(β) {
   // update the node radii depending on the scroll position
   _.each(β.nodes, (η) => {
     let σ =  _findSegment(η.id, β.segments)
+    // console.log(η.id, σ.forceΣ(top), σ.forceΣ.domain(), σ.forceΣ.range())
+    // console.log('\t\t', σ.sizeΣ(top), σ.sizeΣ.domain(), σ.sizeΣ.range())
     η.radius = σ.forceΣ(top) })
 
   // as the radii change, constantly update the collissionΦ
   β.colissionΦ.radius((η, i) => { return η.radius })
 
   // the position forces wander a little bit
-  // β.xΦ.x(β.xΦ.x()() + _noise(0))
-  // β.yΦ.y(β.yΦ.y()() + _noise(1))
-
+  β.xΦ.x(targetXΣ(top))
+  β.yΦ.y(targetYΣ(top))
 
   β.node // adjust each node
   // set the simulation position
@@ -155,9 +172,10 @@ function  ticked(β) {
         .select('use')
         .attr('transform', 'scale(' + σ.sizeΣ(top) + ')') })
 
-  // β.circle
-  //   .style('transform', (δ) => {return 'translate3d(' + math.round(δ.x) + 'px,' + math.round(δ.y) + 'px, 0)' })
-  //   .attr('r', (δ) => { return δ.radius })
+  if(RENDER_CIRCLES)
+    β.circle
+      .style('transform', (δ) => {return 'translate3d(' + math.round(δ.x) + 'px,' + math.round(δ.y) + 'px, 0)' })
+      .attr('r', (δ) => { return δ.radius })
 
   β.simulation.alphaTarget(0.3)
   β.simulation.restart()
@@ -188,7 +206,8 @@ function _initializeSimulation(β) {
 function _initializeDOM(parentId, β) {
   return new Promise((resolve) => {
     let parent      = d3.select(parentId),
-        svg         = parent.append('svg'),
+        svg         = parent.append('svg')
+                        .style('opacity', 0),
         defs        = svg.append('defs'),
         group       = svg.append('g'),
         hex         = defs.append('path')
@@ -202,26 +221,25 @@ function _initializeDOM(parentId, β) {
                         .append('g')
                         .attr('id', (d, i) => { return 'hex-' + (d.id || i) })
                         .attr('class', 'hex')
-                        .style('transform', () => { return 'translate3d(' + math.random(-64, 64) + 'px,' + math.random(-64, 64)  + 'px, 0)' })
                         .each((δ, ι, η) => {
                           d3.select(η[ι]).append('use')
                             .attr('xlink:href', '#hex')
-                            .attr('fill', δ.color) })
-        // circle      = group.append('g')
-        //                 .attr('class', 'debug')
-        //                 .selectAll('circle')
-        //                 .data(β.nodes)
-        //                 .enter()
-        //                 .append('circle')
-        //                 .attr('id', (d, i) => { return 'circle-' + (d.id || i) })
-        //                 .attr('r', (δ) => { return δ.radius})
+                            .attr('fill', δ.color) }),
+        circle      = RENDER_CIRCLES ? group.append('g')
+                        .attr('class', 'debug')
+                        .selectAll('circle')
+                        .data(β.nodes)
+                        .enter()
+                        .append('circle')
+                        .attr('id', (d, i) => { return 'circle-' + (d.id || i) })
+                        .attr('r', (δ) => { return δ.radius}): group.append('g')
 
     β.parent    = parent
     β.svg       = svg
     β.group     = group
     β.hex       = hex
     β.node      = node
-    // β.circle    = circle
+    β.circle    = circle
 
     resolve(β) })}
 
@@ -257,16 +275,30 @@ function init(parentId, segmentsSelector) {
   if ($(parentId).length === 0) return
 
   _initializeSegments(segmentsSelector)
-    .then( (β) => { return _initializeNodes(β) })
-    .then( (β) => { return _initializeDOM(parentId, β) })
-    .then( (β) => { return _initializeSimulation(β) })
-    .then( (β) => { return new Promise((resolve) => { _.delay(() => { resolve(_resize(β)) }, 1000) } ) })
+    .then( (β) => {
+      console.log('initialized segments', β)
+      return _initializeNodes(β) })
+    .then( (β) => {
+      console.log('initialized nodes', β)
+      return _initializeDOM(parentId, β) })
+    .then( (β) => {
+      console.log('initialized DOM', β)
+      return _initializeSimulation(β) })
+    .then( (β) => {
+      console.log('initialized simulation', β)
+      return new Promise((resolve) => { _.delay(() => { resolve(_resize(β)) }, 1000) } ) })
     .then( (β) => { // attach window handlers
                     $(window).on('resize', _.debounce(() => { _resize(β) }, 150))
                     $(window).on('scroll', () => { console.log('scroll', $(window).scrollTop()) })
 
                     // start the simulation
-                    β.simulation.on('tick', () => {β = ticked(β)}) })
+                    β.simulation.on('tick', () => {β = ticked(β)})
+
+                    β.svg.transition()
+                      .duration(2000)
+                      .ease(d3.easePolyOut.exponent(2))
+                      .style('opacity', 1)
+    })
 }
 
 export default init

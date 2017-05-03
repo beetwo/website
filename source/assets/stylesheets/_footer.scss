@@ -7,30 +7,22 @@
   min-height: 100vh;
   color: $darkGrey;
   display: flex;
-  item-align: flex-start;
+  flex-direction: column;
 
   .container {
     flex: 1 1 auto;
-    margin-top: 38vh;
 
-    @include tablet {
-      margin-left: 24% !important;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+    padding-bottom: 1.5rem;
+
+    .align {
+      flex: 0 1 auto;
     }
 
-    @include computer {
-      margin-left: 24% !important;
-      margin-top: 48vh;
-    }
 
-    @include large-screen {
-      margin-left: 24% !important;
-      margin-top: 48vh;
-    }
-
-    @include widescreen {
-      margin-left: 24% !important;
-      margin-top: 48vh;
-    }
 
     .hex {
       height: 9rem;
@@ -43,29 +35,32 @@
     color: $darkGrey;
     &.sub {
       @extend h4;
+
+      @include mobile {
+        font-size: $typecsset-base-font-size;
+        font-weight: 200;
+      }
     }
   }
 
   a {
-    @extend h6;
+    text-decoration: none;
+    color: $darkGrey;
+
+    &.email {
+      @extend h2;
+    }
   }
 
+  #map-frame {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 38vh;
 
-  //a.ui.button {
-  //  color: $darkGrey;
-  //  background: transparent;
-  //  border: 1px solid $darkGrey;
-  //  text-decoration: none;
-  //}
-  //
-  //#sitemap {
-  //  padding-top: 0.75rem;
-  //  border-top: 1px solid rgba($darkGrey, 0.62);
-  //  margin-top: 0.75rem;
-  //}
-  //
-  // i.ui.icon {
-  //   font-size: 1.5rem;
-  //   line-height: 1;
-  // }
+  }
+  #map {
+    width: 100%;
+    height: 100%;
+
+  }
 }

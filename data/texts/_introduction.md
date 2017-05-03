@@ -1,3 +1,8 @@
-We are a group of software engineers, designers, psychologists and anthropologists and we support social organisations,
-initiatives and movements in tackling their digital challenges and exploring their digital opportunities.
-We want to improve lives and create economic empowerment.
+Hello,
+we are a collective of designers, psychologists, anthropologists and nerds.
+
+We help social organisations, initiatives and movements to explore the opportunities of the digital realm.
+And together with them use technology to tackle the challenges of our information society
+
+We like technology.
+We love humanity.

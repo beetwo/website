@@ -10,8 +10,11 @@
     margin-left: 3rem;
   }
 
-  .ui.header {
-    //margin-bottom: 0;
+  .ui.sub.header {
+    @include mobile {
+      font-size: $typecsset-base-font-size;
+      font-weight: 200;
+    }
   }
 
   .ui.container {

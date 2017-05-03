@@ -32,7 +32,9 @@ require('./semantic-ui/transition')
 require('./semantic-ui/visibility')
 require('./semantic-ui/visit')
 
-let Rellax = require('rellax')
+let Rellax = require('rellax'),
+    L = require('leaflet')
+
 
 
 
@@ -95,6 +97,32 @@ function _splat() {
   })
 }
 
+function _map() {
+
+  console.log('making map', L)
+
+  let map         = L.map('map', {center: [48.19,16.355],
+                                  zoom:   13,
+                                  minZoom: 13,
+                                  maxZoom: 13,
+                                  zoomControl: false,
+                                  closePopupOnClick: false,
+                                  boxZoom: false,
+                                  doubleClickZoom: false,
+                                  dragging: true}),
+      url         = 'https://api.mapbox.com/styles/v1/lowi/{id}/tiles/256/{z}/{x}/{y}?access_token={accessToken}',
+      tileOptions = { id: 'cizs9vc8c007u2st6upirwcw1',
+                      accessToken: 'pk.eyJ1IjoibG93aSIsImEiOiJjaXpyZnYwMHUwMDI2MnFzN21wNm1zeGF2In0.t4FHMAzcW-5SMIfKneu3YQ' },
+      popupContent = '<a href="https://www.openstreetmap.org/#map=16/48.1882/16.3782&layers=T" target="_blank">Mommsengasse 35<br> 1040 Wien.</a>'
+
+  L.tileLayer(url, tileOptions).addTo(map);
+
+  L.popup({closeButton: false})
+    .setLatLng([48.1881866,16.3769259])
+    .setContent(popupContent)
+    .openOn(map);
+}
+
 $(document)
   .ready(function () {
     _menu()
@@ -103,6 +131,7 @@ $(document)
     fancyHeader('.fancy')
     _parallax()
     _splat()
+    _map()
     // loopScroll('.pusher', '.segment')
 
     bloom('#bloom', '.bloom.segment')

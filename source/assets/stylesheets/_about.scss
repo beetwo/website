@@ -1,5 +1,8 @@
-#about {
+#about, #hello {
   background: transparent;
+
+  margin-top: 9rem;
+  margin-bottom: 9rem;
 
   p {
     @extend h3;

@@ -1,13 +1,17 @@
 @charset "utf-8";
 
 @import "bourbon/app/assets/stylesheets/bourbon";
+
 @import "functions";
 @import "variables";
 @import "mixins";
 @import "fonts";
+
 @import "semantic-ui";
 @import "typecsset";
 @import "text-stroke";
+@import "leaflet";
+
 //@import "slick";
 //@import "slick-theme";
 

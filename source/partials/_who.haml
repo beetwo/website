@@ -4,17 +4,19 @@
       .ui.section.rellax.header{"data-rellax-speed" => "-1"}= data.en.team.head
       .ui.section.content= data.en.team.core.introduction
     .three.space
-    = partial "partials/_svg-halftone-filter"
+    -#= partial "partials/_svg-halftone-filter"
     .ui.fluid.container
-      .ui.items
-      - data.en.team.core.members.each do |m|
-        -#= partial "partials/team-member", locals: {member: m}
-        .member.item
-          .image
-            = image_tag "https://api.adorable.io/avatars/288/#{m.name}", :class => "ui image"
-          .content
-            .header= m.name
-            %p= m.description
+      .ui.relaxed.items
+        - data.en.team.core.members.each do |m|
+          -#= partial "partials/team-member", locals: {member: m}
+          .member.item
+            .image
+              = image_tag "https://api.adorable.io/avatars/288/#{m.name}"
+            .content
+              .header= m.name
+              %p= m.description
+          .three.space
+
 
   -#.three.space
   -#
