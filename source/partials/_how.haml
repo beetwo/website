@@ -1,0 +1,14 @@
+#how.ui.vertical.stripe.bloom.segment
+
+  .ui.container.introduction
+    .ui.section.header= data.en.how.head
+    .ui.section.sub.header= data.en.how.subHead
+
+  .ui.container
+    #principles.ui.padded.doubling.grid
+      .three.column.row
+        - data.en.how.principles.each do |p|
+          .column
+            .ui.segment.principle
+              %i.ui.large.icon{:class => "#{p.icon}"}
+              %p= p.text

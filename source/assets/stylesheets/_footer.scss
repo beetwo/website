@@ -1,0 +1,71 @@
+
+// ————————————————————————————————
+// Footer
+// ————————————————————————————————
+#footer {
+  background: transparent;
+  min-height: 100vh;
+  color: $darkGrey;
+  display: flex;
+  item-align: flex-start;
+
+  .container {
+    flex: 1 1 auto;
+    margin-top: 38vh;
+
+    @include tablet {
+      margin-left: 24% !important;
+    }
+
+    @include computer {
+      margin-left: 24% !important;
+      margin-top: 48vh;
+    }
+
+    @include large-screen {
+      margin-left: 24% !important;
+      margin-top: 48vh;
+    }
+
+    @include widescreen {
+      margin-left: 24% !important;
+      margin-top: 48vh;
+    }
+
+    .hex {
+      height: 9rem;
+    }
+
+  }
+
+  .header {
+    @extend h2;
+    color: $darkGrey;
+    &.sub {
+      @extend h4;
+    }
+  }
+
+  a {
+    @extend h6;
+  }
+
+
+  //a.ui.button {
+  //  color: $darkGrey;
+  //  background: transparent;
+  //  border: 1px solid $darkGrey;
+  //  text-decoration: none;
+  //}
+  //
+  //#sitemap {
+  //  padding-top: 0.75rem;
+  //  border-top: 1px solid rgba($darkGrey, 0.62);
+  //  margin-top: 0.75rem;
+  //}
+  //
+  // i.ui.icon {
+  //   font-size: 1.5rem;
+  //   line-height: 1;
+  // }
+}

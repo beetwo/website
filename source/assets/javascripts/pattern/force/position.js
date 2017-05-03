@@ -1,6 +1,6 @@
 (function positionForceDefinition() {
 
-  var vector    = require('../../vector'),
+  var vector    = require('../../geom/vector'),
       config    = require('../../config')
 
   var x, y,

@@ -1,6 +1,7 @@
+#encoding: utf-8
+
 require 'yaml'
 require 'fileutils'
-# require 'redcarpet'
 
 # set environment
 # ————————————————————————————————
@@ -68,13 +69,10 @@ page "/feed.xml", layout: false
 # With alternative layout
 # page "/path/to/file.html", layout: :otherlayout
 
-
-# Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
-# puts 'loading proxy pages'
-# projects = YAML.load_file('data/projects.yml')
-# projects.each do |p|
-#   proxy "/projects/#{p['id']}.html", "/projects/template.html", :locals => { :project => p }, :ignore => true
-# end
+# texts
+# longer texts  are maintained within the data/texts folder
+# to make access easier we copy all these files into the partials folder upon load
+FileUtils.cp_r "data/texts/.", 'source/partials/texts'
 
 ###
 # Helpers
@@ -82,15 +80,37 @@ page "/feed.xml", layout: false
 
 # Methods defined in the helpers block are available in templates
 helpers do
-  def load_markdown(path)
-    puts "loading #{path}"
-    file = File.new(path, 'r')
-    file.read
-  end
+  # def load_markdown(path)
+  #   puts "loading #{path}"
+  #   file = File.new(path, 'r')
+  #   file.read
+  # end
 
   def menu_class(item)
     return "active item #{item.id}" if page_classes.split(' ').include?( item.id )
     return "item #{item.id}"
+  end
+
+  def project_id(project)
+    return project['name'].downcase.gsub(/\s/, '_') 
+  end
+
+  def project_link(project)
+    return "/projects/#{project_id(project)}.html"
+  end
+
+  def tel_to(text)
+    groups = text.to_s.scan(/(?:^\+)?\d+/)
+    if groups.size > 1 && groups[0][0] == '+'
+      # remove leading 0 in area code if this is an international number
+      groups[1] = groups[1][1..-1] if groups[1][0] == '0'
+      groups.delete_at(1) if groups[1].size == 0 # remove if it was only a 0
+    end
+    link_to text, "tel:#{groups.join '-'}"
+  end
+
+  def markdown(text)
+    Tilt['markdown'].new { text }.render
   end
 end
 

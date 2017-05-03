@@ -2,7 +2,7 @@
 
   var inter     = require('kld-intersections').Intersection,
       Point2D   = require('kld-affine').Point2D,
-      vector    = require('../vector'),
+      vector    = require('../geom/vector'),
       config    = require('../config'),
       positionΦ = require('./force/position'),
       focusΦ    = require('./force/focus')

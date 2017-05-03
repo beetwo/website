@@ -1,3 +1,4 @@
+black:            "#000000"
 darkGrey:         "#333333"
 mediumGrey:       "#4e4e4e"
 white:            "#fcfcfc"
@@ -8,6 +9,7 @@ red:              "#ff6b67"
 purple:           "#655e7e"
 blue:             "#5ca6b2"
 green:            "#a6c85d"
+pink:             "#FF47AA"
 
 indexColor:       "$blue"
 newsColor:        "$red"

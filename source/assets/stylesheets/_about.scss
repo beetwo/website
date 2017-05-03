@@ -1,0 +1,16 @@
+#about {
+  background: transparent;
+
+  p {
+    @extend h3;
+    font-weight: 200;
+    font-style: italic;
+
+    //&::first-letter {
+    //  float: left;
+    //  padding-right: 1rem;
+    //  @include typecsset-font-size($dropcap-font-size);
+    //  font-weight: 500;
+    //}
+  }
+}

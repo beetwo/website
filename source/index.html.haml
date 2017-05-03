@@ -2,31 +2,11 @@
 title: BeeTwo
 ---
 
--# .mask.full-size
-  -# #pattern.full-size
+= partial "partials/masthead"
+= partial "partials/about"
+-#= partial "partials/what"
+-#= partial "partials/who"
+-#= partial "partials/how"
+-#= partial "partials/partners"
 
-#index.ui.vertical.masthead.segment
-  .ui.container
-    .ui.header= data.en.title
-    .ui.sub.header= data.en.tagline 
-    .ui.mission= data.en.missionStatement 
-    
-#team.ui.vertical.stripe.segment
-  .ui.text.container
-    .ui.section.header= data.en.team.headline
-  .ui.stackable.grid.fluid.container
-    - data.en.team.members.each do |t|
-      .member.eight.wide.column
-        .ui.accordion
-          .title
-            .image
-              = image_tag t.img, :alt => 'f00', :relative => true
-              
-            %span= t.name
-          .content 
-            %p= t.description
-            %a.ui.circular.icon.button{:href => "mailto:#{t.email}", :target => "_top"}
-              %i.ui.mail.icon
-            %a.ui.circular.icon.button{:href => "mailto:#{t.slack}", :target => "_top"}
-              %i.ui.slack.icon
-            %hr
+= partial "partials/footer"

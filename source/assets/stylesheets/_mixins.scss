@@ -48,7 +48,7 @@
   }
 }
 
-@function schlagschatten($size: 4, $color: #cccccc) {
+@function schatten($size: 4, $color: #cccccc) {
   $stroke: ();
   @for $i from 0 through $size {
     $x: $i;
@@ -58,7 +58,10 @@
   @return $stroke;
 }
 
-@mixin schlagschatten($size: 2, $color: #cccccc) {
-  text-shadow: schlagschatten($size, $color);
+@mixin textschatten($size: 2, $color: #FFDB69) {
+  text-shadow: schatten($size, $color);
 }
 
+@mixin schlagschatten($size: 2, $color: #FFDB69) {
+  box-shadow: schatten($size, $color);
+}

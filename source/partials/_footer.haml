@@ -1,12 +1,14 @@
-#footer.ui.vertical.footer.segment
-  .ui.container
-    #imprint.ui.list
-      .item{:id => "imprint-name"}=    data.meta.name
-      .item{:id => "imprint-role"}=    data.meta.role
-      .item{:id => "imprint-street"}=  data.meta.address.street meta
-      .item{:id => "imprint-town"}=    data.meta.address.town
-      %a.ui.big.circular.icon.button{:id => "imprint-phone", :href => "tel:#{data.meta.phone}", :target => "_top"}
-        %i.ui.phone.icon
-      %a.ui.big.circular.icon.button{:id => "imprint-mail", :href => "mailto:#{data.meta.email}", :target => "_top"}
-        %i.ui.mail.icon
-
+#footer.ui.bloom.segment
+  .ui.text.container
+    .header= data.en.title
+    .sub.header= data.en.role
+    .ui.items
+      .item
+        .content
+          %a.address{:href => "#{data.en.contact.mapLink}", :target => "_blank"}
+            = data.en.contact.address.street
+            %br
+            = data.en.contact.address.city
+      .item
+        .content
+          %a.email{:href => "mailto:#{data.en.contact.email}"}= data.en.contact.email

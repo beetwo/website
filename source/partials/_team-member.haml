@@ -1,0 +1,6 @@
+.core.team.member
+  %ul.invisible
+    - member.each do |key, value|
+      %li{"data-key" => key, "data-value" => value}
+
+

@@ -1,41 +1,112 @@
+.header {
+  @extend h1;
+  &.sub {
+    @extend h3;
+  }
+}
+
+.space {
+  height: 1.5rem;
+  &.three {
+    height: 3rem;
+  }
+}
+
+.up.three {
+  margin-top: -3rem !important;
+}
+
+.aligned {
+
+  &.vertically{
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    .content {
+      flex: 1 0 auto;
+    }
+  }
+}
+
+.full-size {
+  width: 100vw;
+  height: 100vh;
+}
+
+.mask {
+  overflow: hidden;
+}
+
+.menu-offset {
+  padding-top: 6rem;
+}
+
+.invisible {
+  visibility: hidden;
+  display: none;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.aligned {
+  &.center {
+    text-align: center;
+  }
+  &.right {
+    text-align: right;
+  }
+}
+
+.margin {
+  &.left {
+    margin-left: 1.5rem;
+  }
+  &.right {
+    margin-right: 1.5rem;
+  }
+}
+
 .small.text {
   @include typecsset-font-size(14px);
 }
 
 .tiny.text {
- @include typecsset-font-size(12px); 
+  @include typecsset-font-size(12px);
 }
 
-.ui.hexagonal.button {
+.enormous {
+  @extend %typecsset-vertical-rhythm;
+  @include typecsset-font-size($typecsset-enormous-size);
+}
 
+.humongous {
+  @extend %typecsset-vertical-rhythm;
+  @include typecsset-font-size($typecsset-humongous-size);
+}
+
+.no-frills {
   background: transparent;
-  background-image: url('#{$image-path}/hex-dark.svg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  
-  // Sizes
-  // ————————————————
-  &.mini {
-    font-size: 0.78571429rem; }
-  
-  &.tiny {
-    font-size: 0.85714286rem; }
-  
-  &.small {
-    font-size: 0.92857143rem; }
-  
-  &.button {
-    font-size: 1rem; }
-  
-  &.large {
-    font-size: 1.14285714rem; }
-  
-  &.big {
-    font-size: 1.28571429rem; }
-  
-  &.huge {
-    font-size: 1.42857143rem; }
-  
-  &.massive {
-    font-size: 1.71428571rem; }
+  border: none;
+  box-shadow: none;
+  outline: none;
 }
+
+ul {
+  list-style: none;
+}
+
+.dummy.column {
+  padding: 0;
+  margin: 0;
+}
+
+.content {
+  padding: 0 1rem;
+}
+
+
+
+

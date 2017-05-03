@@ -1,15 +1,4 @@
--# Following Menu
-.ui.fixed.menu
-  .ui.one.column.right.aligned.fluid.container
-    %button#toc
+.ui.bottom.fixed.menu
+  .item.right.aligned
+    %a#toc.ui.circular.icon.button
       = partial "partials/iconset"
-
--# Sidebar Menu
-.ui.vertical.inverted.sidebar.menu
-  .ui.container
-    - data.index.each do |i|
-      %a{:class => "#{menu_class(i)}", :href => "#{i.href.nil? ? 'index.html' : i.href}"}
-        - if i.icon 
-          %img.ui.icon{:src => "assets/images/#{i.icon}"}
-        - if i.text 
-          %span= "#{i.text}"

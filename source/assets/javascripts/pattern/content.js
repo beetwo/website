@@ -2,7 +2,7 @@
 
   var d3          = require('d3'),
       config      = require('../config'),
-      vector      = require('../vector'),
+      vector      = require('../geom/vector'),
       util        = require('./util')
 
 

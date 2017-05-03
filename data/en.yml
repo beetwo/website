@@ -1,41 +1,195 @@
 title:            BeeTwo
 tagline:          where digital innovation meets social impact
 role:             Verein für digitale Lösungen mit sozialer Wirkung
-missionStatement: Our purpose is to generate social impact. We are a group of software developers, designers, and anthropologist with a deep experience in imagining, planning, developing and passion for social Impact. We want to apply our digital and design skills to create social impact. We do this by listening and co-creating to gain a deep insight into societal challenges.
+missionStatement: Our purpose is to generate social impact.
 
-sections:
-  - text: Home 
-  - text: Team 
-  - text: F00 
-  - text: bar 
-    
+menu:
+  - title: What we do
+    href: '#what'
+  - title: That's us
+    href:  '#team'
+  - title: Ethics
+    href: '#how'
+  - title: "Friends & supporters"
+    href: '#partners'
+
 team:
-  headline: Who we are
-  members:
-    - id:           'annunziata'
-      name:         'Annunziata'
-      role:         'Managing Director'
-      img:          '/assets/images/annunziata.jpg'
-      email:        'annunziata@beetwo.at'
-      description:  'Annunziata started her career working with street children in Romania for Concordia, opening a house in Bucharest and following this, advised refugees in Austria for Caritas Wien. Annunziata is in the founding association of Zweite Sparkasse. Since 2008, she has worked for good.bee, a microfinance venture, and has set up a science centre for financial literacy (FLiP) . Annunziata holds an MSc in Anthropology and Development Studies from the London School of Economics and Political Science. She studied photography at the London College of Printing and continues her passion for photography, exhibiting in Paris and Vienna.'
-    
-    - id:           'laura'
-      name:         'Laura'
-      role:         "To be determined"
-      img:          '/assets/images/laura.jpg'
-      email:        'laura@beetwo.at'
-      description:  "Laura has degrees in psychology and in the fine arts. She is very good in what she does."
-    
-    - id:           'emanuel'
-      name:         'Emanuel'
-      role:         "To be determined"
-      img:          '/assets/images/emanuel.jpg'
-      email:        'emanuel@beetwo.at'
-      description:  "Emanuel holds a BA in media design from Vorarlberg University of Applied Sciences and an MA in communication design from Zurich University of the Arts. Before joining BeeTwo Emanuel has worked at Sägenvier and spitzar in Dornbirn, think moto in Berlin and EN GARDE in Graz & the Impact Hub Zürich. He is into epic things."
-    
-    - id:           'lowi'
-      name:         'Lowi'
-      role:         "To be determined"
-      img:          '/assets/images/lowi.jpg'
-      email:        'stephan@beetwo.at'
-      description:  "Stephan holds a MSc in computer-science and specializes in human-computer-interaction. He likes pretty things."
+  head: That's us
+  core:
+    introduction:
+
+    members:
+      - id:           'annunziata'
+        name:         'Annunziata Magis'
+        role:         'Team Lead & Partnerships'
+        img:          '/assets/images/annunziata.jpg'
+        email:        'annunziata@beetwo.at'
+        description:  "Annunziata started her career working with street children in Romania for Concordia, opening a house in Bucharest and following this, advised refugees in Austria for Caritas Wien. Annunziata is in the founding association of Zweite Sparkasse. Since 2008, she has worked for good.bee, a microfinance venture, and has set up a science center for financial literacy (FLiP). Annunziata holds a MSc in Anthropology and Development Studies from the London School of Economics and Political Science. She studied photography at the London College of Printing and continues her passion for photography, exhibiting in Paris and Vienna."
+
+      - id:           'laura'
+        name:         'Laura Pirgie'
+        role:         "Concept & Project Coordination"
+        img:          '/assets/images/laura.jpg'
+        email:        'laura@beetwo.at'
+        description:  "Laura moved to Bangladesh in 2006, where she volunteered for Aloha Social Services Bangladesh (ASSB)."
+
+      - id:           'emanuel'
+        name:         'Emanuel Jochum'
+        role:         "Visual & Interaction Design"
+        img:          '/assets/images/emanuel.jpg'
+        email:        'emanuel@beetwo.at'
+        description:  "Emanuel is a designer and brand strategist. He holds a BA in media design from Vorarlberg University of Applied Sciences and an MA in communication design."
+
+      - id:           'lowi'
+        name:         'Stephan Lohwasser'
+        role:         "Nerd"
+        img:          '/assets/images/lowi.jpg'
+        email:        'stephan@beetwo.at'
+        description:  "And the two creatures, who had been jumping about like mad things all this time, sat down again very sadly and quietly, and looked at Alice."
+
+  taskforce:
+    introduction: We also have many friends who are also really into social impacting. When we work together, we can make more social impact. We like that.
+    members:
+      - name: Nicole Traxler
+        role: Controller
+      - name: Benjamin Ferrari
+        role: Product engineer
+      - name: Boyan Filipov
+        role: Software Developer
+      - name: Johannes Brodnig
+        role: Treasurer
+      - name: Stefan Rinner
+        role: Technology consultant
+      - name: Sean McAllister
+        role: Software Developer
+      - name: Thomas Hammerl
+        role: Software Developer
+
+how:
+  head: Principles
+  subHead: "Those maximes whereby we act and  —at the same time— will that they should become a universal law."
+
+  principles:
+    - icon: wizard
+      text: Our main goal is to generate social impact.
+    - icon: heartbeat
+      text: We listen to gain deep insight into social challenges.
+    - icon: hand spock
+      text: We co-create with social initiatives at each step of the way.
+    - icon: fire extinguisher
+      text: We adapt existing open source systems to specific needs of our clients.
+    - icon: space shuttle
+      text: We create tools that are tailored to the needs of end-users.
+    - icon: world
+      text: We think globally.
+    - icon: translate
+      text: We maintain transparency of process and code.
+    - icon: gitlab
+      text: We are mindful of people’s privacy and security.
+    - icon: optinmonster
+      text: We share our process and lessons learned so that others have opportunities to profit from them.
+
+what:
+  head: What we do
+
+  focusIntroduction: The areas in which we excel
+  focus:
+    - Social Inclusion: "Alice remained looking thoughtfully at the mushroom for a minute, trying to make out which were the two sides of it; and as it was perfectly round, she found this a very difficult question. However, at last she stretched her arms round it as far as they would go, and broke off a bit of the edge with each hand."
+    - Social Finance: "She was a good deal frightened by this very sudden change, but she felt that there was no time to be lost, as she was shrinking rapidly; so she set to work at once to eat some of the other bit. Her chin was pressed so closely against her foot, that there was hardly room to open her mouth; but she did it at last, and managed to swallow a morsel of the lefthand bit."
+
+  projectsIntroduction: ""
+  projects:
+    - title:        Toucan
+      id:           toucan
+      logo:         "/assets/images/projects/Toucan_Logo.svg"
+      href:         "https://toucan.beetwo.at"
+
+    - title:        Let’s All Play
+      id:           all_play
+      logo:         "/assets/images/projects/let_us_play.svg"
+
+    - title:        Motmot
+      id:           motmot
+      logo:         "/assets/images/projects/motmot.svg"
+
+    - title:        Tinamou
+      id:           tinamou
+      logo:         "/assets/images/projects/tinamou.svg"
+
+    - title:        Hate
+      id:           hate_crime
+      logo:         "/assets/images/projects/hate_crime.svg"
+
+    - title:        Mobility Makeathon
+      id:           mobility_makeathon
+      logo:         "/assets/images/projects/mobility.svg"
+
+    - title:        Peer Comparing Budgeting Tool
+      id:           budgeting
+      logo:         "/assets/images/projects/budget_calculator.svg"
+
+    - title:        Safe to spend
+      id:           safe_to_spend
+      logo:         "/assets/images/projects/safe_to_spend.png"
+
+support:
+  partners_head: Partners
+  partners:
+    - name: Betterplace
+      url:  "https://betterplace.org/"
+      logo: "/assets/images/partners/betterplace.png"
+
+    - name: Caritas
+      url:  "https://www.caritas.at"
+      logo: "/assets/images/partners/caritas.png"
+
+    - name: ECHO100Plus
+      url:  "https://echo100plus.com/"
+      logo: "/assets/images/partners/echo100.png"
+
+    - name: good.bee credit
+      url:  "https://www.goodbeecredit.ro"
+      logo: "/assets/images/partners/good-bee.png"
+
+    - name: Impact Hub Cluj
+      url:  "https://cluj.impacthub.ro"
+      logo: "/assets/images/partners/impact-hub.jpg"
+
+    - name: Rotes Kreuz
+      url:  "https://www.roteskreuz.at/"
+      logo: "/assets/images/partners/oerk.png"
+
+    - name: SOS Kinderdorf
+      url:  "https://www.sos-kinderdorf.at/"
+      logo: "/assets/images/partners/sos.png"
+
+    - name: UNHCR
+      url:  "www.unhcr.org"
+      logo: "/assets/images/partners/unhcr.png"
+
+  funders_head: Funders
+  funders:
+    - name: Erste Striftung
+      url:  "https://www.erstestiftung.org"
+      logo: "/assets/images/funders/erste_stiftung.png"
+    - name: Erste Group
+      url:  "https://www.erstegroup.com/"
+      logo: "/assets/images/funders/erste_group.png"
+    - name: Bundeskanzleramt
+      url:  "https://www.bka.gv.at"
+      logo: "/assets/images/funders/bka.png"
+
+contact:
+  mapLink: "https://www.google.at/maps/place/Mommsengasse+35,+1040+Wien/@48.1881866,16.3769259,17z"
+  phoneNumber: "+43 664 594 29 88"
+  url: https://beetwo.at
+  address:
+    street: Momsengasse 35
+    city: 1040 Wien
+  phone:   +43 664 594 29 88
+  email:   hello@beetwo.at
+  twitter_handle: '@BeeTwoHub'
+  twitter_link: 'https://twitter.com/beetwohub'
+  ZVR: 262117037
+  UID: ATU71549817
+

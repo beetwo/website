@@ -1,6 +1,6 @@
 (function pattern() {
-  var d3          = require('d3'),
-      vector      = require('../vector'),
+  let d3          = require('d3'),
+      vector      = require('../geom/vector'),
       util        = require('./util'),
       dom         = require('./dom'),
       grad        = require('./gradient'),
@@ -13,7 +13,7 @@
 
   function _reInitialize(parentId, contentId) {
     return function() {
-      var 
+      let 
           // dimensions
           // ————————————————
           width           = math.round($(parentId).width()),  // the width of the svg canvas
@@ -55,7 +55,7 @@
         d3.event.stopPropagation() })
 
       dom.vis.on('click', function() {
-          var m = _mouse(this),
+          let m = _mouse(this),
               n = sim.find(m) 
           if(n.content && n.content.href)
             window.location.href = n.content.href })

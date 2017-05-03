@@ -1,7 +1,7 @@
 (function patternHexagons() {
 
   var d3      = require('d3'),
-      vector  = require('../../vector'),
+      vector  = require('../../geom/vector'),
       config  = require('../../config'),
       util    = require('../util')
 

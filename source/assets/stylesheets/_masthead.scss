@@ -1,0 +1,21 @@
+#masthead {
+  min-height: 100vh;
+  color: $darkGrey;
+  // background: $darkGrey;
+  background: transparent;
+
+  #main-hex {
+    height: 9rem;
+    margin-bottom: 1.5rem;
+    margin-left: 3rem;
+  }
+
+  .ui.header {
+    //margin-bottom: 0;
+  }
+
+  .ui.container {
+    margin-top: 50vh;
+    //margin-left: 24vw !important;
+  }
+}

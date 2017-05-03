@@ -1,6 +1,6 @@
 (function patternGradient() {
 
-  var vector = require('../vector')
+  var vector = require('../geom/vector')
 
   function initialize(dimensions, dom) {
     var gradient  = dom.defs.gradient

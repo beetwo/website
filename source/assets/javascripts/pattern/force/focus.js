@@ -1,6 +1,6 @@
 (function focusForceDefinition() {
 
-  var vector    = require('../../vector'),
+  var vector    = require('../../geom/vector'),
       config    = require('../../config')
 
   function jiggle() {
