@@ -1,8 +1,2 @@
-Hello,
-we are a collective of designers, psychologists, anthropologists and nerds.
-
-We help social organisations, initiatives and movements to explore the opportunities of the digital realm.
-And together with them use technology to tackle the challenges of our information society
-
-We like technology.
-We love humanity.
+We are a transdisciplinary team working in the interplay between technology, aesthetics and humanities.    
+We work together with social organisations and initiatives and co-create digital tools for good.

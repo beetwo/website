@@ -21,12 +21,12 @@
 // |_\__\___/_||_/__/
 @font-face {
   font-family: 'FontAwesome';
-  src:  url('#{$font-path}/fontawesome/fontawesome-webfont.eot');
-  src:  url('#{$font-path}/fontawesome/fontawesome-webfont.eot') format('embedded-opentype'),
-        url('#{$font-path}/fontawesome/fontawesome-webfont.woff2') format('woff2'),
-        url('#{$font-path}/fontawesome/fontawesome-webfont.woff') format('woff'),
-        url('#{$font-path}/fontawesome/fontawesome-webfont.ttf') format('truetype'),
-        url('#{$font-path}/fontawesome/fontawesome-webfont.svg') format('svg');
+  src:  resolve('#{$font-path}/fontawesome/fontawesome-webfont.eot');
+  src:  resolve('#{$font-path}/fontawesome/fontawesome-webfont.eot') format('embedded-opentype'),
+        resolve('#{$font-path}/fontawesome/fontawesome-webfont.woff2') format('woff2'),
+        resolve('#{$font-path}/fontawesome/fontawesome-webfont.woff') format('woff'),
+        resolve('#{$font-path}/fontawesome/fontawesome-webfont.ttf') format('truetype'),
+        resolve('#{$font-path}/fontawesome/fontawesome-webfont.svg') format('svg');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -41,6 +41,6 @@
 //                       |_|
 @font-face {
   font-family: 'Monofur';
-  src: url('../fonts/monofur/monofur.ttf') format('truetype');
+  src: resolve('#{$font-path}/monofur/monofur.ttf') format('truetype');
 }
 

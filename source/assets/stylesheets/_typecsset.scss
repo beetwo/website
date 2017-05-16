@@ -21,13 +21,24 @@
 //     @include typecsset-font-size(24px);
 // }
 //
-@mixin typecsset-font-size($font-size, $line-height: true) {
+@mixin typecsset-font-size($font-size, $line-height: true, $important: false) {
     font-size: $font-size;
     font-size: ($font-size / $typecsset-base-font-size) * 1rem;
+
+    @if $important == true {
+        font-size: $font-size !important;
+        font-size: ($font-size / $typecsset-base-font-size) * 1rem !important;
+    }
 
     @if $line-height == true {
         line-height: ceil($font-size / $typecsset-base-line-height) * ($typecsset-base-line-height / $font-size);
     }
+
+    @if $line-height == true && $important == true {
+        line-height: ceil($font-size / $typecsset-base-line-height) * ($typecsset-base-line-height / $font-size) !important;
+    }
+
+
 
 }
 

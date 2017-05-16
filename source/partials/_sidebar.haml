@@ -1,16 +1,26 @@
 #sidebar.ui.vertical.right.overlay.menu.sidebar
+  
+  .language.item
+    %i.world.icon
+    .ui.language.selection.dropdown
+      %input{:name => "language", :type => "hidden"}/
+      .default.text Language
+      .menu
+        .item{"data-value" => "1"} en
+        .item{"data-value" => "0"} de
+
   - data.en.menu.each do |m|
     %a.item{:href => m.href}= m.title
 
-  .item
-    .ui.grid
-      .three.column.row
-        .column
-          %a.ui.circular.large.icon.button{:href => "#{data.en.contact.mapLink}", :target => "_blank"}
-            %i.ui.marker.icon
-        .column
-          %a.ui.circular.large.icon.button{:href => "mailto:#{data.en.contact.email}"}
-            %i.ui.mail.icon
-        .column
-          %a.ui.circular.large.icon.button{:href => "#{data.en.contact.twitter_link}", :target => "_blank"}
-            %i.ui.twitter.icon
+  -# .item
+  -#   .ui.grid
+  -#     .three.column.row
+  -#       .column
+  -#         %a.ui.circular.large.icon.button{:href => "#{data.en.contact.mapLink}", :target => "_blank"}
+  -#           %i.ui.marker.icon
+  -#       .column
+  -#         %a.ui.circular.large.icon.button{:href => "mailto:#{data.en.contact.email}"}
+  -#           %i.ui.mail.icon
+  -#       .column
+  -#         %a.ui.circular.large.icon.button{:href => "#{data.en.contact.twitter_link}", :target => "_blank"}
+  -#           %i.ui.twitter.icon

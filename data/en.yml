@@ -4,14 +4,12 @@ role:             Verein für digitale Lösungen mit sozialer Wirkung
 missionStatement: Our purpose is to generate social impact.
 
 menu:
-  - title: What we do
-    href: '#what'
-  - title: That's us
-    href:  '#team'
-  - title: Ethics
-    href: '#how'
-  - title: "Friends & supporters"
-    href: '#partners'
+  - title: BeeTwo
+    href: '#masthead'
+  - title: About
+    href:  '#about'
+  - title: Contact
+    href: '#messages'
 
 team:
   head: That's us
@@ -179,12 +177,15 @@ support:
       url:  "https://www.bka.gv.at"
       logo: "/assets/images/funders/bka.png"
 
+slack:
+  salutation: "Say hello!"
+
 contact:
   mapLink: "https://www.google.at/maps/place/Mommsengasse+35,+1040+Wien/@48.1881866,16.3769259,17z"
   phoneNumber: "+43 664 594 29 88"
   url: https://beetwo.at
   address:
-    street: Momsengasse 35
+    street: Mommsengasse 35
     city: 1040 Wien
   phone:   +43 664 594 29 88
   email:   hello@beetwo.at

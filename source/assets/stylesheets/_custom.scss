@@ -1,3 +1,7 @@
+.monospaced {
+  font-family: 'Monofur';
+}
+
 .header {
   @extend h1;
   &.sub {
@@ -60,13 +64,8 @@
   }
 }
 
-.margin {
-  &.left {
-    margin-left: 1.5rem;
-  }
-  &.right {
-    margin-right: 1.5rem;
-  }
+.no.margin {
+  margin: 0 !important;
 }
 
 .small.text {
@@ -77,12 +76,17 @@
   @include typecsset-font-size(12px);
 }
 
-.enormous {
+.large.text {
+  @extend %typecsset-vertical-rhythm;
+  @include typecsset-font-size($typecsset-h4-size);
+}
+
+.enormous.text {
   @extend %typecsset-vertical-rhythm;
   @include typecsset-font-size($typecsset-enormous-size);
 }
 
-.humongous {
+.humongous.text {
   @extend %typecsset-vertical-rhythm;
   @include typecsset-font-size($typecsset-humongous-size);
 }

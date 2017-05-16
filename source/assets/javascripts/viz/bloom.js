@@ -24,8 +24,8 @@ let noise   = new OpenSimplexNoise(_.now()),
 
 
 function color(index) { return _.nth(PALLETE, index) }
-function xFocus(w) { return 0.24 * w }
-function yFocus(h) { return 0.24 * h }
+function xFocus(w) { return 0.42 * w }
+function yFocus(h) { return 0.42 * h }
 
 // function _hexWidth(){ return $('#hex').width() }
 function _hexWidth(){ return $('#hex')[0].getBoundingClientRect().width }
@@ -78,9 +78,6 @@ function _forceRange({id, top, height}) {
   let MIN_SCALE = 4,
       // the with depends on the size of the hexagon template
       w = 0.81 * _hexWidth() / hexΣ($(window).width()),
-
-      Ϟ = console.log('w w', $(window).width(), _hexWidth(), w),
-
       stops = { 'startExpand':  MIN_SCALE,
                 'stopExpand':   w,
                 'startGrow':    w,
@@ -122,8 +119,8 @@ function _resize(β) {
   let width       = $(window).width(),
       height      = $(window).height()
 
-  targetXΣ.domain([0, _totalHeight()]).range([0, 0.42 * width])
-  targetYΣ.domain([0, _totalHeight()]).range([0, -0.08 * height])
+  targetXΣ.domain([0, _totalHeight()]).range([0, 0.32 * width])
+  targetYΣ.domain([0, _totalHeight()]).range([0, 0.32 * height])
 
   β.xΦ.x(targetXΣ(0))
   β.yΦ.y(targetYΣ(0))
@@ -151,8 +148,6 @@ function  ticked(β) {
   // update the node radii depending on the scroll position
   _.each(β.nodes, (η) => {
     let σ =  _findSegment(η.id, β.segments)
-    // console.log(η.id, σ.forceΣ(top), σ.forceΣ.domain(), σ.forceΣ.range())
-    // console.log('\t\t', σ.sizeΣ(top), σ.sizeΣ.domain(), σ.sizeΣ.range())
     η.radius = σ.forceΣ(top) })
 
   // as the radii change, constantly update the collissionΦ
@@ -275,27 +270,19 @@ function init(parentId, segmentsSelector) {
   if ($(parentId).length === 0) return
 
   _initializeSegments(segmentsSelector)
-    .then( (β) => {
-      console.log('initialized segments', β)
-      return _initializeNodes(β) })
-    .then( (β) => {
-      console.log('initialized nodes', β)
-      return _initializeDOM(parentId, β) })
-    .then( (β) => {
-      console.log('initialized DOM', β)
-      return _initializeSimulation(β) })
-    .then( (β) => {
-      console.log('initialized simulation', β)
-      return new Promise((resolve) => { _.delay(() => { resolve(_resize(β)) }, 1000) } ) })
+    .then( (β) => { return _initializeNodes(β) })
+    .then( (β) => { return _initializeDOM(parentId, β) })
+    .then( (β) => { return _initializeSimulation(β) })
+    .then( (β) => { return new Promise((resolve) => { _.delay(() => { resolve(_resize(β)) }, 810) } ) })
     .then( (β) => { // attach window handlers
-                    $(window).on('resize', _.debounce(() => { _resize(β) }, 150))
-                    $(window).on('scroll', () => { console.log('scroll', $(window).scrollTop()) })
+                    $(window).on('resize', _.debounce(() => { _resize(β) }, 148))
+                    // $(window).on('scroll', () => { console.log('scroll', $(window).scrollTop()) })
 
                     // start the simulation
                     β.simulation.on('tick', () => {β = ticked(β)})
 
                     β.svg.transition()
-                      .duration(2000)
+                      .duration(810)
                       .ease(d3.easePolyOut.exponent(2))
                       .style('opacity', 1)
     })

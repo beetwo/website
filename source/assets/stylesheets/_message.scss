@@ -1,0 +1,103 @@
+#slack-messages {
+  transition: height $mf-transition-speed ease;
+}
+
+.slack-frame {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 0 !important;
+
+  .form-group {
+    flex: 1 0 auto;
+  }
+
+  .button {
+    flex: 0 0 auto;
+  }
+}
+
+.message {
+
+  .content {
+    overflow: hidden;
+    padding: 0 1rem;
+    border: 1px solid $darkGrey;
+    border-radius: 4px;
+    @extend %typecsset-vertical-rhythm;
+    @include typecsset-font-size($typecsset-base-font-size);
+    margin-bottom: 0;
+
+    p {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .user {
+    @extend .tiny.text;
+    &.right{
+      text-align: right;
+    }
+  }
+}
+
+.ui.icon.button.slack {
+  $p-left:  0.68em;
+  $p-right: 1.57142858em - $p-left;
+  padding-left: $p-left;
+  padding-right: $p-right;
+
+  margin-right: 0;
+  margin-left: 0.5rem;
+
+  background: transparent;
+  box-shadow: 0em 0em 0em 0.1em $darkGrey inset;
+  transition: all $mf-transition-speed ease;
+  i {
+    transition: color $mf-transition-speed ease;
+    color: $darkGrey;
+  }
+
+  &:hover {
+    background: $darkGrey;
+    i { color: $mediumGrey; }
+  }
+}
+
+
+#messages {
+  margin-bottom: 0rem;
+
+
+  .meta {
+    @extend .right.aligned;
+    @extend .tiny.text;
+    margin-top: -2.5rem;
+    font-style: italic;
+    margin-right: 1.5rem;
+  }
+
+
+  a {
+    text-decoration: none;
+    &:hover{
+      text-decoration: none;
+      i.ui.circular.icon {
+        @extend .rotated;
+        @extend .clockwise;
+        text-decoration: none;
+      }
+    }
+  }
+
+  i.ui.circular.icon {
+    transition: all $mf-transition-speed ease;
+    padding: 0.5em 0.5em !important;
+    box-shadow: 0em 0em 0em 0.1em $darkGrey inset;
+    width: 2em !important;
+    height: 2em !important;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: -0.64rem;
+  }
+}

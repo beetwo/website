@@ -3,6 +3,7 @@
 let webpack           = require('webpack'),
     ExtractTextPlugin = require('extract-text-webpack-plugin');
     Clean             = require('clean-webpack-plugin'),
+    Dotenv            = require('dotenv-webpack'),
     path              = require('path'),
     definePlugin      = new webpack.DefinePlugin({
                           __DEVELOPMENT__: JSON.stringify(JSON.parse(process.env.WEBPACK_ENV === 'development')),
@@ -92,6 +93,7 @@ module.exports = {
     definePlugin,
     new Clean(['.tmp']),
     new ExtractTextPlugin({ filename: 'assets/stylesheets/index.bundle.css', allChunks: true }),
+    new Dotenv({ path: './.env', safe: false }),
     new webpack.ProvidePlugin({
       $               :'jquery',
       jQuery          :'jquery',

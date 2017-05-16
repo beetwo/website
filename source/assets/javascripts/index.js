@@ -1,20 +1,20 @@
 import SVGMorpheus from './svg-morpheus'
-import principles from './principles'
+// import principles from './principles'
 import team from './team'
 import fancyHeader from './viz/fancy-header'
 import project from './viz/project'
 import bloom from './viz/bloom'
 import splat from './splat/splat'
-import loopScroll from './viz/loop-scroll'
+import Slack from './slack'
 
 require('./semantic-ui/accordion')
 // require('./semantic-ui/api')
 // require('./semantic-ui/checkbox')
 // require('./semantic-ui/colorize')
 require('./semantic-ui/dimmer')
-// require('./semantic-ui/dropdown')
+require('./semantic-ui/dropdown')
 // require('./semantic-ui/embed')
-// require('./semantic-ui/form')
+require('./semantic-ui/form')
 // require('./semantic-ui/modal')
 // require('./semantic-ui/nag')
 // require('./semantic-ui/popup')
@@ -80,6 +80,9 @@ function _menu() {
         $('#toc').removeClass('open') }})
     .sidebar('attach events', '#toc')
     .sidebar('attach events', '#sidebar > a')
+
+  if ($('.ui.dropdown').length === 0) return
+  $('.ui.dropdown').dropdown()
 }
 
 function _projects() {
@@ -89,17 +92,16 @@ function _parallax() {
   new Rellax('.rellax', { center: true })
 }
 
-
-function _splat() {
-  $('.splat').each((ι, η) => {
-    console.log('initialize splat', ι, η)
-    splat(η)
-  })
-}
+  //
+  // function _splat() {
+  //   $('.splat').each((ι, η) => {
+  //     console.log('initialize splat', ι, η)
+  //     splat(η)
+  //   })
+  // }
 
 function _map() {
-
-  console.log('making map', L)
+  if ($('#map').length === 0) return
 
   let map         = L.map('map', {center: [48.19,16.355],
                                   zoom:   13,
@@ -123,18 +125,23 @@ function _map() {
     .openOn(map);
 }
 
+function _slack() {
+  if ($('#slack-messages').length === 0) return
+  Slack.init('.slack-input', '.button.slack', '#slack-messages')
+}
+
 $(document)
   .ready(function () {
     _menu()
-    // _scrollSmoothly()
+    _scrollSmoothly()
     team.init('.core.team.member')
     fancyHeader('.fancy')
     _parallax()
-    _splat()
     _map()
     // loopScroll('.pusher', '.segment')
-
+    _slack()
     bloom('#bloom', '.bloom.segment')
+
     // principles.init('#principles')
 
   })

@@ -7,10 +7,24 @@ $menuItemSize: 1.5rem;
   margin: 1.5rem;
   border: none !important;
 
-
   &:before {
     height: 0;
     width: 0;
+  }
+
+  &.language {
+    &:before {
+      height: 0;
+      width: 0;
+      @extend .invisible;
+    }
+
+    color: $mediumGrey;
+    i.icon {
+      color: $mediumGrey;
+      float: unset;
+      margin-left: 0; 
+    }
   }
 }
 
@@ -45,4 +59,28 @@ $menuItemSize: 1.5rem;
 
 #sidebar {
   padding-top: 9rem;
+}
+
+.ui.language.selection.dropdown {
+  border: 1px solid $pink;
+  padding: 0;
+  min-width: unset;
+  min-height: unset;
+  width: 6rem;
+
+  .text {
+    color: $mediumGrey;
+  }
+
+  i.icon {
+    padding: 0;
+  }
+
+  .menu {
+    .item {
+      @include typecsset-font-size(10px, true, true); 
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+  }
 }

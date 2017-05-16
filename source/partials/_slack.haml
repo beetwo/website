@@ -1,0 +1,35 @@
+#messages.ui.bloom.segment
+  -#.ui.text.container.rellax{"data-rellax-speed" => 1.2}
+  -#  = partial "partials/texts/hello"
+  -#.three.space
+
+  .ui.text.container
+    #slack-messages.ui.grid
+    .slack-frame.ui.no-padding.segment
+      .form-group.slack-input
+        %textarea
+        %label.control-label{:for => "textarea"}= data.en.slack.salutation
+        %i.bar
+      .ui.circular.icon.button.slack{"data-tooltip" => "SHIFT + ENTER"}
+        %i.ui.send.icon
+
+  .three.space
+  .ui.text.container
+    %p.email
+      %a{:href => "mailto:#{data.en.contact.email}"}
+        %i.ui.circular.mail.icon
+        %span.address= data.en.contact.email
+
+  .ui.text.container
+    %p.phone
+      %a{:href => "tel:#{data.en.contact.phone}"}
+        %i.ui.circular.phone.icon
+        %span.address= data.en.contact.phone
+
+  .ui.text.container
+    %p.address
+      %a{:href => "#{data.en.contact.mapLink}", :target => "_blank"}
+        %i.ui.circular.home.icon
+        = data.en.contact.address.street
+        ,
+        = data.en.contact.address.city

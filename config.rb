@@ -22,6 +22,9 @@ activate :external_pipeline,
 # General configuration
 activate :meta_tags
 
+
+activate :i18n
+
 set :relative_links,  true
 # set :http_prefix,     'beetwo'
 set :css_dir,         'assets/stylesheets'
@@ -30,7 +33,7 @@ set :images_dir,      'assets/images'
 
 
 # Build-specific configuration
-set :build_dir, "beetwo"
+set :build_dir, "build"
 configure :build do
   set :trailing_slash, false
 

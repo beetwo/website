@@ -1,13 +1,15 @@
-#about, #hello {
+#about{
   background: transparent;
 
   margin-top: 9rem;
   margin-bottom: 9rem;
+  padding-top: 6rem;
 
   p {
-    @extend h3;
-    font-weight: 200;
-    font-style: italic;
+    @extend %typecsset-vertical-rhythm;
+    @include typecsset-font-size($typecsset-h4-size);
+    font-weight: 400;
+    line-height: 1.5;
 
     //&::first-letter {
     //  float: left;

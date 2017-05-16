@@ -1466,7 +1466,6 @@ SVGMorpheus.prototype.registerEasing=function(name, fn) {
   easings[name] = fn;
 }
 
-console.log('hello from morphNode')
 module.exports = SVGMorpheus
 
 // if (typeof define === 'function' && define.amd) {
