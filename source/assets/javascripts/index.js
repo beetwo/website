@@ -81,8 +81,29 @@ function _menu() {
     .sidebar('attach events', '#toc')
     .sidebar('attach events', '#sidebar > a')
 
-  if ($('.ui.dropdown').length === 0) return
-  $('.ui.dropdown').dropdown()
+}
+
+function _i18n() {
+  // dropdown menu selector
+  let ζ = $('.ui.language.dropdown')
+  // stop if it ain't there
+  if (ζ.length === 0) return
+  // init dropdown
+  ζ.dropdown({ onChange: (_value, text) => { 
+    let host      = window.location.host,
+        pathname  = window.location.pathname,
+        search    = window.location.search,
+        hash      = window.location.hash
+
+    pathname = pathname.replace(/\/(de)/, '')
+    if(text === 'de') pathname = '/de' + pathname
+
+    window.location.pathname = pathname
+  } })
+    // .dropdown('set selected', window.location.href.match(/\/de/) ? 0 : 1)
+    .dropdown('set text', window.location.href.match(/\/de/) ? 'de' : 'en')
+
+
 }
 
 function _projects() {
@@ -133,6 +154,7 @@ function _slack() {
 $(document)
   .ready(function () {
     _menu()
+    _i18n()
     _scrollSmoothly()
     team.init('.core.team.member')
     fancyHeader('.fancy')

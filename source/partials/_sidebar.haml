@@ -1,7 +1,10 @@
 #sidebar.ui.vertical.right.overlay.menu.sidebar
   
+  - data.en.menu.each do |m|
+    %a.item{:href => m.href}= m.title
+
   .language.item
-    %i.world.icon
+    %i.small.world.icon
     .ui.language.selection.dropdown
       %input{:name => "language", :type => "hidden"}/
       .default.text Language
@@ -9,8 +12,6 @@
         .item{"data-value" => "1"} en
         .item{"data-value" => "0"} de
 
-  - data.en.menu.each do |m|
-    %a.item{:href => m.href}= m.title
 
   -# .item
   -#   .ui.grid

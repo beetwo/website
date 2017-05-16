@@ -62,14 +62,23 @@ $menuItemSize: 1.5rem;
 }
 
 .ui.language.selection.dropdown {
-  border: 1px solid $pink;
+  border: none;
   padding: 0;
   min-width: unset;
   min-height: unset;
   width: 6rem;
 
+  &.active {
+    .menu {
+      border-radius: 1px;
+      border: 1px solid $mediumGrey;
+      border-top-width: 1px !important;
+    }
+  }
+
   .text {
     color: $mediumGrey;
+    @include typecsset-font-size(12px, true, true); 
   }
 
   i.icon {
@@ -78,7 +87,7 @@ $menuItemSize: 1.5rem;
 
   .menu {
     .item {
-      @include typecsset-font-size(10px, true, true); 
+      @include typecsset-font-size(12px, true, true); 
       padding-top: 0 !important;
       padding-bottom: 0 !important;
     }

@@ -19,11 +19,8 @@ activate :external_pipeline,
   source: ".tmp/dist",
   latency: 1
 
-# General configuration
 activate :meta_tags
-
-
-activate :i18n
+activate :i18n, :mount_at_root => :en
 
 set :relative_links,  true
 # set :http_prefix,     'beetwo'
