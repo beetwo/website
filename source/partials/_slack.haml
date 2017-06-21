@@ -8,7 +8,7 @@
     .slack-frame.ui.no-padding.segment
       .form-group.slack-input
         %textarea
-        %label.control-label{:for => "textarea"}= data.en.slack.salutation
+        %label.control-label{:for => "textarea"}=t(:sayhello)
         %i.bar
       .ui.circular.icon.button.slack{"data-tooltip" => "SHIFT + ENTER"}
         %i.ui.send.icon
@@ -18,18 +18,17 @@
     %p.email
       %a{:href => "mailto:#{data.en.contact.email}"}
         %i.ui.circular.mail.icon
-        %span.address= data.en.contact.email
+        %span.address= data.meta.contact.email
 
   .ui.text.container
     %p.phone
       %a{:href => "tel:#{data.en.contact.phone}"}
         %i.ui.circular.phone.icon
-        %span.address= data.en.contact.phone
+        %span.address= data.meta.contact.phone
 
   .ui.text.container
     %p.address
       %a{:href => "#{data.en.contact.mapLink}", :target => "_blank"}
         %i.ui.circular.home.icon
-        = data.en.contact.address.street
-        ,
-        = data.en.contact.address.city
+        #{data.meta.contact.address.street},
+        = data.meta.contact.address.city

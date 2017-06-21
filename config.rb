@@ -22,6 +22,10 @@ activate :external_pipeline,
 activate :meta_tags
 activate :i18n, :mount_at_root => :en
 
+activate :google_analytics do |ga|
+  ga.tracking_id = 'UA-99325519-1'
+end
+
 set :relative_links,  true
 # set :http_prefix,     'beetwo'
 set :css_dir,         'assets/stylesheets'

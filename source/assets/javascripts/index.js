@@ -5,7 +5,8 @@ import fancyHeader from './viz/fancy-header'
 import project from './viz/project'
 import bloom from './viz/bloom'
 import splat from './splat/splat'
-import Slack from './slack'
+// import Slack from './slack'
+import Cookies from 'js-cookie'
 
 require('./semantic-ui/accordion')
 // require('./semantic-ui/api')
@@ -16,7 +17,7 @@ require('./semantic-ui/dropdown')
 // require('./semantic-ui/embed')
 require('./semantic-ui/form')
 // require('./semantic-ui/modal')
-// require('./semantic-ui/nag')
+require('./semantic-ui/nag')
 // require('./semantic-ui/popup')
 // require('./semantic-ui/progress')
 // require('./semantic-ui/rating')
@@ -32,8 +33,7 @@ require('./semantic-ui/transition')
 require('./semantic-ui/visibility')
 require('./semantic-ui/visit')
 
-let Rellax = require('rellax'),
-    L = require('leaflet')
+let Rellax = require('rellax')
 
 
 
@@ -96,7 +96,7 @@ function _i18n() {
         hash      = window.location.hash
 
     pathname = pathname.replace(/\/(de)/, '')
-    if(text === 'de') pathname = '/de' + pathname
+    if(text === 'de') pathname = pathname + 'de' 
 
     window.location.pathname = pathname
   } })
@@ -113,13 +113,11 @@ function _parallax() {
   new Rellax('.rellax', { center: true })
 }
 
-  //
-  // function _splat() {
-  //   $('.splat').each((ι, η) => {
-  //     console.log('initialize splat', ι, η)
-  //     splat(η)
-  //   })
-  // }
+function _cookieNag() {
+  $.cookie = Cookies
+  let nagCookie = Cookies.get('accepts-cookies')
+  // Automatically shows on init if cookie isn't set
+  if(!nagCookie) $('.cookie.nag').slideDown() }
 
 function _map() {
   if ($('#map').length === 0) return
@@ -160,8 +158,9 @@ $(document)
     fancyHeader('.fancy')
     _parallax()
     _map()
+    _cookieNag()
     // loopScroll('.pusher', '.segment')
-    _slack()
+    // _slack()
     bloom('#bloom', '.bloom.segment')
 
     // principles.init('#principles')

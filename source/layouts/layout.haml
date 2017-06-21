@@ -10,6 +10,11 @@
     #bloom
     = partial "partials/menu"
     = partial "partials/sidebar"
+    .ui.overlay.inverted.cookie.nag{:style => 'display:none;'}
+      %a.title{:href => "#", :onClick => "$.cookie.set('accepts-cookies', '1');$('.cookie.nag').slideUp()"}
+        =t(:cookieMsg)
+        %i.close.icon
+    }
     .pusher
       -##baseline
       -#%h1 baseline
@@ -22,3 +27,4 @@
 
     = javascript_include_tag "index.bundle", :relative => true
     = yield_content :javascripts
+    = google_analytics_tag

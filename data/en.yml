@@ -1,14 +1,14 @@
 title:            BeeTwo
-tagline:          where digital innovation meets social impact
 role:             Verein für digitale Lösungen mit sozialer Wirkung
-missionStatement: Our purpose is to generate social impact.
 
 menu:
-  - title: BeeTwo
-    href: '#masthead'
-  - title: About
-    href:  '#about'
-  - title: Contact
+  # - title: BeeTwo
+  #   href: '#masthead'
+  - title: Who
+    href:  '#who'
+  - title: What
+    href:  '#what'
+  - title: Hello
     href: '#messages'
 
 team:

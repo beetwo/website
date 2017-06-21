@@ -20,8 +20,7 @@ let noise   = new OpenSimplexNoise(_.now()),
     targetYΣ = d3.scaleLinear(),
     hexΣ    = d3.scaleLinear()
                 .domain([320, 1920])
-                .range([1, 3.2]) // the width of the scaled hexagon
-
+                .range([1, 1])
 
 function color(index) { return _.nth(PALLETE, index) }
 function xFocus(w) { return 0.42 * w }
@@ -49,7 +48,8 @@ function _domain({id, top, height}) {
                 'startGrow':   0.62 * _windowHeight() + 1,
                 'stopGrow':    _windowHeight(),
                 'startShrink': _totalHeight() - _windowHeight(),
-                'stopShrink':  _totalHeight() }
+                'stopShrink':  _totalHeight(),
+                'infinity':    1000000}
   return _.values(stops) }
 
 function _sizeRange({id, top, height}) {
@@ -60,7 +60,8 @@ function _sizeRange({id, top, height}) {
                 'startGrowing':   1,
                 'stopGrowing':    1,
                 'startShrinking': 1,
-                'stopShrinking':  MIN_SCALE }
+                'stopShrinking':  MIN_SCALE,
+                'infinity':       2 * MIN_SCALE }
 
   // first screen
   if (top === 0)
@@ -69,7 +70,8 @@ function _sizeRange({id, top, height}) {
               'startGrowing': 1,
               'stopGrowing':  MAX_SCALE,
               'startShrink':  MAX_SCALE,
-              'stopShrink':   MIN_SCALE }
+              'stopShrink':   MIN_SCALE,
+              'infinity':     2 * MIN_SCALE }
 
   return _.values(stops) }
 
@@ -77,13 +79,17 @@ function _forceRange({id, top, height}) {
       // the minimum collision circle radius is 4
   let MIN_SCALE = 4,
       // the with depends on the size of the hexagon template
-      w = 0.81 * _hexWidth() / hexΣ($(window).width()),
+      w = 0.5 * _hexWidth() / hexΣ($(window).width()),
+
+      Ϟ = console.log('_hexWidth()', _hexWidth(), 'hexΣ', hexΣ($(window).width())),
+
       stops = { 'startExpand':  MIN_SCALE,
                 'stopExpand':   w,
                 'startGrow':    w,
                 'stopGrow':     w,
                 'startShrink':  w,
-                'stopShrink':   MIN_SCALE }
+                'stopShrink':   MIN_SCALE,
+                'infinity':     2 * MIN_SCALE }
 
   if (top === 0)
     stops = { 'startExpand':  MIN_SCALE,
@@ -91,7 +97,8 @@ function _forceRange({id, top, height}) {
               'startGrow':    w,
               'stopGrow':     w * MAX_SCALE,
               'startShrink':  w * MAX_SCALE,
-              'stopShrink':   4 * MIN_SCALE }
+              'stopShrink':   MIN_SCALE,
+              'infinity':     2 * MIN_SCALE }
 
   return _.values(stops) }
 
@@ -179,18 +186,19 @@ function  ticked(β) {
 
 function _initializeSimulation(β) {
   return new Promise((resolve) => {
+    // make simaulation & forces
     let simulation  = d3.forceSimulation(),
         colissionΦ  = d3.forceCollide()
                         .iterations(12)
                         .radius((δ) => { return δ.radius }),
         xΦ          = d3.forceX(),
         yΦ          = d3.forceY()
-
     simulation.nodes(β.nodes)
     simulation.force('colission', colissionΦ)
     simulation.force('x', xΦ)
     simulation.force('y', yΦ)
 
+    // put into β
     β.colissionΦ  = colissionΦ
     β.xΦ          = xΦ
     β.yΦ          = yΦ

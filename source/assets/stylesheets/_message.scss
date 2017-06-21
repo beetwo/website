@@ -34,9 +34,18 @@
   }
 
   .user {
+    color: $mediumGrey;
     @extend .tiny.text;
-    &.right{
-      text-align: right;
+    float:left;
+    margin-right: 4px;
+  }
+
+  .timestamp {
+    color: $mediumGrey;
+    float:left;
+    @extend .tiny.text;
+    &:before {
+      content: '— '
     }
   }
 }
