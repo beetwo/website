@@ -23,8 +23,8 @@
     padding: 0 1rem;
     border: 1px solid $darkGrey;
     border-radius: 4px;
-    @extend %typecsset-vertical-rhythm;
-    @include typecsset-font-size($typecsset-base-font-size);
+    // @extend %typecsset-vertical-rhythm;
+    // @include typecsset-font-size($typecsset-base-font-size);
     margin-bottom: 0;
 
     p {
@@ -35,7 +35,7 @@
 
   .user {
     color: $mediumGrey;
-    @extend .tiny.text;
+    // @extend .tiny.text;
     float:left;
     margin-right: 4px;
   }
@@ -43,7 +43,7 @@
   .timestamp {
     color: $mediumGrey;
     float:left;
-    @extend .tiny.text;
+    // @extend .tiny.text;
     &:before {
       content: '— '
     }
@@ -72,15 +72,13 @@
     i { color: $mediumGrey; }
   }
 }
-
-
 #messages {
   margin-bottom: 0rem;
 
 
   .meta {
     @extend .right.aligned;
-    @extend .tiny.text;
+    // @extend .tiny.text;
     margin-top: -2.5rem;
     font-style: italic;
     margin-right: 1.5rem;

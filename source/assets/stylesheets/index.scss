@@ -8,31 +8,17 @@
 @import "fonts";
 
 @import "semantic-ui";
-@import "material-forms";
-@import "typecsset";
-@import "text-stroke";
-@import "leaflet";
 
-//@import "slick";
-//@import "slick-theme";
-
-// @import "menu";
-// @import "areas-of-focus";
-// @import "news";
-// @import "projects";
+@import "lib/slick";
+@import "lib/slick-theme";
 
 @import "overrides";
-@import "tufte";
+// @import "tufte";
 @import "custom";
 @import "menu";
-@import "masthead";
-@import "about";
-@import "how";
-@import "what";
-@import "who";
 @import "footer";
 @import "viz";
-@import "message";
+// @import "message";
 @import "debug";
 
 //————————————————————————————————
@@ -43,6 +29,32 @@
   background-image: url('#{$image-path}/baseline.png') !important;
   background-repeat: repeat;
 }
+
+$min_width: 320px;
+$max_width: 1200px;
+$min_font: 16px;
+$max_font: 21px;
+
+html, body {
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+}
+
+$mod_1: 1.2; // mobile
+$mod_2: 1.5; // desktop
+
+h1 {  
+  font-size: $mod_1*$mod_1*$mod_1*$mod_1 *1rem; 
+  @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font);
+}
+h2 {  
+  font-size: $mod_1*$mod_1*$mod_1 *1rem; 
+  @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font);
+}
+h3 { 
+  font-size: $mod_1*$mod_1 *1rem;
+  @include fluid-type($min_width, $max_width, $mod_1*$mod_1 *$min_font, $mod_2*$mod_2 *$min_font);
+}
+
 
 
 body {
@@ -58,8 +70,18 @@ body {
 a {
   color: $darkGrey;
   text-decoration: none;
+
+  i {
+    transition: transform 0.3s;
+    transform-origin: center center;
+  }
+
   &:hover {
-    text-decoration: underline;
+    i {
+      transform: scale(1.4);  
+    }
+    
+    text-decoration: none;
   }
 }
 
@@ -68,11 +90,78 @@ p {
   font-weight: 400;
 }
 
-.section.header {
-  @extend h2;
+h1, h2, h3, h4, h5, h6, .ui.header {
+  font-family: $display-font-family;
+  font-weight: 500;
+}
 
-  &.sub {
-    @extend h5;
-    font-weight: 300;
+blockquote {
+  margin-top: 4.5rem;
+  margin-bottom: 4.5rem;
+  &:first-child:first-letter {
+    float: left;
+    padding-right: 0.25rem;
+    @include fluid-type($min_width, $max_width, 2 * $mod_1*$mod_1*$min_font, 2 * $mod_2*$mod_2*$min_font);
+    line-height: 0.81;
+  }
+}
+
+.sticky.section.header {
+  transition: opacity 300ms ease;
+  &.hidden {
+    opacity: 0;}}
+
+#masthead {
+  display: flex;
+  align-items: flex-end;
+  & > .ui.container {
+    flex: 0 0 auto;
+    margin-bottom: 1.5rem;
+
+    a {
+      @extend h1;
+    }
+    
+  }
+}
+
+.projects {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.project{
+  padding: 0 1rem;
+  .ui.segment {
+    padding: 0;
+    background: $white;
+  
+    .content {
+      padding: 1rem 1rem 1.5rem 1rem;
+    }
+  
+    .extra {
+      text-align: right;
+      padding: 0 1rem 1.5rem 1rem;
+    }
+  }
+}
+
+
+.partners, .funders {
+  &.slick-slider {
+    background: $white;
+    box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+  }
+  .slick-track {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.partner, .funder {
+  padding: 3rem 3rem;
+  img {
+    height: 3rem;
   }
 }

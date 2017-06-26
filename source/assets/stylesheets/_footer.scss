@@ -32,10 +32,10 @@
   }
 
   .header {
-    @extend h2;
+    // @extend h2;
     color: $darkGrey;
     &.sub {
-      @extend h4;
+      // @extend h4;
 
       @include mobile {
         font-size: $typecsset-base-font-size;
@@ -49,7 +49,7 @@
     color: $darkGrey;
 
     &.email {
-      @extend h2;
+      // @extend h2;
     }
   }
 

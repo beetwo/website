@@ -8,13 +8,12 @@
 
   %body.pushable{:class => page_classes}
     #bloom
-    = partial "partials/menu"
-    = partial "partials/sidebar"
+    -#= partial "partials/menu"
+    -#= partial "partials/sidebar"
     .ui.overlay.inverted.cookie.nag{:style => 'display:none;'}
       %a.title{:href => "#", :onClick => "$.cookie.set('accepts-cookies', '1');$('.cookie.nag').slideUp()"}
         =t(:cookieMsg)
         %i.close.icon
-    }
     .pusher
       -##baseline
       -#%h1 baseline

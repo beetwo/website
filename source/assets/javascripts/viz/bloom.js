@@ -7,7 +7,7 @@ let d3      = require('d3')
 let HEXAGON   = 'M-6.935577799999997 -59.9957423C-3.105163900000001 -62.20723276 3.0986864999999995 -62.21097249 6.935577800000004 -59.9957423L48.490048 -36.0042577C52.320462000000006 -33.7927672 55.425625999999994 -28.421945 55.425625999999994 -23.9914846L55.425625999999994 23.991484600000007C55.425625999999994 28.414465500000006 52.326938999999996 33.7890275 48.490048 36.00425799999999L6.935577800000004 59.99574200000001C3.1051638999999938 62.207233 -3.0986864999999995 62.210972 -6.935577799999997 59.99574200000001L-48.490048099999996 36.00425799999999C-52.3204619 33.7927672 -55.42562584 28.421944999999994 -55.42562584 23.991484600000007L-55.42562584 -23.9914846C-55.42562584 -28.4144655 -52.3269393 -33.7890275 -48.490048099999996 -36.0042577L-6.935577799999997 -59.9957423z'
 let PALLETE   = ["#5ca6b2",  "#a6c85d", "#ff6b67", "#ff9e4f", "#ffdb69", "#655e7e"]
 // let PALLETE   = _.shuffle(["#00FFFE", "#a6c85d", "#5ca6b2", "#ff6b67", "#ff9e4f", "#ffdb69", "#655e7e"])
-let MAX_SCALE = 12
+let MAX_SCALE = 8
 
 let noise   = new OpenSimplexNoise(_.now()),
     timeΣ   = d3.scaleLinear()
@@ -60,6 +60,8 @@ function _sizeRange({id, top, height}) {
                 'startGrowing':   1,
                 'stopGrowing':    1,
                 'startShrinking': 1,
+                // 'stopGrowing':    MAX_SCALE,
+                // 'startShrink':    MAX_SCALE,
                 'stopShrinking':  MIN_SCALE,
                 'infinity':       2 * MIN_SCALE }
 
@@ -81,13 +83,13 @@ function _forceRange({id, top, height}) {
       // the with depends on the size of the hexagon template
       w = 0.5 * _hexWidth() / hexΣ($(window).width()),
 
-      Ϟ = console.log('_hexWidth()', _hexWidth(), 'hexΣ', hexΣ($(window).width())),
-
       stops = { 'startExpand':  MIN_SCALE,
                 'stopExpand':   w,
                 'startGrow':    w,
                 'stopGrow':     w,
                 'startShrink':  w,
+                // 'stopGrow':     w * MAX_SCALE,
+                // 'startShrink':  w * MAX_SCALE,
                 'stopShrink':   MIN_SCALE,
                 'infinity':     2 * MIN_SCALE }
 

@@ -1,0 +1,365 @@
+Searching 77 files for "typecsset-font-size"
+
+/Users/lowi/Documents/work/beetwo/website/source/assets/stylesheets/_custom.scss:
+   70  
+   71  .small.text {
+   72:   @include typecsset-font-size(14px);
+   73  }
+   74  
+   75  .tiny.text {
+   76:   @include typecsset-font-size(12px);
+   77  }
+   78  
+   79  .large.text {
+   80    @extend %typecsset-vertical-rhythm;
+   81:   @include typecsset-font-size($typecsset-h4-size);
+   82  }
+   83  
+   84  .enormous.text {
+   85    @extend %typecsset-vertical-rhythm;
+   86:   @include typecsset-font-size($typecsset-enormous-size);
+   87  }
+   88  
+   89  .humongous.text {
+   90    @extend %typecsset-vertical-rhythm;
+   91:   @include typecsset-font-size($typecsset-humongous-size);
+   92  }
+   93  
+
+/Users/lowi/Documents/work/beetwo/website/source/assets/stylesheets/_menu.scss:
+   64  
+   65    .item {
+   66:     @include typecsset-font-size($typecsset-h3-size); 
+   67      text-align: right;
+   68      &:nth-child(1) { color: $blue; }
+   ..
+   97    .text {
+   98      color: $mediumGrey;
+   99:     @include typecsset-font-size(12px, true, true); 
+  100    }
+  101  
+  ...
+  106    .menu {
+  107      .item {
+  108:       @include typecsset-font-size(12px, true, true); 
+  109        padding-top: 0 !important;
+  110        padding-bottom: 0 !important;
+
+/Users/lowi/Documents/work/beetwo/website/source/assets/stylesheets/_message.scss:
+   25      border-radius: 4px;
+   26      @extend %typecsset-vertical-rhythm;
+   27:     @include typecsset-font-size($typecsset-base-font-size);
+   28      margin-bottom: 0;
+   29  
+
+/Users/lowi/Documents/work/beetwo/website/source/assets/stylesheets/_typecsset.scss:
+   19  //
+   20  // h1 {
+   21: //     @include typecsset-font-size(24px);
+   22  // }
+   23  //
+   24: @mixin typecsset-font-size($font-size, $line-height: true, $important: false) {
+   25      font-size: $font-size;
+   26      font-size: ($font-size / $typecsset-base-font-size) * 1rem;
+   ..
+  130  h1 {
+  131      @extend %typecsset-vertical-rhythm;
+  132:     @include typecsset-font-size($typecsset-h1-size);
+  133      font-family: $display-font-family;
+  134  }
+  ...
+  136  h2 {
+  137      @extend %typecsset-vertical-rhythm;
+  138:     @include typecsset-font-size($typecsset-h2-size);
+  139      font-family: $display-font-family;
+  140  }
+  ...
+  142  h3 {
+  143      @extend %typecsset-vertical-rhythm;
+  144:     @include typecsset-font-size($typecsset-h3-size);
+  145      font-family: $display-font-family;
+  146  }
+  ...
+  148  h4 {
+  149      @extend %typecsset-vertical-rhythm;
+  150:     @include typecsset-font-size($typecsset-h4-size);
+  151      font-family: $display-font-family;
+  152  }
+  ...
+  154  h5 {
+  155      @extend %typecsset-vertical-rhythm;
+  156:     @include typecsset-font-size($typecsset-h5-size);
+  157      font-family: $display-font-family;
+  158  }
+  ...
+  160  h6 {
+  161      @extend %typecsset-vertical-rhythm;
+  162:     @include typecsset-font-size($typecsset-h6-size);
+  163      font-family: $display-font-family;
+  164  }
+
+17 matches across 4 files
+
+
+Searching 77 files for ".tiny.tex"
+
+/Users/lowi/Documents/work/beetwo/website/source/assets/stylesheets/_custom.scss:
+   73  // }
+   74  
+   75: // .tiny.text {
+   76  //   @include typecsset-font-size(12px);
+   77  // }
+
+/Users/lowi/Documents/work/beetwo/website/source/assets/stylesheets/_message.scss:
+   36    .user {
+   37      color: $mediumGrey;
+   38:     @extend .tiny.text;
+   39      float:left;
+   40      margin-right: 4px;
+   ..
+   44      color: $mediumGrey;
+   45      float:left;
+   46:     @extend .tiny.text;
+   47      &:before {
+   48        content: '— '
+   ..
+   81    .meta {
+   82      @extend .right.aligned;
+   83:     @extend .tiny.text;
+   84      margin-top: -2.5rem;
+   85      font-style: italic;
+
+/Users/lowi/Documents/work/beetwo/website/source/assets/stylesheets/_overrides.scss:
+  159    @extend .no-frills;
+  160    .title {
+  161:     @extend .tiny.text;
+  162      color: $mediumGrey;
+  163    }
+
+/Users/lowi/Documents/work/beetwo/website/source/assets/stylesheets/semantic-ui/elements/_loader.scss:
+  266    padding-top: 1.78571429rem;
+  267  }
+  268: .ui.tiny.text.loader {
+  269    min-width: 1.14285714rem;
+  270    padding-top: 1.92857143rem;
+
+6 matches across 4 files
+
+
+Searching 77 files for "@extend"
+
+/Users/lowi/Documents/work/beetwo/website/source/assets/stylesheets/_custom.scss:
+    4  
+    5  // .header {
+    6: //   @extend h1;
+    7  //   &.sub {
+    8: //     @extend h3;
+    9  //   }
+   10  // }
+   ..
+   78  
+   79  // .large.text {
+   80: //   @extend %typecsset-vertical-rhythm;
+   81  //   @include typecsset-font-size($typecsset-h4-size);
+   82  // }
+   83  
+   84  // .enormous.text {
+   85: //   @extend %typecsset-vertical-rhythm;
+   86  //   @include typecsset-font-size($typecsset-enormous-size);
+   87  // }
+   88  
+   89  // .humongous.text {
+   90: //   @extend %typecsset-vertical-rhythm;
+   91  //   @include typecsset-font-size($typecsset-humongous-size);
+   92  // }
+
+/Users/lowi/Documents/work/beetwo/website/source/assets/stylesheets/_footer.scss:
+   33  
+   34    .header {
+   35:     // @extend h2;
+   36      color: $darkGrey;
+   37      &.sub {
+   38:       // @extend h4;
+   39  
+   40        @include mobile {
+   ..
+   50  
+   51      &.email {
+   52:       // @extend h2;
+   53      }
+   54    }
+
+/Users/lowi/Documents/work/beetwo/website/source/assets/stylesheets/_menu.scss:
+   17        height: 0;
+   18        width: 0;
+   19:       @extend .invisible;
+   20      }
+   21  
+   ..
+   46  
+   47  .ui.fixed.menu{
+   48:   @extend .no-frills;
+   49    z-index: 105;
+   50  
+   51    a.item {
+   52      pointer-events: all;
+   53:     @extend .no-frills;
+   54  
+   55      &:hover, &:active {
+   ..
+   61  #sidebar {
+   62    padding-top: 4.5rem;
+   63:   @extend .no-frills;
+   64  
+   65    .item {
+
+/Users/lowi/Documents/work/beetwo/website/source/assets/stylesheets/_message.scss:
+   24      border: 1px solid $darkGrey;
+   25      border-radius: 4px;
+   26:     // @extend %typecsset-vertical-rhythm;
+   27      // @include typecsset-font-size($typecsset-base-font-size);
+   28      margin-bottom: 0;
+   ..
+   36    .user {
+   37      color: $mediumGrey;
+   38:     // @extend .tiny.text;
+   39      float:left;
+   40      margin-right: 4px;
+   ..
+   44      color: $mediumGrey;
+   45      float:left;
+   46:     // @extend .tiny.text;
+   47      &:before {
+   48        content: '— '
+   ..
+   78  
+   79    .meta {
+   80:     @extend .right.aligned;
+   81:     // @extend .tiny.text;
+   82      margin-top: -2.5rem;
+   83      font-style: italic;
+   ..
+   91        text-decoration: none;
+   92        i.ui.circular.icon {
+   93:         @extend .rotated;
+   94:         @extend .clockwise;
+   95          text-decoration: none;
+   96        }
+
+/Users/lowi/Documents/work/beetwo/website/source/assets/stylesheets/_overrides.scss:
+   79  //         |___/
+   80  .ui.segment {
+   81:   @extend .no-frills;
+   82    background: transparent;
+   83    margin: 1.5rem 0;
+   ..
+  125  
+  126  hr {
+  127:   @extend .no-frills;
+  128    border-bottom: 1px solid rgba($black, 0.64) !important;
+  129  }
+  ...
+  157  .ui.nag {
+  158    text-align: right;
+  159:   @extend .no-frills;
+  160    .title {
+  161:     // @extend .tiny.text;
+  162      color: $mediumGrey;
+  163    }
+
+/Users/lowi/Documents/work/beetwo/website/source/assets/stylesheets/_typecsset.scss:
+   69  /**
+   70   * A lot of elements in Typecsset need to share some declarations (mainly for
+   71:  * vertical rhythm), so we `@extend` some silent classes.
+   72   */
+   73  %typecsset-reset {
+   ..
+   77  
+   78  %typecsset-vertical-rhythm {
+   79:     @extend %typecsset-reset;
+   80      margin-bottom: $typecsset-magic-number;
+   81      margin-bottom: $typecsset-magic-ratio + rem;
+   ..
+  129  \*------------------------------------*/
+  130  h1 {
+  131:     @extend %typecsset-vertical-rhythm;
+  132      @include typecsset-font-size($typecsset-h1-size);
+  133      font-family: $display-font-family;
+  ...
+  135  
+  136  h2 {
+  137:     @extend %typecsset-vertical-rhythm;
+  138      @include typecsset-font-size($typecsset-h2-size);
+  139      font-family: $display-font-family;
+  ...
+  141  
+  142  h3 {
+  143:     @extend %typecsset-vertical-rhythm;
+  144      @include typecsset-font-size($typecsset-h3-size);
+  145      font-family: $display-font-family;
+  ...
+  147  
+  148  h4 {
+  149:     @extend %typecsset-vertical-rhythm;
+  150      @include typecsset-font-size($typecsset-h4-size);
+  151      font-family: $display-font-family;
+  ...
+  153  
+  154  h5 {
+  155:     @extend %typecsset-vertical-rhythm;
+  156      @include typecsset-font-size($typecsset-h5-size);
+  157      font-family: $display-font-family;
+  ...
+  159  
+  160  h6 {
+  161:     @extend %typecsset-vertical-rhythm;
+  162      @include typecsset-font-size($typecsset-h6-size);
+  163      font-family: $display-font-family;
+  ...
+  172  \*------------------------------------*/
+  173  ul, ol, dd {
+  174:     @extend %typecsset-vertical-rhythm;
+  175      @include typecsset-space(margin-left);
+  176  }
+  ...
+  189  \*------------------------------------*/
+  190  p {
+  191:     @extend %typecsset-vertical-rhythm;
+  192  
+  193      @if $typecsset-indented-paragraphs == true {
+  ...
+  207   */
+  208  address {
+  209:     @extend %typecsset-vertical-rhythm;
+  210  }
+  211  
+  ...
+  218  \*------------------------------------*/
+  219  pre {
+  220:     @extend %typecsset-vertical-rhythm;
+  221  }
+  222  
+  ...
+  251   */
+  252  blockquote {
+  253:     @extend %typecsset-vertical-rhythm;
+  254      quotes: "“" "”";
+  255      @include typecsset-space(margin-left);
+  ...
+  320   */
+  321  table {
+  322:     @extend %typecsset-vertical-rhythm;
+  323      width: 100%;
+  324      border-collapse: collapse;
+
+/Users/lowi/Documents/work/beetwo/website/source/assets/stylesheets/index.scss:
+   68  
+   69  .section.header {
+   70:   // @extend h2;
+   71  
+   72    &.sub {
+   73:     @extend h5;
+   74      font-weight: 300;
+   75    }
+
+39 matches across 7 files

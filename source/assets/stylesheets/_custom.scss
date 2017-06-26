@@ -2,17 +2,20 @@
   font-family: 'Monofur';
 }
 
-.header {
-  @extend h1;
-  &.sub {
-    @extend h3;
-  }
-}
+// .header {
+//   @extend h1;
+//   &.sub {
+//     @extend h3;
+//   }
+// }
 
 .space {
   height: 1.5rem;
   &.three {
     height: 3rem;
+  }
+  &.six {
+    height: 6rem;
   }
 }
 
@@ -36,6 +39,10 @@
 .full-size {
   width: 100vw;
   height: 100vh;
+}
+
+.screen {
+  min-height: 100vh;
 }
 
 .mask {
@@ -68,28 +75,28 @@
   margin: 0 !important;
 }
 
-.small.text {
-  @include typecsset-font-size(14px);
-}
+// .small.text {
+//   @include typecsset-font-size(14px);
+// }
 
-.tiny.text {
-  @include typecsset-font-size(12px);
-}
+// .tiny.text {
+//   @include typecsset-font-size(12px);
+// }
 
-.large.text {
-  @extend %typecsset-vertical-rhythm;
-  @include typecsset-font-size($typecsset-h4-size);
-}
+// .large.text {
+//   @extend %typecsset-vertical-rhythm;
+//   @include typecsset-font-size($typecsset-h4-size);
+// }
 
-.enormous.text {
-  @extend %typecsset-vertical-rhythm;
-  @include typecsset-font-size($typecsset-enormous-size);
-}
+// .enormous.text {
+//   @extend %typecsset-vertical-rhythm;
+//   @include typecsset-font-size($typecsset-enormous-size);
+// }
 
-.humongous.text {
-  @extend %typecsset-vertical-rhythm;
-  @include typecsset-font-size($typecsset-humongous-size);
-}
+// .humongous.text {
+//   @extend %typecsset-vertical-rhythm;
+//   @include typecsset-font-size($typecsset-humongous-size);
+// }
 
 .no-frills {
   background: transparent;

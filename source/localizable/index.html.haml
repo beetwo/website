@@ -2,17 +2,89 @@
 title: BeeTwo
 ---
 
-= partial "partials/masthead"
-= partial "partials/about"
-= partial "partials/slack"
--#= partial "partials/who"
+#masthead.bloom.screen
+  .ui.container
+    %h1#title.ui.header BeeTwo
+    %h2.ui.header=t(:tagline) 
+    .ui.center.aligned.segment
+      %a{:href => "#team"}
+        %i.ui.angle.down.icon
 
--#= partial "partials/what"
--#= partial "partials/how"
--#= partial "partials/partners"
+#team.bloom.screen.ui.container
+  %h2.ui.sticky.section.header= data.en.team.head
+  .ui.grid
+    .two.wide.column
+    .ten.wide.column
+      %blockquote= data.en.team.core.introduction
+  .three.space
+    .raised.segment
+      = image_tag("Power-Rangers.jpg", {:class => "ui image"})
 
-= partial "partials/footer"
+.six.space
 
-= partial "partials/bloom-dummy"
-= partial "partials/bloom-dummy"
+#projects.bloom.ui.container
+  %h2.ui.sticky.section.header= data.en.what.head
+  .ui.grid
+    .six.wide.column
+    .eight.wide.column
+      .epigraph
+        %blockquote= data.en.what.tagline
 
+  .projects
+    - data.en.what.projects.each do |p|
+      .project
+        .ui.raised.segment
+          .image
+            = image_tag(p.image, {:class => "ui image"})
+          .content
+            %h3.ui.header= p.title 
+            %p= p.text
+          .extra
+            %a.ui.button{:href => p.href} more…
+
+.six.space
+
+#partners.bloom
+  .ui.container
+    %h2.ui.sticky.section.header= data.en.support.head
+    
+    .ui.grid
+      .two.wide.column
+      .fourteen.wide.column
+        .epigraph
+          %blockquote= data.en.support.tagline
+
+  .ui.fluid.container
+    .partners
+      - data.en.support.partners.each do |p|
+        .partner
+          %a{:href => p.url}
+            = image_tag p.logo, :class => "ui image", :relative => true
+  .three.space
+  
+  .ui.fluid.container
+    .funders
+      - data.en.support.funders.each do |f|
+        .funder
+          %a{:href => f.url}
+            = image_tag f.logo, :class => "ui image", :relative => true
+
+.six.space
+
+
+.bloom
+
+#footer.ui.bloom.segment.screen
+  .ui.text.container
+    .align
+      %p.tiny.text
+        = data.meta.associationTitle
+        = data.meta.associationTagline
+        %br
+        ZVR: #{data.en.contact.ZVR}
+
+
+
+
+
+              

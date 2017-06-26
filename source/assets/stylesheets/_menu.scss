@@ -33,7 +33,8 @@ $menuItemSize: 1.5rem;
 }
 
 #toc.button {
-  background: $blue;
+  background: transparent;
+  border: 1px solid $mediumGrey;
 }
 
 #iconset {
@@ -58,7 +59,24 @@ $menuItemSize: 1.5rem;
 }
 
 #sidebar {
-  padding-top: 9rem;
+  padding-top: 4.5rem;
+  @extend .no-frills;
+
+  .item {
+    // @include typecsset-font-size($typecsset-h3-size); 
+    text-align: right;
+    &:nth-child(1) { color: $blue; }
+    &:nth-child(2) { color: $red; }
+    &:nth-child(3) { color: $yellow; }
+    &:nth-child(4) { color: $green; }
+    &:nth-child(5) { color: $pink; }
+
+    &::before {height: 0;}
+
+    &:hover {
+      background: transparent;
+    }
+  }
 }
 
 .ui.language.selection.dropdown {
@@ -78,7 +96,7 @@ $menuItemSize: 1.5rem;
 
   .text {
     color: $mediumGrey;
-    @include typecsset-font-size(12px, true, true); 
+    // @include typecsset-font-size(12px, true, true); 
   }
 
   i.icon {
@@ -87,7 +105,7 @@ $menuItemSize: 1.5rem;
 
   .menu {
     .item {
-      @include typecsset-font-size(12px, true, true); 
+      // @include typecsset-font-size(12px, true, true); 
       padding-top: 0 !important;
       padding-bottom: 0 !important;
     }

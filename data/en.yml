@@ -4,17 +4,17 @@ role:             Verein für digitale Lösungen mit sozialer Wirkung
 menu:
   # - title: BeeTwo
   #   href: '#masthead'
-  - title: Who
+  - title: →Who
     href:  '#who'
-  - title: What
+  - title: →What
     href:  '#what'
-  - title: Hello
+  - title: →Hello
     href: '#messages'
 
 team:
-  head: That's us
+  head: Hello
   core:
-    introduction:
+    introduction: "We are a transdisciplinary team working in the interplay between technology, aesthetics and humanities. We work together with social organisations and initiatives and co-create digital tools for good."
 
     members:
       - id:           'annunziata'
@@ -89,49 +89,49 @@ how:
 
 what:
   head: What we do
+  tagline: "You can’t depend on your eyes when your imagination is out of focus."
 
-  focusIntroduction: The areas in which we excel
-  focus:
-    - Social Inclusion: "Alice remained looking thoughtfully at the mushroom for a minute, trying to make out which were the two sides of it; and as it was perfectly round, she found this a very difficult question. However, at last she stretched her arms round it as far as they would go, and broke off a bit of the edge with each hand."
-    - Social Finance: "She was a good deal frightened by this very sudden change, but she felt that there was no time to be lost, as she was shrinking rapidly; so she set to work at once to eat some of the other bit. Her chin was pressed so closely against her foot, that there was hardly room to open her mouth; but she did it at last, and managed to swallow a morsel of the lefthand bit."
-
-  projectsIntroduction: ""
   projects:
     - title:        Toucan
       id:           toucan
-      logo:         "/assets/images/projects/Toucan_Logo.svg"
+      image:        "projects/toucan.png"
       href:         "https://toucan.beetwo.at"
+      text:         "Toucan is an online emergency relief platform. It enables communication among humanitarian actors and facilitates sharing information and coordinating resources, whether supplying food or urgent medical assistance. Organisations become more aware of who provides what services where."
 
     - title:        Let’s All Play
       id:           all_play
-      logo:         "/assets/images/projects/let_us_play.svg"
-
-    - title:        Motmot
-      id:           motmot
-      logo:         "/assets/images/projects/motmot.svg"
-
-    - title:        Tinamou
-      id:           tinamou
-      logo:         "/assets/images/projects/tinamou.svg"
-
-    - title:        Hate
-      id:           hate_crime
-      logo:         "/assets/images/projects/hate_crime.svg"
-
-    - title:        Mobility Makeathon
-      id:           mobility_makeathon
-      logo:         "/assets/images/projects/mobility.svg"
+      image:        "projects/letsallplay.png"
+      text:         "But it’s no use going back to yesterday, because I was a different person then."
 
     - title:        Peer Comparing Budgeting Tool
-      id:           budgeting
-      logo:         "/assets/images/projects/budget_calculator.svg"
+      id:           budgetrechner
+      image:        "projects/budgetrechner.jpg"
+      text:         "The Debt Advisory Center in Austria has a new service for clients. It is now offering to give advice on personal budgeting as a debt prevention measure. Together with Debt Advisory Centre, BeeTwo has developed a personal budgeting tool. Clients are now able to compare themselves to others in similar situations. Anyone who wants to make an appointment for a personal consultation has to fill out the personal budget form."
+      href:         "www.budgetberatung.at/budgetrechner/"
 
-    - title:        Safe to spend
-      id:           safe_to_spend
-      logo:         "/assets/images/projects/safe_to_spend.png"
+    # - title:        Tinamou
+    #   id:           tinamou
+    #   logo:         "/assets/images/projects/tinamou.svg"
+
+    # - title:        Hate
+    #   id:           hate_crime
+    #   logo:         "/assets/images/projects/hate_crime.svg"
+
+    # - title:        Mobility Makeathon
+    #   id:           mobility_makeathon
+    #   logo:         "/assets/images/projects/mobility.svg"
+
+    # - title:        Peer Comparing Budgeting Tool
+    #   id:           budgeting
+    #   logo:         "/assets/images/projects/budget_calculator.svg"
+
+    # - title:        Safe to spend
+    #   id:           safe_to_spend
+    #   logo:         "/assets/images/projects/safe_to_spend.png"
 
 support:
-  partners_head: Partners
+  head: Partners
+  tagline: "First, make yourself a reputation for being a creative genius. Second, surround yourself with partners who are better than you are. Third, leave them to go get on with it."
   partners:
     - name: Betterplace
       url:  "https://betterplace.org/"
