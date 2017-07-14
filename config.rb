@@ -52,6 +52,7 @@ end
 # ————————————————
 activate :blog do |blog|
   blog.prefix = "projects"
+  blog.layout = "project_layout"
 end
 
 ###
