@@ -1,64 +1,65 @@
 @charset "utf-8";
 
-@import "bourbon/app/assets/stylesheets/bourbon";
+// @import "bourbon/app/assets/stylesheets/bourbon";
 
-@import "./lib/variables";
-@import "./lib/functions";
-@import "./lib/mixins";
-@import "./lib/fonts";
-@import "./lib/semantic-ui";
-// @import "./lib/typebase";
-@import "./lib/typecsset";
-// @import "./lib/text-stroke";
-@import "./lib/tufte";
-@import "./lib/overrides";
-@import "custom";
-@import "menu";
-@import "viz";
+// @import "./lib/variables";
+// @import "./lib/functions";
+// @import "./lib/mixins";
+// @import "./lib/fonts";
+// @import "./lib/semantic-ui";
+// // @import "./lib/typebase";
+// @import "./lib/typecsset";
+// // @import "./lib/text-stroke";
+// @import "./lib/tufte";
+// @import "./lib/overrides";
+// @import "custom";
+// @import "menu";
+// @import "viz";
 
-//————————————————————————————————
+// ————————————————————————————————
 // debug
-//————————————————————————————————
-.baseline {
-  background-color: transparent;
-  background-image: url('#{$image-path}/baseline.png') !important;
-  background-repeat: repeat;
-}
-
-html {
-  height: 100%;
-  background: $white;
-  -webkit-tap-highlight-color: rgba($white, 0);
-}
-
-body {
-  font-family: $font-family;
-  color: $black;
-  &.pushable {
-    background: $white !important;
-    & > .pusher {
-      background: transparent;
-    }
-  }
-}
-
-#footer {
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-
-  & > .ui.segment {
-    flex: 1 0 auto;
-    padding-bottom: 6rem;
-  }
-}
-
-a {
-  color: $white;
-
-  &:hover {
-    color: $white;
-    text-decoration: none;
-  }
-}
+// ————————————————————————————————
+// .baseline {
+  // background-color: transparent;
+  // background-image: url('#{$image-path}/baseline.png') !important;
+  // background-repeat: repeat;
+// }
+// 
+// html {
+  // height: 100%;
+  // background: $white;
+  // -webkit-tap-highlight-color: rgba($white, 0);
+// }
+// 
+// body {
+  // font-family: $font-family;
+  // color: $black;
+  // &.pushable {
+    // background: $white !important;
+    // & > .pusher {
+      // background: transparent;
+    // }
+  // }
+// }
+// 
+// #footer {
+  // height: 100vh;
+  // display: flex;
+  // flex-direction: row;
+  // align-items: flex-end;
+// 
+  // & > .ui.segment {
+    // flex: 1 0 auto;
+    // padding-bottom: 6rem;
+  // }
+// }
+// 
+// a {
+  // color: $white;
+// 
+  // &:hover {
+    // color: $white;
+    // text-decoration: none;
+  // }
+// }
+// 

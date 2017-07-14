@@ -86,25 +86,6 @@ Haml::TempleEngine.disable_option_validator!
 
 # Methods defined in the helpers block are available in templates
 helpers do
-  # def load_markdown(path)
-  #   puts "loading #{path}"
-  #   file = File.new(path, 'r')
-  #   file.read
-  # end
-
-  def menu_class(item)
-    return "active item #{item.id}" if page_classes.split(' ').include?( item.id )
-    return "item #{item.id}"
-  end
-
-  def project_id(project)
-    return project['name'].downcase.gsub(/\s/, '_') 
-  end
-
-  def project_link(project)
-    return "/projects/#{project_id(project)}.html"
-  end
-
   def tel_to(text)
     groups = text.to_s.scan(/(?:^\+)?\d+/)
     if groups.size > 1 && groups[0][0] == '+'
