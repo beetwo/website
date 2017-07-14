@@ -77,6 +77,9 @@ page "/feed.xml", layout: false
 # to make access easier we copy all these files into the partials folder upon load
 # FileUtils.cp_r "data/texts/.", 'source/partials/texts'
 
+# prevent annoying HAML warnings
+Haml::TempleEngine.disable_option_validator!
+
 ###
 # Helpers
 ###
