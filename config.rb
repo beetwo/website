@@ -50,10 +50,10 @@ end
 
 # Blog 
 # ————————————————
-activate :blog do |blog|
-  # set options on blog
-end
-activate :blog_ui
+# activate :blog do |blog|
+#   # set options on blog
+# end
+# activate :blog_ui
 
 ###
 # Page options, layouts, aliases and proxies
