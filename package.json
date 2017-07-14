@@ -32,23 +32,25 @@
     "sass-loader": "^6.0.3",
     "style-loader": "^0.17.0",
     "url-loader": "^0.5.8",
-    "webpack": "^2.4.1",
-    "ymltosass-loader": "git+https://github.com/lowi-yeah/ymltosass-loader.git"
+    "webpack": "^2.4.1"
   },
   "dependencies": {
-    "d3": "^4.4.0",
-    "dotenv-webpack": "^1.4.3",
+    "d3-ease": "^1.0.3",
+    "d3-force": "^1.0.6",
+    "d3-interpolate": "^1.1.5",
+    "d3-random": "^1.1.0",
+    "d3-scale": "^1.0.6",
+    "d3-selection": "^1.1.0",
+    "d3-shape": "^1.2.0",
+    "d3-timer": "^1.0.5",
+    "d3-transition": "^1.1.0",
     "jquery": "^3.1.1",
     "js-cookie": "^2.1.4",
-    "kld-intersections": "^0.1.1",
-    "leaflet": "^1.0.3",
     "lodash": "^4.17.2",
-    "mathjs": "^3.8.0",
-    "moment": "^2.18.1",
-    "open-simplex-noise": "^1.2.0",
+    "open-simplex-noise": "^1.4.0",
     "rellax": "^1.0.0",
-    "slack": "^8.3.0",
-    "slick-carousel": "^1.6.0",
-    "victor": "^1.1.0"
+    "tween.js": "^16.6.0",
+    "typebase.css": "^0.5.0",
+    "waypoints": "^4.0.1"
   }
 }

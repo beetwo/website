@@ -2,24 +2,19 @@
 
 @import "bourbon/app/assets/stylesheets/bourbon";
 
-@import "functions";
-@import "variables";
-@import "mixins";
-@import "fonts";
-
-@import "semantic-ui";
-
-@import "lib/slick";
-@import "lib/slick-theme";
-
-@import "overrides";
-// @import "tufte";
+@import "./lib/variables";
+@import "./lib/functions";
+@import "./lib/mixins";
+@import "./lib/fonts";
+@import "./lib/semantic-ui";
+// @import "./lib/typebase";
+@import "./lib/typecsset";
+// @import "./lib/text-stroke";
+@import "./lib/tufte";
+@import "./lib/overrides";
 @import "custom";
 @import "menu";
-@import "footer";
 @import "viz";
-// @import "message";
-@import "debug";
 
 //————————————————————————————————
 // debug
@@ -30,138 +25,40 @@
   background-repeat: repeat;
 }
 
-$min_width: 320px;
-$max_width: 1200px;
-$min_font: 16px;
-$max_font: 21px;
-
-html, body {
-  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+html {
+  height: 100%;
+  background: $white;
+  -webkit-tap-highlight-color: rgba($white, 0);
 }
-
-$mod_1: 1.2; // mobile
-$mod_2: 1.5; // desktop
-
-h1 {  
-  font-size: $mod_1*$mod_1*$mod_1*$mod_1 *1rem; 
-  @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font);
-}
-h2 {  
-  font-size: $mod_1*$mod_1*$mod_1 *1rem; 
-  @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font);
-}
-h3 { 
-  font-size: $mod_1*$mod_1 *1rem;
-  @include fluid-type($min_width, $max_width, $mod_1*$mod_1 *$min_font, $mod_2*$mod_2 *$min_font);
-}
-
-
 
 body {
   font-family: $font-family;
-  color: $darkGrey;
-  background: $white;
+  color: $black;
+  &.pushable {
+    background: $white !important;
+    & > .pusher {
+      background: transparent;
+    }
+  }
+}
 
-  &.pushable > .pusher {
-    background: transparent;
+#footer {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+
+  & > .ui.segment {
+    flex: 1 0 auto;
+    padding-bottom: 6rem;
   }
 }
 
 a {
-  color: $darkGrey;
-  text-decoration: none;
-
-  i {
-    transition: transform 0.3s;
-    transform-origin: center center;
-  }
+  color: $white;
 
   &:hover {
-    i {
-      transform: scale(1.4);  
-    }
-    
+    color: $white;
     text-decoration: none;
-  }
-}
-
-p {
-  font-family: $font-family;
-  font-weight: 400;
-}
-
-h1, h2, h3, h4, h5, h6, .ui.header {
-  font-family: $display-font-family;
-  font-weight: 500;
-}
-
-blockquote {
-  margin-top: 4.5rem;
-  margin-bottom: 4.5rem;
-  &:first-child:first-letter {
-    float: left;
-    padding-right: 0.25rem;
-    @include fluid-type($min_width, $max_width, 2 * $mod_1*$mod_1*$min_font, 2 * $mod_2*$mod_2*$min_font);
-    line-height: 0.81;
-  }
-}
-
-.sticky.section.header {
-  transition: opacity 300ms ease;
-  &.hidden {
-    opacity: 0;}}
-
-#masthead {
-  display: flex;
-  align-items: flex-end;
-  & > .ui.container {
-    flex: 0 0 auto;
-    margin-bottom: 1.5rem;
-
-    a {
-      @extend h1;
-    }
-    
-  }
-}
-
-.projects {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
-.project{
-  padding: 0 1rem;
-  .ui.segment {
-    padding: 0;
-    background: $white;
-  
-    .content {
-      padding: 1rem 1rem 1.5rem 1rem;
-    }
-  
-    .extra {
-      text-align: right;
-      padding: 0 1rem 1.5rem 1rem;
-    }
-  }
-}
-
-
-.partners, .funders {
-  &.slick-slider {
-    background: $white;
-    box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
-  }
-  .slick-track {
-    display: flex;
-    align-items: center;
-  }
-}
-
-.partner, .funder {
-  padding: 3rem 3rem;
-  img {
-    height: 3rem;
   }
 }

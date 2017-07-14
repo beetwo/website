@@ -3,14 +3,12 @@
 let webpack           = require('webpack'),
     ExtractTextPlugin = require('extract-text-webpack-plugin');
     Clean             = require('clean-webpack-plugin'),
-    Dotenv            = require('dotenv-webpack'),
     path              = require('path'),
     definePlugin      = new webpack.DefinePlugin({
                           __DEVELOPMENT__: JSON.stringify(JSON.parse(process.env.WEBPACK_ENV === 'development')),
                           __DEBUG__:       JSON.stringify(JSON.parse(process.env.WEBPACK_ENV === 'debug')),
                           __BUILD__:       JSON.stringify(JSON.parse(process.env.WEBPACK_ENV === 'build')),
-                          __VERSION__:     (new Date().getTime().toString()) }),
-    styleVariables    = 'data/style.yml'
+                          __VERSION__:     (new Date().getTime().toString()) })
 
 module.exports = {
   entry: {
@@ -46,14 +44,6 @@ module.exports = {
         use:  { loader: 'expose-loader',
                 options: '_' } },
 
-      { test: require.resolve('mathjs'),
-        use:  { loader: 'expose-loader',
-          options: 'math' } },
-
-      { test: require.resolve('d3'),
-        use:  { loader: 'expose-loader',
-          options: 'd3' } },
-
       // images
       { test: /\.(jpe?g|png|gif|svg)$/i, loader: "file-loader?name=assets/images/[name].[ext]"},
       
@@ -71,10 +61,7 @@ module.exports = {
             'postcss-loader',
 
             { loader: 'sass-loader',
-              options : { includePaths: [path.resolve(__dirname, './node_modules')]}},
-
-            { loader: 'ymltosass-loader',
-              options : { path: styleVariables } }
+              options : { includePaths: [path.resolve(__dirname, './node_modules')]}}
           ]
         })},
 
@@ -93,14 +80,11 @@ module.exports = {
     definePlugin,
     new Clean(['.tmp']),
     new ExtractTextPlugin({ filename: 'assets/stylesheets/index.bundle.css', allChunks: true }),
-    new Dotenv({ path: './.env', safe: false }),
     new webpack.ProvidePlugin({
       $               :'jquery',
       jQuery          :'jquery',
       'window.jQuery' :'jquery',
-      _               :'lodash',
-      math            :'mathjs',
-      d3              :'d3'
+      _               :'lodash'
     }),
   ]
 }

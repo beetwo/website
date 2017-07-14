@@ -2,28 +2,22 @@
 %html.no-js{:lang => "en"}
   %head
     = auto_display_meta_tags(separator: '-')
-    = partial "partials/meta"
     = stylesheet_link_tag "index.bundle", :relative => true
     = javascript_include_tag "head.bundle", :relative => true
+    -#= partial "partials/meta"
 
   %body.pushable{:class => page_classes}
     #bloom
-    -#= partial "partials/menu"
-    -#= partial "partials/sidebar"
-    .ui.overlay.inverted.cookie.nag{:style => 'display:none;'}
-      %a.title{:href => "#", :onClick => "$.cookie.set('accepts-cookies', '1');$('.cookie.nag').slideUp()"}
-        =t(:cookieMsg)
-        %i.close.icon
+    
+    -# = partial "partials/menu"
+    -# = partial "partials/sidebar"
+    
+    -# %a#toc.ui.circular.icon.button
+    -#   = partial "partials/iconset"
+  
     .pusher
-      -##baseline
-      -#%h1 baseline
-      -#%h2 test
-      -#.three.space
-      -#%p Meanwhile Stubb, the third mate, betrayed no such far-gazing solicitudes. The whales might have made one of their regular soundings, not a temporary dive from mere fright; and if that were the case, Stubb, as his wont in such cases, it seems, was resolved to solace the languishing interval with his pipe. He withdrew it from his hatband, where he always wore it aslant like a feather.
-      -#.three.space
-
       = yield
-
+      -# - partial "partials/footer"
+    
     = javascript_include_tag "index.bundle", :relative => true
     = yield_content :javascripts
-    = google_analytics_tag

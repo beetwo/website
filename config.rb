@@ -19,30 +19,22 @@ activate :external_pipeline,
   source: ".tmp/dist",
   latency: 1
 
+# General configuration
 activate :meta_tags
-activate :i18n, :mount_at_root => :en
-
-activate :google_analytics do |ga|
-  ga.tracking_id = 'UA-99325519-1'
-end
 
 set :relative_links,  true
-# set :http_prefix,     'beetwo'
+# set :http_prefix,     'build'
 set :css_dir,         'assets/stylesheets'
 set :js_dir,          'assets/javascripts'
-set :images_dir,      'assets/images'
+set :images_dir,      'leppers/assets/images'
 
 
 # Build-specific configuration
 set :build_dir, "build"
 configure :build do
   set :trailing_slash, false
-
   # set :protocol, "https://"
   # set :google_analytics_id, 'XXXXXXXX'
-
-  # set :mailchimp_form_id,   'XXXXXXXX'
-
   # activate :asset_hash, ignore: [/touch-icon.*png/]
   activate :gzip, exts: %w(.js .css .html .htm .svg .ttf .otf .woff .eot)
 end
@@ -55,6 +47,13 @@ configure :development do
   set :port, '4567'
   activate :livereload # Reload the browser automatically whenever files change
 end
+
+# Blog 
+# ————————————————
+activate :blog do |blog|
+  # set options on blog
+end
+activate :blog_ui
 
 ###
 # Page options, layouts, aliases and proxies
@@ -76,7 +75,7 @@ page "/feed.xml", layout: false
 # texts
 # longer texts  are maintained within the data/texts folder
 # to make access easier we copy all these files into the partials folder upon load
-FileUtils.cp_r "data/texts/.", 'source/partials/texts'
+# FileUtils.cp_r "data/texts/.", 'source/partials/texts'
 
 ###
 # Helpers

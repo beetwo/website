@@ -1,0 +1,51 @@
+#masthead {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+#sky {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -4;
+  background-image: url("../images/sky.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#clouds {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -3;
+  background-image: url("../images/clouds.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#logo {
+  position: fixed;
+  z-index: -2;
+  margin: auto;
+}
+
+#sunset {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -3;
+}
+
+#mountain {
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  z-index: 2;
+}

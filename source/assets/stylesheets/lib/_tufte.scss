@@ -1,0 +1,74 @@
+/* Chapter Epigraphs */
+div.epigraph {
+  margin: 6rem 0;
+
+  & > blockquote {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+    &, & > p {
+      font-style: italic;
+    }
+
+    & > footer {
+      font-style: normal;
+
+      & > cite {
+        font-style: italic;
+      }
+    }
+  }
+}
+
+
+blockquote {
+  font-size: 1.4rem;
+
+  &.display {
+    font-family: $display-font-family;
+  }
+
+  p {
+    //width: 55%;
+    margin-right: 40px;
+  }
+
+  footer {
+    width: 55%;
+    font-size: 1.1rem;
+    text-align: right;
+  }
+}
+
+
+section {
+  & > ol, &  > ul {
+    width: 45%;
+    -webkit-padding-start: 5%;
+    -webkit-padding-end: 5%;
+  }
+}
+
+li { padding: 0.5rem 0; }
+//
+//figure { padding: 0;
+//  border: 0;
+//  font-size: 100%;
+//  font: inherit;
+//  vertical-align: baseline;
+//  max-width: 55%;
+//  -webkit-margin-start: 0;
+//  -webkit-margin-end: 0;
+//  margin: 0 0 3em 0; }
+//
+//figcaption { float: right;
+//  clear: right;
+//  margin-top: 0;
+//  margin-bottom: 0;
+//  font-size: 1.1rem;
+//  line-height: 1.6;
+//  vertical-align: baseline;
+//  position: relative;
+//  max-width: 40%; }
+//
+//figure.fullwidth figcaption { margin-right: 24%; }

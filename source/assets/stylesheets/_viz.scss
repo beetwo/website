@@ -1,58 +1,15 @@
-.fancy.header {
-  svg {
-    width: 100%;
-    text {
-      //font-size: $typecsset-enormous-size;
-      font-size: $typecsset-humongous-size;
-      fill: $black;
-    }
-  }
-}
-
-
 #bloom {
+  border: 1px solid $red;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  position: fixed;
-  top:0;
-  left: 0;
-  background: $white;
-  svg {
-    //background: $white;
-    //background: $darkGrey;
-    .hex {
-      //mix-blend-mode: lighten;
-      //mix-blend-mode: color-dodge;
-      //mix-blend-mode: screen;
-      mix-blend-mode: multiply;
-      //mix-blend-mode: darken;
-    }
+  z-index: 0;
 
-    circle {
-      fill: none;
-      stroke: $pink;
-    }
-
-    #hex-origin {
-      fill: none;
-    }
+  .hex {
+    mix-blend-mode: multiply;
   }
-}
+}     
 
-.bloom {
-  margin-top: 0;
-  margin-bottom: 0;
-}
 
-.splat {
-  svg {
-    width: 256px;
-    height: 256px;
-    border: 1px solid $pink;
-  }
-}
-
-.dummy.bloom.segment {
-  padding: 0 !important;
-  margin: 0 !important;
-}

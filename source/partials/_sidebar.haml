@@ -1,27 +1,28 @@
-#sidebar.ui.vertical.right.overlay.menu.sidebar
-  
-  - data.en.menu.each do |m|
-    %a.item{:href => m.href}= m.title
+#sidebar.ui.vertical.top.overlay.borderless.menu.sidebar
+  %a.item.home{:href => '#masthead'} 
+    #sidebar-logo
+      = partial "partials/therapiezentrum"
+    -# = image_tag "therapiezentrumleppers_red.svg", {:class => 'ui image'}
+  %a.item.team{:href => '#team'} Team
+  %a.item.physio{:href => '#therapy'} Physiotherapie
+  %a.item.ergo{:href => '#therapy'} Ergotherapie
+  %a.item.gallery{:href => '#gallery'} Bilder
+  %a.item.contact{:href => '#contact'} 
+    .title
+      Kontakt
+    .ui.items
+      .item
+        %i.ui.mail.outline.icon
+        %span Hauptplatz 27, Kirchdorf / Krems
+      .item
+        %i.ui.phone.icon
+        %span 07582-61045
+      .item
+        %i.ui.mobile.icon
+        %span 0664-73133177
+    
 
-  .language.item
-    %i.small.world.icon
-    .ui.language.selection.dropdown
-      %input{:name => "language", :type => "hidden"}/
-      .default.text Language
-      .menu
-        .item{"data-value" => "1"} en
-        .item{"data-value" => "0"} de
+    
 
 
-  -# .item
-  -#   .ui.grid
-  -#     .three.column.row
-  -#       .column
-  -#         %a.ui.circular.large.icon.button{:href => "#{data.en.contact.mapLink}", :target => "_blank"}
-  -#           %i.ui.marker.icon
-  -#       .column
-  -#         %a.ui.circular.large.icon.button{:href => "mailto:#{data.en.contact.email}"}
-  -#           %i.ui.mail.icon
-  -#       .column
-  -#         %a.ui.circular.large.icon.button{:href => "#{data.en.contact.twitter_link}", :target => "_blank"}
-  -#           %i.ui.twitter.icon
+

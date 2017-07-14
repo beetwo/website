@@ -2,37 +2,10 @@
   font-family: 'Monofur';
 }
 
-// .header {
-//   @extend h1;
-//   &.sub {
-//     @extend h3;
-//   }
-// }
-
 .space {
   height: 1.5rem;
   &.three {
     height: 3rem;
-  }
-  &.six {
-    height: 6rem;
-  }
-}
-
-.up.three {
-  margin-top: -3rem !important;
-}
-
-.aligned {
-
-  &.vertically{
-    display: flex;
-    align-items: center;
-    height: 100%;
-
-    .content {
-      flex: 1 0 auto;
-    }
   }
 }
 
@@ -41,16 +14,8 @@
   height: 100vh;
 }
 
-.screen {
-  min-height: 100vh;
-}
-
 .mask {
   overflow: hidden;
-}
-
-.menu-offset {
-  padding-top: 6rem;
 }
 
 .invisible {
@@ -62,6 +27,13 @@
   padding: 0 !important;
 }
 
+.no-frills {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
 .aligned {
   &.center {
     text-align: center;
@@ -71,38 +43,13 @@
   }
 }
 
-.no.margin {
-  margin: 0 !important;
-}
-
-// .small.text {
-//   @include typecsset-font-size(14px);
-// }
-
-// .tiny.text {
-//   @include typecsset-font-size(12px);
-// }
-
-// .large.text {
-//   @extend %typecsset-vertical-rhythm;
-//   @include typecsset-font-size($typecsset-h4-size);
-// }
-
-// .enormous.text {
-//   @extend %typecsset-vertical-rhythm;
-//   @include typecsset-font-size($typecsset-enormous-size);
-// }
-
-// .humongous.text {
-//   @extend %typecsset-vertical-rhythm;
-//   @include typecsset-font-size($typecsset-humongous-size);
-// }
-
-.no-frills {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  outline: none;
+.margin {
+  &.left {
+    margin-left: 1.5rem;
+  }
+  &.right {
+    margin-right: 1.5rem;
+  }
 }
 
 ul {
@@ -118,6 +65,9 @@ ul {
   padding: 0 1rem;
 }
 
+.raised {
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+}
 
 
 

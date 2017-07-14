@@ -27,13 +27,13 @@
     return vec.x * vec.x + vec.y * vec.y }
 
   function length(vec) {
-    return math.sqrt(lengthSq(vec)) }
+    return Math.sqrt(lengthSq(vec)) }
 
   function distanceSq(v0, v1) {
     return lengthSq(subtract(v0, v1))}
 
   function distance(v0, v1) {
-    return math.sqrt(distanceSq(v0, v1)) }
+    return Math.sqrt(distanceSq(v0, v1)) }
 
   function normalizeTo(vec, δ) {
     let l = length(vec)
@@ -44,12 +44,12 @@
     return normalizeTo(vec, 1)}
 
   function scale(vec, scalar) {
-    return { x: vec.x * scalar,
-      y: vec.y * scalar }}
+    return  { x: vec.x * scalar,
+              y: vec.y * scalar }}
 
   function unfloat(vec) {
-    return { x: math.round(vec.x),
-      y: math.round(vec.y) }}
+    return { x: Math.round(vec.x),
+      y: Math.round(vec.y) }}
 
   function dot(v0, v1) {
     return v0.x * v1.x + v0.y * v1.y }
@@ -64,7 +64,7 @@
     return Math.sqrt(δSq(v0, v1)) }
 
   function limit(v, l) {
-    if(lengthSq(v) > math.square(l))
+    if(lengthSq(v) > Math.square(l))
       return normalizeTo(v, l)
     else return v }
 
