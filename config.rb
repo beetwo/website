@@ -50,10 +50,9 @@ end
 
 # Blog 
 # ————————————————
-# activate :blog do |blog|
-#   # set options on blog
-# end
-# activate :blog_ui
+activate :blog do |blog|
+  blog.prefix = "projects"
+end
 
 ###
 # Page options, layouts, aliases and proxies

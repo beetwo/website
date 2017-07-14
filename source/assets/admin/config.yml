@@ -1,0 +1,10 @@
+# @see: https://github.com/netlify/netlify-cms/blob/master/docs/quick-start.md
+
+backend:
+  name: github
+  repo: beetwo/website
+  branch: production
+
+# publish_mode: editorial_workflow
+media_folder: "source/assets/images/uploads"
+public_folder: "assets/images/uploads"

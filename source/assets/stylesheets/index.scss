@@ -2,14 +2,16 @@
 
 // @import "bourbon/app/assets/stylesheets/bourbon";
 
-// @import "./lib/variables";
-// @import "./lib/functions";
-// @import "./lib/mixins";
-// @import "./lib/fonts";
-// @import "./lib/semantic-ui";
-// // @import "./lib/typebase";
-// @import "./lib/typecsset";
-// // @import "./lib/text-stroke";
+@import './lib/semantic-ui/globals/variables';
+@import "./variables";
+@import "./lib/semantic-ui";
+
+@import "./lib/functions";
+@import "./lib/mixins";
+@import "./lib/fonts";
+@import "./lib/typecsset";
+
+
 // @import "./lib/tufte";
 // @import "./lib/overrides";
 // @import "custom";
