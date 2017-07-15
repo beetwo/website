@@ -1,4 +1,4 @@
-// import bloom from './viz/bloom'
+import bloom from './viz/bloom'
 
 // require('./semantic-ui/accordion')
 // require('./semantic-ui/api')
@@ -49,7 +49,7 @@ $(document)
   .ready(function () {
     console.log('ready')
     // _scrollSmoothly()
-    // bloom('#bloom', 4)
+    bloom('#bloom', 5)
     // _.defer(() => {
     //   _resize()
     //   _scroll()
