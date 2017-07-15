@@ -14,7 +14,7 @@ collections:
     label: "Projects" # Used in the UI
     folder: "source/projects" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template
+    slug: "{{slug}}.html" # Filename template
     fields: # The fields for each document, usually in front matter
       - {label: "Layout",         name: "layout",     widget: "hidden",   default: "project_layout"}
       - {label: "Title",          name: "title",      widget: "string" }
