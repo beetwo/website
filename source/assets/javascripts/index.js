@@ -49,7 +49,7 @@ $(document)
   .ready(function () {
     console.log('ready')
     // _scrollSmoothly()
-    bloom('#bloom', 4)
+    bloom('#bloom', 5)
     // _.defer(() => {
     //   _resize()
     //   _scroll()

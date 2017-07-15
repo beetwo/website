@@ -136,8 +136,8 @@ function _resize(β) {
   β.group.attr('transform', 'translate(' + xFocus(width) + ',' + yFocus(height) + ')')
   β.hex.attr('transform', 'scale(' + hexΣ(width) + ')')
 
-  β.node.style('transform', () => {
-    return 'translate3d(' + (targetXΣ(0) + _.random(-64, 64)) + 'px,' + (targetYΣ(0) + _.random(-64, 64))  + 'px, 0)' })
+  // β.node.style('transform', () => {
+  //   return 'translate3d(' + (targetXΣ(0) + _.random(-64, 64)) + 'px,' + (targetYΣ(0) + _.random(-64, 64))  + 'px, 0)' })
 
   // initialize the segment scales
   β.segments = _resizeSegments(β.segments)
@@ -150,15 +150,16 @@ function _noise(ι) { return noiseΣ(noise.noise2D(timeΣ(_.now()), ι)) }
 
 // called at each animation tick
 function  ticked(β) {
-  // the current scroll offset
-  let top = $(window).scrollTop()
-  // update the node radii depending on the scroll position
-  _.each(β.nodes, (η) => {
-    let σ =  _findSegment(η.id, β.segments)
-    η.radius = σ.forceΣ(top) })
 
-  // as the radii change, constantly update the collissionΦ
-  β.colissionΦ.radius((η, i) => { return η.radius })
+  // // the current scroll offset
+  let top = $(window).scrollTop()
+  // // update the node radii depending on the scroll position
+  // _.each(β.nodes, (η) => {
+  //   let σ =  _findSegment(η.id, β.segments)
+  //   η.radius = σ.forceΣ(top) })
+
+  // // as the radii change, constantly update the collissionΦ
+  // β.colissionΦ.radius((η, i) => { return η.radius })
 
   // the position forces wander a little bit
   β.xΦ.x(targetXΣ(top))
@@ -166,13 +167,15 @@ function  ticked(β) {
 
   β.node // adjust each node
   // set the simulation position
-    .style('transform', (δ) => {return 'translate3d(' + _.round(δ.x) + 'px,' + _.round(δ.y) + 'px, 0)' })
+    .style('transform', function(δ) {
+      return `translate3d( ${δ.x}px, ${δ.y}px, 0)`
+    })
     // scale according to scroll position
-    .each((δ, ι, η) => {
-      let σ =  _findSegment(δ.id, β.segments)
-      select(η[ι]) // I have not the faintest idea why my this references ain't working nomore
-        .select('use')
-        .attr('transform', 'scale(' + σ.sizeΣ(top) + ')') })
+    // .each((δ, ι, η) => {
+    //   let σ =  _findSegment(δ.id, β.segments)
+    //   select(η[ι]) // I have not the faintest idea why my this references ain't working nomore
+    //     .select('use')
+    //     .attr('transform', 'scale(' + σ.sizeΣ(top) + ')') })
 
   if(RENDER_CIRCLES)
     β.circle
@@ -193,6 +196,7 @@ function _initializeSimulation(β) {
                         .radius((δ) => { return δ.radius }),
         xΦ          = forceX(),
         yΦ          = forceY()
+
     simulation.nodes(β.nodes)
     simulation.force('colission', colissionΦ)
     simulation.force('x', xΦ)
@@ -207,14 +211,9 @@ function _initializeSimulation(β) {
     resolve(β)})}
 
 function _initializeDOM(parentId, β) {
-
-  console.log('_initializeDOM', parentId, β)
-
   return new Promise((resolve) => {
     let parent      = select(parentId),
-        svg         = parent.append('svg')
-                        // .style('opacity', 0)
-                        ,
+        svg         = parent.append('svg'),
         defs        = svg.append('defs'),
         group       = svg.append('g'),
         hex         = defs.append('path')
@@ -252,41 +251,37 @@ function _initializeDOM(parentId, β) {
 
 function _initializeNodes(numSegments) {
   return new Promise((resolve) => {
-    let β   = {}
+    let β   = {},
+        δ   = 1024  
     β.nodes = _(numSegments)
                 .range()
                 .map((ι) => {
                   return {color:  color(ι),
                           id:     `n-${ι}`,
                           radius: 2,
-                          x:      _.random(-64, 64),
-                          y:      _.random(-64, 64) } })
+                          x:      _.random(-δ, δ),
+                          y:      _.random(-δ, δ) } })
                 .value()
     resolve(β)})
 }
 
-
+// initialize the bloomy thingiez in the background
 function init(parentId, numSegments) {
+
+  // abort if the div with the given id isn't there
   if ($(parentId).length === 0) return
 
   _initializeNodes(numSegments)
     .then( (β) => { return _initializeDOM(parentId, β) })
     .then( (β) => { return _initializeSimulation(β) })
-    .then( (β) => { return new Promise((resolve) => { _.delay(() => { resolve(_resize(β)) }, 810) } ) })
+    .then( (β) => { return _resize(β) })
     .then( (β) => { // attach window handlers
                     $(window).on('resize', _.debounce(() => { _resize(β) }, 148))
                     // $(window).on('scroll', () => { console.log('scroll', $(window).scrollTop()) })
 
                     // start the simulation
-                    // β.simulation.on('tick', () => {β = ticked(β)})
+                    β.simulation.on('tick', () => { β = ticked(β) })
 
-                    // set the menu background to the main color
-                    // select('#menu-bg').style('background', color(0))
-
-                    // β.svg.transition()
-                    //   .duration(810)
-                    //   .ease(easePolyOut.exponent(2))
-                    //   .style('opacity', 1)
     })
 }
 
