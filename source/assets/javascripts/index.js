@@ -1,4 +1,5 @@
 import bloom from './viz/bloom'
+import menu from './menu'
 
 // require('./semantic-ui/accordion')
 // require('./semantic-ui/api')
@@ -15,7 +16,7 @@ import bloom from './viz/bloom'
 // require('./semantic-ui/rating')
 // require('./semantic-ui/search')
 // require('./semantic-ui/shape')
-// require('./semantic-ui/sidebar')
+require('./semantic-ui/sidebar')
 // require('./semantic-ui/site')
 // require('./semantic-ui/state')
 // require('./semantic-ui/sticky')
@@ -25,20 +26,19 @@ import bloom from './viz/bloom'
 // require('./semantic-ui/visibility')
 // require('./semantic-ui/visit')
 
-// ————————————————————————————————
 // smooth scrolling
 // @see: https://css-tricks.com/snippets/jquery/smooth-scrolling/
 // ————————————————————————————————
-// function _scrollSmoothly() {
-//   $('a[href*="#"]:not([href="#"])').click(function () {
-//     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-//       let target = $(this.hash)
-//       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-//       if (target.length) {
-//         $('html, body').animate({
-//           scrollTop: target.offset().top
-//         }, 2000)
-//         return false }}})}
+function _scrollSmoothly() {
+  $('a[href*="#"]:not([href="#"])').click(function () {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      let target = $(this.hash)
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 2000)
+        return false }}})}
 
 
 function _resize() {}
@@ -47,9 +47,10 @@ function _scroll() {}
 
 $(document)
   .ready(function () {
-    console.log('ready')
-    // _scrollSmoothly()
+    _scrollSmoothly()
     bloom('#bloom', 5)
+    menu.init()
+    
     // _.defer(() => {
     //   _resize()
     //   _scroll()
