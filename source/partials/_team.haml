@@ -1,3 +1,9 @@
 #team.ui.vertical.segment
   .ui.container
     %h1 team
+
+    - blog("team").articles.each do |member|
+      %article
+        %h1
+          %a{:href => member.url}= member.title
+        = member.summary        

@@ -49,12 +49,20 @@ configure :development do
   activate :livereload # Reload the browser automatically whenever files change
 end
 
-# Blog 
+# Blogs
 # ————————————————
 activate :blog do |blog|
   blog.name       = "projects"
   blog.prefix     = "projects"
   blog.layout     = "project_layout"
+  blog.sources    = "{title}.html"
+  # blog.permalink  = "projects/{title}.html"
+end
+
+activate :blog do |blog|
+  blog.name       = "team"
+  blog.prefix     = "team"
+  blog.layout     = "team_layout"
   blog.sources    = "{title}.html"
   # blog.permalink  = "projects/{title}.html"
 end
