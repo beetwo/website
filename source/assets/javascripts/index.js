@@ -33,13 +33,19 @@ function _scrollSmoothly() {
   $('a[href*="#"]:not([href="#"])').click(function () {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       let target = $(this.hash)
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']')
       if (target.length) {
-        $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 2000)
+        $('html, body').animate({scrollTop: target.offset().top}, 2000)
         return false }}})}
 
+
+function _interceptHyperlinks() {
+  $('a').click(function(){
+    console.log('clickedy click!')
+    // prevent the default action:
+    // return false
+  })
+}
 
 function _resize() {}
 function _scroll() {}
@@ -48,6 +54,7 @@ function _scroll() {}
 $(document)
   .ready(function () {
     _scrollSmoothly()
+    _interceptHyperlinks()
     bloom('#bloom', 5)
     menu.init()
     
