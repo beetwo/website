@@ -67,6 +67,13 @@ activate :blog do |blog|
   # blog.permalink  = "projects/{title}.html"
 end
 
+activate :blog do |blog|
+  blog.name       = "texts"
+  blog.prefix     = "texts"
+  blog.sources    = "{title}.html"
+  # blog.permalink  = "projects/{title}.html"
+end
+
 ###
 # Page options, layouts, aliases and proxies
 ###

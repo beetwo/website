@@ -22,14 +22,23 @@ collections:
       - {label: "Featured Image", name: "thumbnail",  widget: "image" }
       - {label: "Body",           name: "body",       widget: "markdown" }
 
-  - name: "team" # Used in routes, e.g. /admin/collections/blog
-    label: "Team" # Used in the UI
-    folder: "source/team" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}.html" # Filename template
-    fields: # The fields for each document, usually in front matter
+  - name: "team"
+    label: "Team"
+    folder: "source/team"
+    create: true
+    slug: "{{slug}}.html"
+    fields:
       - {label: "Layout",         name: "layout",     widget: "hidden",   default: "team_layout"}
       - {label: "Title",          name: "title",      widget: "string" }
       - {label: "Publish Date",   name: "date",       widget: "datetime" }
       - {label: "Featured Image", name: "thumbnail",  widget: "image" }
+      - {label: "Body",           name: "body",       widget: "markdown" }
+
+  - name: "texts"
+    label: "Texts"
+    folder: "source/texts"
+    create: true
+    slug: "{{slug}}.html"
+    fields:
+      - {label: "Title",          name: "title",      widget: "string" }
       - {label: "Body",           name: "body",       widget: "markdown" }
