@@ -21,6 +21,7 @@ activate :external_pipeline,
 
 # General configuration
 activate :meta_tags
+activate :i18n, :mount_at_root => :en
 
 set :relative_links,  true
 # set :http_prefix,     'build'
@@ -51,8 +52,11 @@ end
 # Blog 
 # ————————————————
 activate :blog do |blog|
-  blog.prefix = "projects"
-  blog.layout = "project_layout"
+  blog.name       = "projects"
+  blog.prefix     = "projects"
+  blog.layout     = "project_layout"
+  blog.sources    = "{title}.html"
+  # blog.permalink  = "projects/{title}.html"
 end
 
 ###
