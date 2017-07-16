@@ -1,5 +1,6 @@
 = wrap_layout :layout do
-  %article
-    = image_tag current_page.data.thumbnail
-    %h1= current_page.data.title
-    = yield
+  .ui.container
+    %article
+      = image_tag current_page.data.thumbnail, {:class => "ui image"}
+      %h1= current_page.data.title
+      = yield

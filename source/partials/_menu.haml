@@ -1,12 +1,4 @@
-.ui.fixed.borderless.non-mobile.menu
-  .ui.fluid.container
-    %div
-      %a.item.home.masthead{:href => '#masthead'} 
-        -# %i.ui.home.icon
-        #menu-logo
-          = partial "partials/therapiezentrum"
-      %a.item.team{:href => '#team'} Team
-      %a.item.physio.therapy{:href => '#therapy'} Physiotherapie
-      %a.item.ergo.therapy{:href => '#therapy'} Ergotherapie
-      %a.item.gallery{:href => '#gallery'} Bilder
-      %a.item.contact{:href => '#contact'} Kontakt
+.ui.bottom.fixed.menu
+  .item.right.aligned
+    %a#toc.ui.circular.icon.button
+      = partial "partials/iconset"

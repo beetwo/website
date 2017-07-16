@@ -1,0 +1,13 @@
+#projects.ui.vertical.segment
+  .ui.container
+    %h1 projects
+
+    - blog("projects").articles.each do |project|
+      %article
+        %h1
+          %a{:href => project.url}= project.title
+          %time= project.date.strftime('%b %e %Y')
+    
+        = project.summary
+    
+        %a{:href => project.url} Read more

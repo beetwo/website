@@ -1,28 +1,3 @@
-#team
-  .ui.right.rail
-    .portraits.ui.sticky
-      = image_tag "doubleTrouble.png", :class => "both"
-  .ui.text.container
-    .ui.stackable.grid
-      .ten.wide.column
-        - ['henry', 'irene'].each do |p|
-          .member{:id => p}
-            .ui.segment
-              %h1.humongous= p.titleize
-              .preview
-                .more
-                  %button.ui.tiny.circular.icon.button
-                    %i.ui.angle.down.icon
-                %p.content= data.content[p].preview 
-
-            .ui.accordion
-              .title
-              .content
-                %p= data.content[p].description 
-                - data.content[p].cv.each do |i|
-                  .item
-                    .ui.header= i.title
-                    %ul
-                      - i.content.each do |c|
-                        %li= c
-        
+#team.ui.vertical.segment
+  .ui.container
+    %h1 team

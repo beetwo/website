@@ -1,25 +1,9 @@
-#sidebar.ui.vertical.top.overlay.borderless.menu.sidebar
-  %a.item.home{:href => '#masthead'} 
-    #sidebar-logo
-      = partial "partials/therapiezentrum"
-    -# = image_tag "therapiezentrumleppers_red.svg", {:class => 'ui image'}
-  %a.item.team{:href => '#team'} Team
-  %a.item.physio{:href => '#therapy'} Physiotherapie
-  %a.item.ergo{:href => '#therapy'} Ergotherapie
-  %a.item.gallery{:href => '#gallery'} Bilder
-  %a.item.contact{:href => '#contact'} 
-    .title
-      Kontakt
+#sidebar.ui.vertical.right.overlay.borderless.menu.sidebar
+  .ui.segment
     .ui.items
-      .item
-        %i.ui.mail.outline.icon
-        %span Hauptplatz 27, Kirchdorf / Krems
-      .item
-        %i.ui.phone.icon
-        %span 07582-61045
-      .item
-        %i.ui.mobile.icon
-        %span 0664-73133177
+      - data.menu.each do |m|
+        %a.item{:href => m.href}= m.title
+          
     
 
     
