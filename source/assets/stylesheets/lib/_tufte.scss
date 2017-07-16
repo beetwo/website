@@ -1,130 +1,115 @@
-
-// Based on Tufte CSS by Dave Liepmann ( https://github.com/edwardtufte/tufte-css )
-// ————————————————————————————————————————————————————————————————————————————————————————————————
-
-// Global Resets
-//
-* { margin: 0; padding: 0; }
-
-/* clearfix hack after Cederholm (group class name) */
-.group:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-html, body { height: 100%; }
-
-// First significant deviation from CSS on tufte.css site - variable font size as browser width expands or contracts
-//html { font-size: 15px; }
-
-html{
-    text-align: baseline;
-    font-size: 11px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-// sets link style according to values in _settings.scss
-.mathblock{
-  font-size: 1.3rem;
-}
-a {
-  color: $contrast-color;
-  text-decoration: none;
-}
-
-p > a {  
-  color: $contrast-color;
-  text-decoration: none;
-}
+@charset "UTF-8";
 
 
-/*-- Table styling section --*/
+/* Tufte CSS styles */
+html { font-size: 16px; }
 
-table, table.booktabs { width: auto;  //making booktabs style tables the unstyled default in case someone uses Markdown styling
-                 margin: 0 auto;
-                 border-spacing: 0px;
-                 border-top: 2px solid $border-color;
-                 border-bottom: 2px solid $border-color; }
+body { // width: 87.5%;
+       margin-left: auto;
+       margin-right: auto;
+       // padding-left: 12.5%;
+       
+       color: #111;
+       // max-width: 1400px;
+       counter-reset: sidenote-counter; }
 
-.booktabs th, th { border-bottom: 1px solid $border-color;
-               padding: 0.65ex 0.5em 0.4ex 0.5em;
-               font-weight: normal;
-               text-align: center; }
+p.subtitle { font-style: italic;
+             margin-top: 1rem;
+             margin-bottom: 1rem;
+             font-size: 1.8rem;
+             display: block;
+             line-height: 1; }
 
-th, td{ font-size: 1.2rem;
-        line-height: 1.71428571;  }
+.numeral { font-family: et-book-roman-old-style; }
 
-.booktabs th.cmid, th { border-bottom: 1px solid lighten($border-color, 25%); }
-
-.booktabs th.nocmid { border-bottom: none; }
-
-.booktabs tbody tr:first-child td,  tr:first-child td { padding-top: 0.65ex; } /* add space between thead row and tbody */
-
-.booktabs td, td {  padding-left: 0.5em;
-                    padding-right: 0.5em;
-                    text-align: left; }
-
-.booktabs caption, caption { font-size: 90%;
-                    text-align: left;
-                    width: auto;
-                    margin-left: auto;
-                    margin-right: auto;
-                    margin-top: 1ex;
-                    caption-side: top; }
-
-.booktabs tbody tr td.l { text-align: left !important; }
-.booktabs tbody tr td.c { text-align: center !important; }
-.booktabs tbody tr td.r { text-align: right !important; }
-
-.table-caption { float:right;
-                 clear:right;
-                 margin-right: -60%;
-                 width: 50%;
-                 margin-top: 0;
-                 margin-bottom: 0;
-                 font-size: 1.0rem;
-                 line-height: 1.96; }
-/* -- End of Table Styling section --*/
-
-
-/* Basic Layout stuff --*/
+.danger { color: red; }
 
 article { position: relative;
-          padding: 1
-
-          rem 0rem 2.5rem 0rem; } // reduced top and bottom padding by 50%
+          padding: 5rem 0rem; }
 
 section { padding-top: 1rem;
           padding-bottom: 1rem; }
 
+p, ol, ul { font-size: 1.4rem; }
 
-ul,ol { width: 45%;
-     -webkit-padding-start: 5%;
-     -webkit-padding-end: 5%;
-     list-style-type: none; }
+p { line-height: 2rem;
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+    padding-right: 0;
+    vertical-align: baseline; }
 
-//li { padding: 0.5em 0; } //vertical padding on list items screws up vertical rhythym
+/* Chapter Epigraphs */
+div.epigraph { margin: 5em 0; }
 
-figure, figure img.maincolumn { max-width: 55%;
+div.epigraph > blockquote { margin-top: 3em;
+                            margin-bottom: 3em; }
+
+div.epigraph > blockquote, div.epigraph > blockquote > p { font-style: italic; }
+
+div.epigraph > blockquote > footer { font-style: normal; }
+
+div.epigraph > blockquote > footer > cite { font-style: italic; }
+/* end chapter epigraphs styles */
+
+blockquote { font-size: 1.4rem; }
+
+blockquote p { width: 55%;
+               margin-right: 40px; }
+
+blockquote footer { width: 55%;
+                    font-size: 1.1rem;
+                    text-align: right; }
+
+section>ol, section>ul { width: 45%;
+                         -webkit-padding-start: 5%;
+                         -webkit-padding-end: 5%; }
+
+li { padding: 0.5rem 0; }
+
+figure { padding: 0;
+         border: 0;
+         font-size: 100%;
+         font: inherit;
+         vertical-align: baseline;
+         max-width: 55%;
          -webkit-margin-start: 0;
          -webkit-margin-end: 0;
-         margin-bottom: 3em; }
+         margin: 0 0 3em 0; }
 
 figcaption { float: right;
              clear: right;
-             margin-right: -48%;
              margin-top: 0;
              margin-bottom: 0;
-             font-size: 1.0rem;
+             font-size: 1.1rem;
              line-height: 1.6;
              vertical-align: baseline;
              position: relative;
              max-width: 40%; }
 
-figure.fullwidth figcaption { float: left; margin-right: 0%; margin-left: 36%; }
+figure.fullwidth figcaption { margin-right: 24%; }
 
+/* Links: replicate underline that clears descenders */
+a:link, a:visited { color: inherit; }
+
+a:link { text-decoration: none;
+         background: -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(#333, #333);
+         background: linear-gradient(#fffff8, #fffff8), linear-gradient(#fffff8, #fffff8), linear-gradient(#333, #333);
+         -webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+         -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+         background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+         background-repeat: no-repeat, no-repeat, repeat-x;
+         text-shadow: 0.03em 0 #fffff8, -0.03em 0 #fffff8, 0 0.03em #fffff8, 0 -0.03em #fffff8, 0.06em 0 #fffff8, -0.06em 0 #fffff8, 0.09em 0 #fffff8, -0.09em 0 #fffff8, 0.12em 0 #fffff8, -0.12em 0 #fffff8, 0.15em 0 #fffff8, -0.15em 0 #fffff8;
+         background-position: 0% 93%, 100% 93%, 0% 93%; }
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) { a:link { background-position-y: 87%, 87%, 87%; } }
+
+a:link::selection { text-shadow: 0.03em 0 #b4d5fe, -0.03em 0 #b4d5fe, 0 0.03em #b4d5fe, 0 -0.03em #b4d5fe, 0.06em 0 #b4d5fe, -0.06em 0 #b4d5fe, 0.09em 0 #b4d5fe, -0.09em 0 #b4d5fe, 0.12em 0 #b4d5fe, -0.12em 0 #b4d5fe, 0.15em 0 #b4d5fe, -0.15em 0 #b4d5fe;
+                    background: #b4d5fe; }
+
+a:link::-moz-selection { text-shadow: 0.03em 0 #b4d5fe, -0.03em 0 #b4d5fe, 0 0.03em #b4d5fe, 0 -0.03em #b4d5fe, 0.06em 0 #b4d5fe, -0.06em 0 #b4d5fe, 0.09em 0 #b4d5fe, -0.09em 0 #b4d5fe, 0.12em 0 #b4d5fe, -0.12em 0 #b4d5fe, 0.15em 0 #b4d5fe, -0.15em 0 #b4d5fe;
+                         background: #b4d5fe; }
+
+/* Sidenotes, margin notes, figures, captions */
 img { max-width: 100%; }
 
 .sidenote, .marginnote { float: right;
@@ -132,21 +117,16 @@ img { max-width: 100%; }
                          margin-right: -60%;
                          width: 50%;
                          margin-top: 0;
-                         margin-bottom: 1.96rem;
-                         font-size: 1.0rem;
-                         line-height: 1.96; //changed to bring line heights into rational pattern
+                         margin-bottom: 0;
+                         font-size: 1.1rem;
+                         line-height: 1.3;
                          vertical-align: baseline;
                          position: relative; }
-
-li .sidenote, li .marginnote{ margin-right: -80%; } //added to allow for the fact that lists are indented and marginnotes and sidenotes push to right
-
-blockquote .sidenote, blockquote .marginnote { margin-right: -79% }
 
 .sidenote-number { counter-increment: sidenote-counter; }
 
 .sidenote-number:after, .sidenote:before { content: counter(sidenote-counter) " ";
-                                           // font-family: et-bembo-roman-old-style;
-                                           color: $contrast-color; //added color
+                                           font-family: et-book-roman-old-style;
                                            position: relative;
                                            vertical-align: baseline; }
 
@@ -155,38 +135,45 @@ blockquote .sidenote, blockquote .marginnote { margin-right: -79% }
                          top: -0.5rem;
                          left: 0.1rem; }
 
-.sidenote:before { content: counter(sidenote-counter) ".\000a0"; // this is unicode for a non-breaking space
-                   color: $contrast-color;
-                   top: 0rem; } //removed superscripting for numerical reference in sidenote
+.sidenote:before { content: counter(sidenote-counter) " ";
+                   top: -0.5rem; }
 
-p, footer, div.table-wrapper, div.mathblock{ width: 55%; }
+blockquote .sidenote, blockquote .marginnote { margin-right: -82%;
+                                               min-width: 59%;
+                                               text-align: left; }    
 
-div.table-wrapper { overflow-x: auto; } //changed all overflow values to 'auto' so scroll bars appear only as needed
+p, footer, table { width: 55%; }
 
-@media screen and (max-width: 760px) { p, footer,div.mathblock { width: 90%; }
-                                       pre code { width: 87.5%; }
-                                       ul { width: 85%; }
-                                       figure { max-width: 90%; }
-                                       figcaption, figure.fullwidth figcaption { margin-right: 0%;
-                                                                                 max-width: none; }
-                                       blockquote p, blockquote footer {  width: 80%;
-                                                                          padding-left: 5%;
-                                                                          padding-right: 5%;
-                                                                        }}
+div.fullwidth, table.fullwidth { width: 100%; }
 
-.marginnote code, .sidenote code { font-size: 1rem; } //more .code class removal
+div.table-wrapper { overflow-x: auto;
+                    font-family: "Trebuchet MS", "Gill Sans", "Gill Sans MT", sans-serif; }
 
-pre, pre code, p pre code { width: 52.5%;
-           padding-left: 2.5%;
+.sans { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+        letter-spacing: .03em; }
+
+code { font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+       font-size: 1.0rem;
+       line-height: 1.42; }
+
+.sans > code { font-size: 1.2rem; }
+
+h1 > code, h2 > code, h3 > code { font-size: 0.80em; }
+
+.marginnote > code, .sidenote > code { font-size: 1rem; }
+
+pre.code { font-size: 0.9rem;
+           width: 52.5%;
+           margin-left: 2.5%;
            overflow-x: auto; }
 
-.fullwidth, li.listing div{ max-width: 90%; }
+pre.code.fullwidth { width: 90%; }
 
-.full-width { .sidenote, .sidenote-number, .marginnote { display: none; } }
+.fullwidth { max-width: 90%;
+             clear:both; }
 
 span.newthought { font-variant: small-caps;
-                  font-size: 1.2em;
-                  letter-spacing: 0.05rem; }
+                  font-size: 1.2em; }
 
 input.margin-toggle { display: none; }
 
@@ -194,7 +181,19 @@ label.sidenote-number { display: inline; }
 
 label.margin-toggle:not(.sidenote-number) { display: none; }
 
-@media (max-width: 760px) { label.margin-toggle:not(.sidenote-number) { display: inline; color: $contrast-color; }
+@media (max-width: 760px) { body { width: 84%;
+                                   padding-left: 8%;
+                                   padding-right: 8%; }
+                            p, footer { width: 100%; }
+                            pre.code { width: 97%; }
+                            ul { width: 85%; }
+                            figure { max-width: 90%; }
+                            figcaption, figure.fullwidth figcaption { margin-right: 0%;
+                                                                      max-width: none; }
+                            blockquote { margin-left: 1.5em;
+                                         margin-right: 0em; }
+                            blockquote p, blockquote footer { width: 100%; }
+                            label.margin-toggle:not(.sidenote-number) { display: inline; }
                             .sidenote, .marginnote { display: none; }
                             .margin-toggle:checked + .sidenote,
                             .margin-toggle:checked + .marginnote { display: block;
@@ -206,18 +205,5 @@ label.margin-toggle:not(.sidenote-number) { display: none; }
                                                                    vertical-align: baseline;
                                                                    position: relative; }
                             label { cursor: pointer; }
-                            pre, pre code, p code, p pre code { width: 90%;
-                                       padding: 0; }
-                            .table-caption { display: block;
-                                             float: right;
-                                             clear: both;
-                                             width: 98%;
-                                             margin-top: 1rem;
-                                             margin-bottom: 0.5rem;
-                                             margin-left: 1%;
-                                             margin-right: 1%;
-                                             vertical-align: baseline;
-                                             position: relative; }
-                            div.table-wrapper, table, table.booktabs { width: 85%; }
-                            div.table-wrapper { border-right: 1px solid #efefef; }
-                            img { max-width: 100%; } }
+                            div.table-wrapper, table { width: 85%; }
+                            img { width: 100%; } }

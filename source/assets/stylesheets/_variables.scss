@@ -2,33 +2,27 @@
 // Colors
 //————————————————————————————————
 
-$black:            #1B1B1C;
-$mediumGrey:       #87888A;
-$white:            #ffffff;
-$yellow:           #ffdb69;
-$orange:           #ff9e4f;
-$red:              #BC0B24;
-$purple:           #655e7e;
-$blue:             #00A8DE;
-$green:            #71B541;
-$pink:             #FF47AA;
+$black:             #1B1B1C;
+$mediumGrey:        #87888A;
+$white:             #ffffff;
+$yellow:            #ffdb69;
+$orange:            #ff9e4f;
+$red:               #BC0B24;
+$purple:            #655e7e;
+$blue:              #00A8DE;
+$green:             #71B541;
+$pink:              #FF47AA;
+  
+$primary-color:     $white !default;
+$bg-color:          $black !default;
+$secondary-color:   $yellow !default;
+$success-color:     $green !default;
+$error-color:       $red !default;
+$link-color:        $blue !default;
 
-$primary-color    : $white !default;
-$bg-color         : $black !default;
-$secondary-color  : $yellow !default;
-$success-color    : $green !default;
-$error-color      : $red !default;
-$link-color       : $blue !default;
-
-$logo-color       : $blue;
-$about-color      : $orange;
-$expertise-color  : $green;
-$projects-color   : $red;
-$team-color       : $orange;
-$principles-color : $yellow;
-
-$budgeting-color  : $white;
-$co-creation-color: $white;
+$text-color:        $black  !default;
+$contrast-color:    $red  !default;
+$border-color:      $black  !default;
 
 //————————————————————————————————
 // paths
@@ -43,10 +37,9 @@ $font-path: '../fonts';
 //————————————————————————————————
 $import-google-fonts:   false !default;
 $display-font-family:   'Signika', 'System Font' !default;
-$display-font-weight:   200;
+$display-font-weight:   400;
 $font-family:           'Source-Sans', 'System Font' !default;
 $monospace-font-family: 'Monofur', 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
-
 
 
 //————————————————————————————————
@@ -106,6 +99,9 @@ $widescreen-breakpoint:   1920px;
 // menu
 //————————————————————————————————
 $menuItemSize: 1.5rem;
+
+// fluid typography
+//————————————————————————————————
 
 
 

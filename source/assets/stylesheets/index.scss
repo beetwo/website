@@ -1,15 +1,16 @@
 @charset "utf-8";
 
-// @import "bourbon/app/assets/stylesheets/bourbon";
-
-@import './lib/semantic-ui/globals/variables';
 @import "./variables";
 @import "./lib/semantic-ui";
 
 @import "./lib/functions";
 @import "./lib/mixins";
 @import "./lib/fonts";
-@import "./lib/typecsset";
+@import "./lib/text-stroke";
+// @import "./lib/typecsset";
+// @import "./lib/tufte";
+@import "./lib/modernscale";
+@import "./lib/typography";
 
 @import "overrides";
 @import "custom";
@@ -20,11 +21,9 @@
 @import "sidebar";
 @import "viz";
 
-// @import "./lib/tufte";
 // @import "./lib/overrides";
 // @import "custom";
 // @import "menu";
-
 
 body {
   background: $white;
