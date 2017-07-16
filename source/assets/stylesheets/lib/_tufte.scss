@@ -1,74 +1,223 @@
-/* Chapter Epigraphs */
-div.epigraph {
-  margin: 6rem 0;
 
-  & > blockquote {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+// Based on Tufte CSS by Dave Liepmann ( https://github.com/edwardtufte/tufte-css )
+// ————————————————————————————————————————————————————————————————————————————————————————————————
 
-    &, & > p {
-      font-style: italic;
-    }
+// Global Resets
+//
+* { margin: 0; padding: 0; }
 
-    & > footer {
-      font-style: normal;
+/* clearfix hack after Cederholm (group class name) */
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
-      & > cite {
-        font-style: italic;
-      }
-    }
+html, body { height: 100%; }
+
+// First significant deviation from CSS on tufte.css site - variable font size as browser width expands or contracts
+//html { font-size: 15px; }
+
+html{
+    text-align: baseline;
+    font-size: 11px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+
+// sets link style according to values in _settings.scss
+.mathblock{
+  font-size: 1.3rem;
+}
+a {
+  color: $contrast-color;
+  text-decoration: none;
+}
+
+p > a {  
+  color: $contrast-color;
+  text-decoration: none;
 }
 
 
-blockquote {
-  font-size: 1.4rem;
+/*-- Table styling section --*/
 
-  &.display {
-    font-family: $display-font-family;
-  }
+table, table.booktabs { width: auto;  //making booktabs style tables the unstyled default in case someone uses Markdown styling
+                 margin: 0 auto;
+                 border-spacing: 0px;
+                 border-top: 2px solid $border-color;
+                 border-bottom: 2px solid $border-color; }
 
-  p {
-    //width: 55%;
-    margin-right: 40px;
-  }
+.booktabs th, th { border-bottom: 1px solid $border-color;
+               padding: 0.65ex 0.5em 0.4ex 0.5em;
+               font-weight: normal;
+               text-align: center; }
 
-  footer {
-    width: 55%;
-    font-size: 1.1rem;
-    text-align: right;
-  }
-}
+th, td{ font-size: 1.2rem;
+        line-height: 1.71428571;  }
+
+.booktabs th.cmid, th { border-bottom: 1px solid lighten($border-color, 25%); }
+
+.booktabs th.nocmid { border-bottom: none; }
+
+.booktabs tbody tr:first-child td,  tr:first-child td { padding-top: 0.65ex; } /* add space between thead row and tbody */
+
+.booktabs td, td {  padding-left: 0.5em;
+                    padding-right: 0.5em;
+                    text-align: left; }
+
+.booktabs caption, caption { font-size: 90%;
+                    text-align: left;
+                    width: auto;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: 1ex;
+                    caption-side: top; }
+
+.booktabs tbody tr td.l { text-align: left !important; }
+.booktabs tbody tr td.c { text-align: center !important; }
+.booktabs tbody tr td.r { text-align: right !important; }
+
+.table-caption { float:right;
+                 clear:right;
+                 margin-right: -60%;
+                 width: 50%;
+                 margin-top: 0;
+                 margin-bottom: 0;
+                 font-size: 1.0rem;
+                 line-height: 1.96; }
+/* -- End of Table Styling section --*/
 
 
-section {
-  & > ol, &  > ul {
-    width: 45%;
-    -webkit-padding-start: 5%;
-    -webkit-padding-end: 5%;
-  }
-}
+/* Basic Layout stuff --*/
 
-li { padding: 0.5rem 0; }
-//
-//figure { padding: 0;
-//  border: 0;
-//  font-size: 100%;
-//  font: inherit;
-//  vertical-align: baseline;
-//  max-width: 55%;
-//  -webkit-margin-start: 0;
-//  -webkit-margin-end: 0;
-//  margin: 0 0 3em 0; }
-//
-//figcaption { float: right;
-//  clear: right;
-//  margin-top: 0;
-//  margin-bottom: 0;
-//  font-size: 1.1rem;
-//  line-height: 1.6;
-//  vertical-align: baseline;
-//  position: relative;
-//  max-width: 40%; }
-//
-//figure.fullwidth figcaption { margin-right: 24%; }
+article { position: relative;
+          padding: 1
+
+          rem 0rem 2.5rem 0rem; } // reduced top and bottom padding by 50%
+
+section { padding-top: 1rem;
+          padding-bottom: 1rem; }
+
+
+ul,ol { width: 45%;
+     -webkit-padding-start: 5%;
+     -webkit-padding-end: 5%;
+     list-style-type: none; }
+
+//li { padding: 0.5em 0; } //vertical padding on list items screws up vertical rhythym
+
+figure, figure img.maincolumn { max-width: 55%;
+         -webkit-margin-start: 0;
+         -webkit-margin-end: 0;
+         margin-bottom: 3em; }
+
+figcaption { float: right;
+             clear: right;
+             margin-right: -48%;
+             margin-top: 0;
+             margin-bottom: 0;
+             font-size: 1.0rem;
+             line-height: 1.6;
+             vertical-align: baseline;
+             position: relative;
+             max-width: 40%; }
+
+figure.fullwidth figcaption { float: left; margin-right: 0%; margin-left: 36%; }
+
+img { max-width: 100%; }
+
+.sidenote, .marginnote { float: right;
+                         clear: right;
+                         margin-right: -60%;
+                         width: 50%;
+                         margin-top: 0;
+                         margin-bottom: 1.96rem;
+                         font-size: 1.0rem;
+                         line-height: 1.96; //changed to bring line heights into rational pattern
+                         vertical-align: baseline;
+                         position: relative; }
+
+li .sidenote, li .marginnote{ margin-right: -80%; } //added to allow for the fact that lists are indented and marginnotes and sidenotes push to right
+
+blockquote .sidenote, blockquote .marginnote { margin-right: -79% }
+
+.sidenote-number { counter-increment: sidenote-counter; }
+
+.sidenote-number:after, .sidenote:before { content: counter(sidenote-counter) " ";
+                                           // font-family: et-bembo-roman-old-style;
+                                           color: $contrast-color; //added color
+                                           position: relative;
+                                           vertical-align: baseline; }
+
+.sidenote-number:after { content: counter(sidenote-counter);
+                         font-size: 1rem;
+                         top: -0.5rem;
+                         left: 0.1rem; }
+
+.sidenote:before { content: counter(sidenote-counter) ".\000a0"; // this is unicode for a non-breaking space
+                   color: $contrast-color;
+                   top: 0rem; } //removed superscripting for numerical reference in sidenote
+
+p, footer, div.table-wrapper, div.mathblock{ width: 55%; }
+
+div.table-wrapper { overflow-x: auto; } //changed all overflow values to 'auto' so scroll bars appear only as needed
+
+@media screen and (max-width: 760px) { p, footer,div.mathblock { width: 90%; }
+                                       pre code { width: 87.5%; }
+                                       ul { width: 85%; }
+                                       figure { max-width: 90%; }
+                                       figcaption, figure.fullwidth figcaption { margin-right: 0%;
+                                                                                 max-width: none; }
+                                       blockquote p, blockquote footer {  width: 80%;
+                                                                          padding-left: 5%;
+                                                                          padding-right: 5%;
+                                                                        }}
+
+.marginnote code, .sidenote code { font-size: 1rem; } //more .code class removal
+
+pre, pre code, p pre code { width: 52.5%;
+           padding-left: 2.5%;
+           overflow-x: auto; }
+
+.fullwidth, li.listing div{ max-width: 90%; }
+
+.full-width { .sidenote, .sidenote-number, .marginnote { display: none; } }
+
+span.newthought { font-variant: small-caps;
+                  font-size: 1.2em;
+                  letter-spacing: 0.05rem; }
+
+input.margin-toggle { display: none; }
+
+label.sidenote-number { display: inline; }
+
+label.margin-toggle:not(.sidenote-number) { display: none; }
+
+@media (max-width: 760px) { label.margin-toggle:not(.sidenote-number) { display: inline; color: $contrast-color; }
+                            .sidenote, .marginnote { display: none; }
+                            .margin-toggle:checked + .sidenote,
+                            .margin-toggle:checked + .marginnote { display: block;
+                                                                   float: left;
+                                                                   left: 1rem;
+                                                                   clear: both;
+                                                                   width: 95%;
+                                                                   margin: 1rem 2.5%;
+                                                                   vertical-align: baseline;
+                                                                   position: relative; }
+                            label { cursor: pointer; }
+                            pre, pre code, p code, p pre code { width: 90%;
+                                       padding: 0; }
+                            .table-caption { display: block;
+                                             float: right;
+                                             clear: both;
+                                             width: 98%;
+                                             margin-top: 1rem;
+                                             margin-bottom: 0.5rem;
+                                             margin-left: 1%;
+                                             margin-right: 1%;
+                                             vertical-align: baseline;
+                                             position: relative; }
+                            div.table-wrapper, table, table.booktabs { width: 85%; }
+                            div.table-wrapper { border-right: 1px solid #efefef; }
+                            img { max-width: 100%; } }
