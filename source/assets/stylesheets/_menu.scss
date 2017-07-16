@@ -1,0 +1,22 @@
+.ui.bottom.fixed.menu {
+  background: transparent;
+  border: none;
+
+  .item{
+    margin-bottom: 0.5rem;
+    &:before {
+      width: 0;
+    }
+  }
+}
+
+.ui.uncover.sidebar {
+  z-index: 4;
+}
+
+#iconset {
+  margin-top: 0;
+  margin-left: 0;
+  width: 0.8 * $menuItemSize;
+  height: 0.8 * $menuItemSize;
+}

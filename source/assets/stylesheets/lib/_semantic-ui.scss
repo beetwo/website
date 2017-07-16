@@ -5,26 +5,26 @@
 
 @import './semantic-ui/globals/reset';
 @import './semantic-ui/globals/site';
-// @import './semantic-ui/elements/button';
-// @import './semantic-ui/elements/container';
+@import './semantic-ui/elements/button';
+@import './semantic-ui/elements/container';
 // @import './semantic-ui/elements/divider';
 // @import './semantic-ui/elements/flag';
-// @import './semantic-ui/elements/header';
-// @import './semantic-ui/elements/icon';
-// @import './semantic-ui/elements/image';
+@import './semantic-ui/elements/header';
+@import './semantic-ui/elements/icon';
+@import './semantic-ui/elements/image';
 // @import './semantic-ui/elements/input';
 // @import './semantic-ui/elements/label';
 // @import './semantic-ui/elements/list';  
 // @import './semantic-ui/elements/loader';
 // @import './semantic-ui/elements/rail';
 // @import './semantic-ui/elements/reveal';
-// @import './semantic-ui/elements/segment';
+@import './semantic-ui/elements/segment';
 // @import './semantic-ui/elements/step';
 
 // @import './semantic-ui/collections/breadcrumb';
 // @import './semantic-ui/collections/form';
 // @import './semantic-ui/collections/grid';
-// @import './semantic-ui/collections/menu';
+@import './semantic-ui/collections/menu';
 // @import './semantic-ui/collections/message';
 // @import './semantic-ui/collections/table';
 
@@ -47,7 +47,7 @@
 // @import './semantic-ui/modules/rating';
 // @import './semantic-ui/modules/search';
 // @import './semantic-ui/modules/shape';
-// @import './semantic-ui/modules/sidebar';
+@import './semantic-ui/modules/sidebar';
 // @import './semantic-ui/modules/sticky';
 // @import './semantic-ui/modules/tab';
 // @import './semantic-ui/modules/transition';

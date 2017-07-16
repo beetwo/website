@@ -1,0 +1,50 @@
+//  _
+// (_)__ ___ _ _
+// | / _/ _ \ ' \
+// |_\__\___/_||_|
+i.fa,
+i.icon {
+  font-family: 'FontAwesome';
+  display: inline-block;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  opacity: 1;
+  margin: 0em 0.25rem 0em 0em;
+  width: 1.18em;
+  height: 1em;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  text-align: center;
+  text-transform: none;
+  letter-spacing: normal;
+  speak: none;
+  font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+//                             _
+//  ___ ___ __ _ _ __  ___ _ _| |_
+// (_-</ -_) _` | '  \/ -_) ' \  _|
+// /__/\___\__, |_|_|_\___|_||_\__|
+//         |___/
+.ui.segment {
+  @extend .no-frills;
+  background: transparent;
+  margin: 1.5rem 0;
+  padding: 1.5rem 1rem;
+  border-radius: 0.28571429rem;
+}
+

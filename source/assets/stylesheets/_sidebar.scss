@@ -1,0 +1,9 @@
+#sidebar {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  .item {
+    @extend h2;
+  }
+}

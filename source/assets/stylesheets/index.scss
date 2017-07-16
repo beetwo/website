@@ -11,12 +11,30 @@
 @import "./lib/fonts";
 @import "./lib/typecsset";
 
+@import "overrides";
+@import "custom";
+@import "menu";
+@import "masthead";
+@import "team";
+@import "projects";
+@import "sidebar";
 @import "viz";
 
 // @import "./lib/tufte";
 // @import "./lib/overrides";
 // @import "custom";
 // @import "menu";
+
+
+body {
+  background: $white;
+  &.pushable {
+    background: transparent !important;
+    & > .pusher {
+      background: transparent;
+    }
+  }
+}
 
 // ————————————————————————————————
 // debug

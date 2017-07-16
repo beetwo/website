@@ -42,8 +42,8 @@ $font-path: '../fonts';
 // Semantic UI
 //————————————————————————————————
 $import-google-fonts:   false !default;
-$display-font-family:   'Source-Sans', 'System Font' !default;
-$display-font-weight:   400;
+$display-font-family:   'Signika', 'System Font' !default;
+$display-font-weight:   200;
 $font-family:           'Source-Sans', 'System Font' !default;
 $monospace-font-family: 'Monofur', 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
 
@@ -94,7 +94,6 @@ $leading: $baseLineHeight * 1rem;
 $scale:1.414;
 
 
-//————————————————————————————————
 // Breakpoints 
 // (taken from semantic-ui)
 //————————————————————————————————
@@ -103,6 +102,10 @@ $tablet-breakpoint:       768px;
 $computer-breakpoint:     992px;
 $large-screen-breakpoint: 1200px;
 $widescreen-breakpoint:   1920px;
+
+// menu
+//————————————————————————————————
+$menuItemSize: 1.5rem;
 
 
 
