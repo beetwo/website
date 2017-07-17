@@ -22,17 +22,23 @@ function init() {
   cells.find('.expander').hide()
 
   $('.imagez.grid > .column > .expand').click(function() {
-
-    console.log(this, $(this), $this.hasClass('active'))
-    $this.toggleClass('active')
-
+    
     let cell = $(this).closest('.column'),
         expander = cell.find('.expander')
 
     if (!expander.is(":visible")) {
       $('.expander').slideUp() // hide all
+      
+      // fold down all overlays
+      $('.imagez.grid > .column > .expand').removeClass('active')
+
+      $(this).addClass('active')
       expander.slideDown() }
-    else expander.slideUp()
+
+    else {
+      expander.slideUp()
+      $(this).removeClass('active')
+    }
   })
   
   cells.find('.close').click(function() {
