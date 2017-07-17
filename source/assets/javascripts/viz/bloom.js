@@ -3,6 +3,8 @@ import {select, selectAll} from 'd3-selection'
 import {scaleLinear, scalePow} from 'd3-scale'
 import {forceSimulation, forceCollide, forceX, forceY} from 'd3-force'
 import {easePolyOut} from 'd3-ease'
+import flowField from './flow-field'
+import moduloForce from './modulo-force'
 
 // debug flag for rendering force-circles
 let RENDER_CIRCLES = false
@@ -124,16 +126,22 @@ function _resizeSegments(segments) {
 function _resize(β) {
   // the svg spans the whole viewport
   let width       = $(window).width(),
-      height      = $(window).height()
+      height      = $(window).height(),
+      bb          = { x: 0,
+                      y: 0,
+                      w: width,
+                      h: height}
 
   targetXΣ.domain([0, _totalHeight()]).range([0, 0.12 * width])
   targetYΣ.domain([0, _totalHeight()]).range([0, 0.12 * height])
 
-  β.xΦ.x(targetXΣ(0))
-  β.yΦ.y(targetYΣ(0))
+  β.xΦ.x(width/2)
+  β.yΦ.y(height/2)
+
+  β.moduloΦ.boundingBox(bb)
 
   β.svg.attr('width', width).attr('height', height)
-  β.group.attr('transform', 'translate(' + xFocus(width) + ',' + yFocus(height) + ')')
+  // β.group.attr('transform', 'translate(' + xFocus(width) + ',' + yFocus(height) + ')')
   β.hex.attr('transform', 'scale(' + hexΣ(width) + ')')
 
   // β.node.style('transform', () => {
@@ -161,10 +169,6 @@ function  ticked(β) {
   // // as the radii change, constantly update the collissionΦ
   // β.colissionΦ.radius((η, i) => { return η.radius })
 
-  // the position forces wander a little bit
-  β.xΦ.x(targetXΣ(top))
-  β.yΦ.y(targetYΣ(top))
-
   β.node // adjust each node
   // set the simulation position
     .style('transform', function(δ) {
@@ -182,7 +186,9 @@ function  ticked(β) {
       .style('transform', (δ) => {return 'translate3d(' + _.round(δ.x) + 'px,' + _.round(δ.y) + 'px, 0)' })
       .attr('r', (δ) => { return δ.radius })
 
-  β.simulation.alphaTarget(0.3)
+  flowField.update(β)
+
+  β.simulation.alphaTarget(1)
   β.simulation.restart()
 
   return β }
@@ -194,18 +200,26 @@ function _initializeSimulation(β) {
         colissionΦ  = forceCollide()
                         .iterations(12)
                         .radius((δ) => { return δ.radius }),
-        xΦ          = forceX(),
-        yΦ          = forceY()
+        xΦ          = forceX().strength(0.004),
+        yΦ          = forceY().strength(0.004),
+        flowΦ       = β.flowField.force(),
+        moduloΦ     = moduloForce()
+
+    moduloΦ.padding(0.072)
 
     simulation.nodes(β.nodes)
     simulation.force('colission', colissionΦ)
     simulation.force('x', xΦ)
     simulation.force('y', yΦ)
+    simulation.force('flow', flowΦ)
+    simulation.force('modulo', moduloΦ)
 
     // put into β
     β.colissionΦ  = colissionΦ
     β.xΦ          = xΦ
     β.yΦ          = yΦ
+    β.flowΦ       = flowΦ
+    β.moduloΦ     = moduloΦ
     β.simulation  = simulation
 
     resolve(β)})}
@@ -249,18 +263,23 @@ function _initializeDOM(parentId, β) {
 
     resolve(β) })}
 
+function _initializeFlowField(β) {
+  return new Promise((resolve) => {
+    flowField.init(β)
+    resolve(β)})}
+
 function _initializeNodes(numSegments) {
   return new Promise((resolve) => {
     let β   = {},
-        δ   = 1024  
+        δ   = 500  
     β.nodes = _(numSegments)
                 .range()
                 .map((ι) => {
                   return {color:  color(ι),
                           id:     `n-${ι}`,
-                          radius: 2,
-                          x:      _.random(-δ, δ),
-                          y:      _.random(-δ, δ) } })
+                          radius: 42,
+                          x:      _.random(0, 768),
+                          y:      _.random(0, 1024) } })
                 .value()
     resolve(β)})
 }
@@ -271,8 +290,11 @@ function init(parentId, numSegments) {
   // abort if the div with the given id isn't there
   if ($(parentId).length === 0) return
 
+
+
   _initializeNodes(numSegments)
     .then( (β) => { return _initializeDOM(parentId, β) })
+    .then( (β) => { return _initializeFlowField(β) })
     .then( (β) => { return _initializeSimulation(β) })
     .then( (β) => { return _resize(β) })
     .then( (β) => { // attach window handlers

@@ -1,5 +1,6 @@
-import bloom from './viz/bloom'
-import menu from './menu'
+import bloom      from './viz/bloom'
+import menu       from './menu'
+import imageGrid  from './viz/image-grid'
 
 // require('./semantic-ui/accordion')
 // require('./semantic-ui/api')
@@ -35,7 +36,7 @@ function _scrollSmoothly() {
       let target = $(this.hash)
       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']')
       if (target.length) {
-        $('html, body').animate({scrollTop: target.offset().top}, 2000)
+        $('html, body').animate({scrollTop: target.offset().top}, 1400)
         return false }}})}
 
 
@@ -50,14 +51,14 @@ function _interceptHyperlinks() {
 function _resize() {}
 function _scroll() {}
 
-
 $(document)
   .ready(function () {
     _scrollSmoothly()
     _interceptHyperlinks()
     bloom('#bloom', 5)
     menu.init()
-    
+    imageGrid.init()
+
     // _.defer(() => {
     //   _resize()
     //   _scroll()

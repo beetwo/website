@@ -14,3 +14,16 @@
 }     
 
 
+.flow-field {
+  g.cell {
+    & > rect {
+      stroke: $red;
+      fill: none;  
+    }
+
+    & > line {
+      stroke: $red;
+      fill: none;  
+    }
+  } 
+}
