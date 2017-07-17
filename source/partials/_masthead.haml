@@ -3,11 +3,9 @@
     %h1 BeeTwo
     %h2=t(:tagline) 
  
-    .epigraph
+    .epigraph.hidden.mobile
       %blockquote.initial= get_text('introduction')
 
-    -# - blog("texts").articles.each do |text|
-    -#   %article
-    -#     %h1= text.title
-    -#     %p= text.render
-
+.ui.container.hidden.tablet
+  .epigraph
+    %blockquote.initial= get_text('introduction')
