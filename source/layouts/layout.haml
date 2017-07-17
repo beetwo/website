@@ -6,7 +6,7 @@
     = javascript_include_tag "head.bundle", :relative => true
     = partial "partials/meta"
 
-  %body.pushable{:class => page_classes}
+  %body#page.pushable{:class => page_classes}
     #bloom
     
     = partial "partials/menu"

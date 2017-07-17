@@ -67,9 +67,10 @@ blockquote {
   p {
     &:first-child:first-letter {
       float: left;
-      padding-right: 0.25rem;
-      line-height: 1;
+      padding-right: 0.4rem;
+      line-height: 0.94;
       font-size: 3.92rem;
+      margin-top: 0.25rem;
     }
   }
 }

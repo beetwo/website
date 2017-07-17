@@ -3,8 +3,14 @@
   // background: rgba($blue, 0.4);
 
   .project {
-    & > image {
-      @extend .raised;
+    pointer-events:none;
+
+    .expand {
+      pointer-events: all;
+    }
+
+    & > .expander > .content {
+     pointer-events: all; 
     }
   }
 
