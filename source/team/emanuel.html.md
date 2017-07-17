@@ -1,8 +1,11 @@
 ---
 layout: team_layout
 title: Emanuel
-date: 2017-07-16T11:06:01.044Z
-thumbnail: /assets/images/uploads/volume.gif
+date: 2002-01-01T00:00:00.000Z
+thumbnail: /assets/images/uploads/emanuel.jpg
 ---
 #emanuel 
 
+----
+
+Emanuel makes everything look pretty. And it's super nice to have him around.

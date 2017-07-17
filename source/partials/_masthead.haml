@@ -3,4 +3,11 @@
     %h1 BeeTwo
     %h2=t(:tagline) 
  
-    %blockquote=t(:introduction) 
+    .epigraph
+      %blockquote.initial= get_text('introduction')
+
+    -# - blog("texts").articles.each do |text|
+    -#   %article
+    -#     %h1= text.title
+    -#     %p= text.render
+

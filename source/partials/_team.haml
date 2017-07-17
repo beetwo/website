@@ -1,9 +1,14 @@
-#team.ui.vertical.segment
+#team.ui.vertical.stripe.segment
   .ui.container
-    %h1 team
+    %h1 das team
 
-    - blog("team").articles.each do |member|
-      %article
-        %h1
-          %a{:href => member.url}= member.title
-        = member.summary        
+    .epigraph
+      %blockquote.initial= get_text('Team')
+
+    .ui.items
+      - blog("team").articles.each do |member|
+        .item.member
+          .image
+            = image_tag member.data.thumbnail
+          .content
+            = member.render(:layout => false)

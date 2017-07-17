@@ -1,8 +1,14 @@
 ---
 layout: team_layout
 title: lowi
-date: 2017-07-16T11:00:52.763Z
-thumbnail: /assets/images/uploads/photon.jpg
+date: 2000-01-01T00:00:00.000Z
+thumbnail: /assets/images/uploads/lowi.jpg
 ---
-foo!
+#Stephan
+
+*aka lowi*
+
+----
+
+Stephan is the one in charge of all things computational.
 

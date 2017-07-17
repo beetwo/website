@@ -1,13 +1,24 @@
-#projects.ui.vertical.segment
+#projects.ui.vertical.stripe.segment
   .ui.container
     %h1 projects
 
-    - blog("projects").articles.each do |project|
-      %article
-        %h1
-          %a{:href => project.url}= project.title
-          %time= project.date.strftime('%b %e %Y')
-    
-        = project.summary
-    
-        %a{:href => project.url} Read more
+    .projects.ui.three.column.doubling.imagez.grid
+      - blog("projects").articles.each_with_index do |p, i|
+        .column.project
+          -# %a.expand{:href => ("#expand-jump-#{i}")}
+          = image_tag(p.data.thumbnail, {:id => "expand-jump-#{i}", :class => "ui image expand"})
+          .expander
+            .arrow-up
+            .content
+              -# %a.ui.circular.icon.close.button{:href => ("#close-jump-#{i}")}
+              -#   %i.ui.close.icon
+              .ui.container
+                .ui.items
+                  .item
+                    .ui.large.image
+                      = image_tag(p.data.thumbnail)
+                    .content
+                      %p= p.render(:layout => false)
+                      -# %a.ui.compact.button{:target => '_blank', :href => p.href} 
+                      -#   learn more
+                      -#   %i.ui.angle.right.icon 
