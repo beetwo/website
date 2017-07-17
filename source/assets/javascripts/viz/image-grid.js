@@ -16,13 +16,15 @@ function _resize() {
 }
 
 function init() {  
-  console.log('init')
   //bind click events
   let cells = $('.imagez.grid > .column')
 
   cells.find('.expander').hide()
 
   $('.imagez.grid > .column > .expand').click(function() {
+
+    console.log(this, $(this), $this.hasClass('active'))
+    $this.toggleClass('active')
 
     let cell = $(this).closest('.column'),
         expander = cell.find('.expander')
