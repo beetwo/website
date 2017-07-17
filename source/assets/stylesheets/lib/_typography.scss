@@ -32,6 +32,8 @@ div.epigraph {
   & > blockquote { 
     margin-top: 3rem;
     margin-bottom: 3rem; 
+    margin-left: 0;
+    margin-right: 0;
 
     & > footer { 
       font-style: normal; 
@@ -49,7 +51,8 @@ blockquote {
   font-size: 1.4rem; 
 
   p { width: 62%;
-      margin-right: 40px; }
+      // margin-right: 40px; 
+    }
 
   footer { width: 62%;
            font-size: 1.1rem;
