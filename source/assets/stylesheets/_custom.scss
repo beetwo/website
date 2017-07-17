@@ -59,3 +59,70 @@
     }
   }
 }
+
+.invisible {
+  display: none;
+  visibility: hidden;
+}
+
+
+.hidden {
+  &.mobile {
+    @include mobile {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  &.tablet {
+    @include tablet {
+      display: none;
+      visibility: hidden;
+    }
+    @include computer {
+      display: none;
+      visibility: hidden;
+    }
+    @include large-screen {
+      display: none;
+      visibility: hidden;
+    }
+    @include widescreen {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  &.computer {
+    @include computer {
+      display: none;
+      visibility: hidden;
+    }
+    @include large-screen {
+      display: none;
+      visibility: hidden;
+    }
+    @include widescreen {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  &.large-screen {
+    @include large-screen {
+      display: none;
+      visibility: hidden;
+    }
+    @include widescreen {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  &.widescreen {
+    @include widescreen {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}
