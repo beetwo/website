@@ -53,8 +53,8 @@ function _resize(β) {
   // primo scale is the scale for the first of the hexagons
   // it behaves differently from the rest
   primoΣ
-    .domain([0, height, _totalHeight()])
-    .range([1, 1, MAX_SCALE])
+    .domain([0, height, height + (_totalHeight() - height)/2, _totalHeight()])
+    .range([1, 1, MAX_SCALE, 1])
 
   // hex is the scale for all other hexagons
   // which just returns 1 for all inputs

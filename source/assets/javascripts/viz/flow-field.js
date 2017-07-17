@@ -125,8 +125,6 @@ function update(β) {
 
 
 function init(β) {
-  console.log('initialize flow field…')
-
   β.flowField         = {}
   β.flowField.δNoise  = new OpenSimplexNoise(Date.now() + _.random(Date.now()))
   β.flowField.σNoise  = new OpenSimplexNoise(Date.now() + _.random(Date.now()))
