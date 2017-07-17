@@ -27,7 +27,7 @@ set :relative_links,  true
 # set :http_prefix,     'build'
 set :css_dir,         'assets/stylesheets'
 set :js_dir,          'assets/javascripts'
-set :images_dir,      'leppers/assets/images'
+set :images_dir,      'assets/images'
 
 
 # Build-specific configuration
