@@ -7,7 +7,7 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2
 }
 
 #page {
-  font-size: 1em;
+  font-size: 1rem;
   /* equivalent to 16px */
   line-height: 1.25;
   /* equivalent to 20px */
@@ -15,7 +15,7 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2
 
 @media (min-width: 43.75em) {
   #page {
-    font-size: 1em;
+    font-size: 1rem;
     /* equivalent to 16px */
     line-height: 1.375;
     /* equivalent to 22px */
@@ -23,7 +23,7 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 2rem;
   /* 2x body copy size = 32px */
   line-height: 1.25;
   /* 45px / 36px */
@@ -31,15 +31,15 @@ h1 {
 
 @media (min-width: 43.75em) {
   h1 {
-    font-size: 2.5em;
+    font-size: 2.5rem;
     /* 2.5x body copy size = 40px */
     line-height: 1.125;
   }
 }
 
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   h1 {
-    font-size: 3em;
+    font-size: 3rem;
     /* 3x body copy size = 48px */
     line-height: 1.05;
     /* keep to a multiple of the 20px line height and something more appropriate for display headings */
@@ -47,58 +47,58 @@ h1 {
 }
 
 h2 {
-  font-size: 1.625em;
+  font-size: 1.625rem;
   /* 1.625x body copy size = 26px */
   line-height: 1.15384615;
   /* 30px / 26px */
 }
 
-@media (min-width: 43.75em) {
+@media (min-width: 43.75rem) {
   h2 {
-    font-size: 2em;
+    font-size: 2rem;
     /* 2x body copy size = 32px */
     line-height: 1.25;
   }
 }
 
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   h2 {
-    font-size: 2.25em;
+    font-size: 2.25rem;
     /* 2.25x body copy size = 36px */
     line-height: 1.25;
   }
 }
 
 h3 {
-  font-size: 1.375em;
+  font-size: 1.375rem;
   /* 1.375x body copy size = 22px */
   line-height: 1.13636364;
   /* 25px / 22px */
 }
 
-@media (min-width: 43.75em) {
+@media (min-width: 43.75rem) {
   h3 {
-    font-size: 1.5em;
+    font-size: 1.5rem;
     /* 1.5x body copy size = 24px */
     line-height: 1.25;
   }
 }
 
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   h3 {
-    font-size: 1.75em;
+    font-size: 1.75rem;
     /* 1.75x body copy size = 28px */
     line-height: 1.25;
   }
 }
 
 h4 {
-  font-size: 1.125em;
+  font-size: 1.125rem;
   /* 1.125x body copy size = 18px */
   line-height: 1.11111111;
 }
 
-@media (min-width: 43.75em) {
+@media (min-width: 43.75rem) {
   h4 {
     line-height: 1.22222222;
     /* (22px / 18px */
@@ -106,15 +106,15 @@ h4 {
 }
 
 blockquote {
-  font-size: 1.25em;
+  font-size: 1.25rem;
   /* 20px / 16px */
   line-height: 1.25;
   /* 25px / 20px */
 }
 
-@media (min-width: 43.75em) {
+@media (min-width: 43.75rem) {
   blockquote {
-    font-size: 1.5em;
+    font-size: 1.5rem;
     /* 24px / 16px = */
     line-height: 1.45833333;
     /* 35px / 24px */

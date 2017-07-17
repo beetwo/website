@@ -1,4 +1,21 @@
 #team {
   @extend .screen;
-  background: rgba($yellow, 0.4);
+  // background: rgba($yellow, 0.4);
+  .member {
+
+    padding-bottom: 3rem;
+
+    & > .image {
+      @extend .raised;
+    
+      @include mobile {
+        width: 240px;    
+      }
+
+      @include tablet {
+        width: 340px;    
+      }
+    }
+  }
+
 }
