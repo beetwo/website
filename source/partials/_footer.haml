@@ -1,32 +1,32 @@
-#footer.screen.ui.vertical.stripe.segment
+%footer.screen.ui.vertical.stripe.segment
   .ui.container
 
     .epigraph
       %blockquote.initial= get_text('Contact')
 
-    .ui.two.column.grid
-      .column
-        
-            
-      -# .column
-      -#   .ui.items
-      -#     .item.email
-      -#       %a{:href => "mailto:#{data.en.contact.email}"}
-      -#         %i.ui.mail.icon
-      -#         %span.address= data.meta.contact.email
-  
-      -#     .item.phone
-      -#       %a{:href => "tel:#{data.en.contact.phone}"}
-      -#         %i.ui.phone.icon
-      -#         %span.address= data.meta.contact.phone
-    
-      -#     .item.address
-      -#       %a{:href => "#{data.en.contact.mapLink}", :target => "_blank"}
-      -#         %i.ui.home.icon
-      -#         #{data.meta.contact.address.street},
-      -#         = data.meta.contact.address.city
+    .ui.items
+      .item.email
+        %a{:href => "mailto:#{data.meta.contact.email}"}
+          %i.ui.mail.icon
+          %span.address= data.meta.contact.email
+      
+      -# .item.slack
+      -#   %a{:href => "tel:#{data.meta.contact.slack}"}
+      -#     %i.ui.slack.icon
+      -#     %span.address= data.meta.contact.slack
 
-      -# #imprint.column
-      -#   .name #{data.en.title} —#{data.en.role}
-      -#   .zvr ZVR: #{data.en.contact.ZVR}
+      .item.phone
+        %a{:href => "tel:#{data.meta.contact.phone}"}
+          %i.ui.phone.icon
+          %span.address= data.meta.contact.phone
+    
+      .item.address
+        %a{:href => "#{data.meta.contact.mapLink}", :target => "_blank"}
+          %i.ui.home.icon
+          #{data.meta.contact.address.street},
+          = data.meta.contact.address.city
+
+    #imprint
+      .name Beetwo —#{t(:tagline)}
+      .zvr ZVR: #{data.meta.contact.ZVR}
 
