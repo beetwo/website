@@ -55,15 +55,10 @@ $(document)
   .ready(function () {
     _scrollSmoothly()
     _interceptHyperlinks()
-    bloom('#bloom', 5)
+    
     menu.init()
     imageGrid.init()
 
-    // _.defer(() => {
-    //   _resize()
-    //   _scroll()
-    //   // attach window handlers
-    //   $(window).on('resize', _.debounce(() => _resize(), 120))
-    //   $(window).on('scroll', () => { _scroll() })
+    _.defer(function() { bloom('#bloom', 5)})
   })
 
