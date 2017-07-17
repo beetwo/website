@@ -1,4 +1,3 @@
-import OpenSimplexNoise from 'open-simplex-noise'
 import {select, selectAll} from 'd3-selection'
 import {scaleLinear, scalePow} from 'd3-scale'
 import {forceSimulation, forceCollide, forceX, forceY} from 'd3-force'
@@ -14,18 +13,9 @@ let PALLETE   = _.shuffle(["#5ca6b2",  "#a6c85d", "#ff6b67", "#ff9e4f", "#ffdb69
 // let PALLETE   = _.shuffle(["#00FFFE", "#a6c85d", "#5ca6b2", "#ff6b67", "#ff9e4f", "#ffdb69", "#655e7e"])
 let MAX_SCALE = 16
 
-let noise   = new OpenSimplexNoise(_.now()),
-    timeΣ   = scaleLinear()
-                .domain([0, 1])
-                .range([0, 0.0001]),
-    noiseΣ  = scaleLinear()
-                .domain([-1, 1])
-                .range([-0.5, 0.5]),
-    targetXΣ = scaleLinear(),
-    targetYΣ = scaleLinear(),
-    hexΣ    = scaleLinear()
-                .domain([320, 1920])
-                .range([1, 1])
+let primoΣ      = scaleLinear(),
+    hexΣ        = scaleLinear(),
+    colissionΣ  = scaleLinear()
 
 function color(index) { return _.nth(PALLETE, index) }
 function xFocus(w) { return 0.62 * w }
@@ -46,140 +36,82 @@ function _totalHeight(){
 // (_-</ _/ _` | / -_|_-<
 // /__/\__\__,_|_\___/__/
 
-function _domain({id, top, height}) {
-  let stops = { 'startExpand': 0,
-                'stopExpand':  0.62 * _windowHeight(),
-                'startGrow':   0.62 * _windowHeight() + 1,
-                'stopGrow':    _windowHeight(),
-                'startShrink': _totalHeight() - _windowHeight(),
-                'stopShrink':  _totalHeight(),
-                'infinity':    1000000}
-  return _.values(stops) }
-
-function _sizeRange({id, top, height}) {
-
-  let MIN_SCALE = 0.62
-  let stops = { 'startExpand':    1,
-                'stopExpand':     1,
-                'startGrowing':   1,
-                'stopGrowing':    1,
-                'startShrinking': 1,
-                'stopShrinking':  4 * MIN_SCALE,
-                'infinity':       4 * MIN_SCALE }
-
-  // first screen
-  if (top === 0)
-    stops = { 'startExpand':  1,
-              'stopExpand':   1,
-              'startGrowing': 1,
-              'stopGrowing':  MAX_SCALE,
-              'startShrink':  MAX_SCALE,
-              'stopShrink':   4 * MIN_SCALE,
-              'infinity':     4 * MIN_SCALE }
-
-  return _.values(stops) }
-
-function _forceRange({id, top, height}) {
-  // the minimum collision circle radius is 4
-  let MIN_SCALE = 4,
-      // the with depends on the size of the hexagon template
-      w = 0.5 * _hexWidth() / hexΣ($(window).width()),
-
-      stops = { 'startExpand':  MIN_SCALE,
-                'stopExpand':   w,
-                'startGrow':    w,
-                'stopGrow':     w,
-                'startShrink':  w,
-                'stopShrink':   24 * MIN_SCALE,
-                'infinity':     24 * MIN_SCALE }
-
-  if (top === 0)
-    stops = { 'startExpand':  MIN_SCALE,
-              'stopExpand':   w,
-              'startGrow':    w,
-              'stopGrow':     w * MAX_SCALE,
-              'startShrink':  w * MAX_SCALE,
-              'stopShrink':   24 * MIN_SCALE,
-              'infinity':     24 * MIN_SCALE }
-
-  return _.values(stops) }
-
-function _resizeSegments(segments) {
-  return _.map(segments, (ς) => {
-            let δSize   = _domain(ς),
-                ρSize   = _sizeRange(ς),
-                δForce  = _domain(ς),
-                ρForce  = _forceRange(ς)
-
-            ς.sizeΣ   = scalePow()
-                          .exponent(3)
-                          .domain(δSize)
-                          .range(ρSize)
-
-            ς.forceΣ  = scalePow()
-                          .exponent(3)
-                          .domain(δForce)
-                          .range(ρForce)
-
-            return ς })}
 
 function _resize(β) {
   // the svg spans the whole viewport
-  let width       = $(window).width(),
-      height      = $(window).height(),
-      bb          = { x: 0,
-                      y: 0,
-                      w: width,
-                      h: height}
+  let width     = $(window).width(),
+      height    = $(window).height(),
+      bb        = { x: 0,
+                    y: 0,
+                    w: width,
+                    h: height},
+      hexRadius   = $('.hex')[0].getBoundingClientRect().width/2
 
-  targetXΣ.domain([0, _totalHeight()]).range([0, 0.12 * width])
-  targetYΣ.domain([0, _totalHeight()]).range([0, 0.12 * height])
+  β.bb = bb
 
+  // update the scales
+  // primo scale is the scale for the first of the hexagons
+  // it behaves differently from the rest
+  primoΣ
+    .domain([0, height, _totalHeight()])
+    .range([1, 1, MAX_SCALE])
+
+  // hex is the scale for all other hexagons
+  // which just returns 1 for all inputs
+  hexΣ
+    .domain([0, 1])
+    .range([1, 1])
+
+  // radius is the scale for the colission radii
+  // used when scroll.top < window.height
+  colissionΣ
+    .domain([0, height, _totalHeight()])
+    .range([2, hexRadius, hexRadius])
+
+  // update the forces
   β.xΦ.x(width/2)
   β.yΦ.y(height/2)
-
   β.moduloΦ.boundingBox(bb)
 
   β.svg.attr('width', width).attr('height', height)
-  // β.group.attr('transform', 'translate(' + xFocus(width) + ',' + yFocus(height) + ')')
-  β.hex.attr('transform', 'scale(' + hexΣ(width) + ')')
-
-  // β.node.style('transform', () => {
-  //   return 'translate3d(' + (targetXΣ(0) + _.random(-64, 64)) + 'px,' + (targetYΣ(0) + _.random(-64, 64))  + 'px, 0)' })
-
-  // initialize the segment scales
-  β.segments = _resizeSegments(β.segments)
-
+  // β.hex.attr('transform', 'scale(' + hexΣ(width) + ')')
   return β }
-
-function _findSegment(id, segments) { return _.find(segments, (σ) => { return σ.id === id})}
-
-function _noise(ι) { return noiseΣ(noise.noise2D(timeΣ(_.now()), ι)) }
 
 // called at each animation tick
 function  ticked(β) {
 
-  // // the current scroll offset
+  // the current scroll offset
   let top = $(window).scrollTop()
-  // // update the node radii depending on the scroll position
-  // _.each(β.nodes, (η) => {
-  //   let σ =  _findSegment(η.id, β.segments)
-  //   η.radius = σ.forceΣ(top) })
 
-  // // as the radii change, constantly update the collissionΦ
-  // β.colissionΦ.radius((η, i) => { return η.radius })
+  // update the node radii depending on the scroll position
+  _.each(β.nodes, function(η, i) {
 
-  β.node // adjust each node
-  // set the simulation position
-    .style('transform', function(δ) {
-      return `translate3d( ${δ.x}px, ${δ.y}px, 0)`
-    })
+    // if the scroll top is smaller that the window height
+    // lineary scale the size from 2 to the unscaled hex radius
+    if(top <= β.bb.h) {
+      η.radius = colissionΣ(top)
+      return }
+
+    if( i===0 ) {
+      let primoRadius = $('.hex')[0].getBoundingClientRect().width/2
+      η.radius = primoRadius
+    } else {
+      let radius = $('.hex')[1].getBoundingClientRect().width/2
+      η.radius = radius
+    }
+  })
+
+  // as the radii change, constantly update the collissionΦ
+  β.colissionΦ.radius((η, i) => { return η.radius })
+
+  β.node
+    // set the simulation position
+    .style('transform', function(δ) { return `translate3d( ${δ.x}px, ${δ.y}px, 0)` })
     // scale according to scroll position
-    // .each((δ, ι, η) => {
-    //   let σ =  _findSegment(δ.id, β.segments)
-    //   select(η[ι]) // I have not the faintest idea why my this references ain't working nomore
-    //     .select('use')
-    //     .attr('transform', 'scale(' + σ.sizeΣ(top) + ')') })
+    .each(function(δ, ι, η) {
+      select(this)
+        .select('use')
+        .attr('transform', 'scale(' + ((ι === 0) ? primoΣ(top) : hexΣ(top)) + ')') })
 
   if(RENDER_CIRCLES)
     β.circle
@@ -212,7 +144,7 @@ function _initializeSimulation(β) {
     simulation.force('x', xΦ)
     simulation.force('y', yΦ)
     simulation.force('flow', flowΦ)
-    simulation.force('modulo', moduloΦ)
+    // simulation.force('modulo', moduloΦ)
 
     // put into β
     β.colissionΦ  = colissionΦ
@@ -222,6 +154,11 @@ function _initializeSimulation(β) {
     β.moduloΦ     = moduloΦ
     β.simulation  = simulation
 
+    resolve(β)})}
+
+function _initializeFlowField(β) {
+  return new Promise((resolve) => {
+    flowField.init(β)
     resolve(β)})}
 
 function _initializeDOM(parentId, β) {
@@ -263,11 +200,6 @@ function _initializeDOM(parentId, β) {
 
     resolve(β) })}
 
-function _initializeFlowField(β) {
-  return new Promise((resolve) => {
-    flowField.init(β)
-    resolve(β)})}
-
 function _initializeNodes(numSegments) {
   return new Promise((resolve) => {
     let β   = {},
@@ -281,16 +213,13 @@ function _initializeNodes(numSegments) {
                           x:      _.random(0, 768),
                           y:      _.random(0, 1024) } })
                 .value()
-    resolve(β)})
-}
+    resolve(β)})}
 
 // initialize the bloomy thingiez in the background
 function init(parentId, numSegments) {
 
   // abort if the div with the given id isn't there
   if ($(parentId).length === 0) return
-
-
 
   _initializeNodes(numSegments)
     .then( (β) => { return _initializeDOM(parentId, β) })
