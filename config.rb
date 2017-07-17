@@ -116,8 +116,11 @@ helpers do
   end
 
   def markdown(text)
-    Tilt['markdown'].new { text }.render
+    Tilt['markdown'].new { text }.render()
+  end
+
+  def get_text(title)
+    blog("texts").articles.detect {|e| e.title == title}.render(:layout => false)
   end
 end
-
 
