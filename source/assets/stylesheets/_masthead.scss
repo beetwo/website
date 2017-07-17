@@ -1,6 +1,10 @@
 #masthead {
   @extend .screen;
-  .container {
-    padding-top: 62vh;
+  display: flex;
+  align-items:flex-end;
+
+  @include mobile {
+    align-items:center;    
   }
+
 }
