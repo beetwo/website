@@ -25,9 +25,9 @@ hr { display: block;
      padding: 0; }
 
 /* Chapter Epigraphs */
-/* Chapter Epigraphs */
 div.epigraph { 
-  margin: 5em 0; 
+  margin: 4.5rem 0; 
+  font-family: 'Calluna';
 
   & > blockquote { 
     margin-top: 3rem;
@@ -39,19 +39,37 @@ div.epigraph {
     }
   }
 
-  & > blockquote, & > blockquote > p { 
-    font-style: italic;
-  }
+  // & > blockquote, & > blockquote > p { 
+  //   font-style: italic;
+  // }
 
 }
 
 blockquote { 
   font-size: 1.4rem; 
 
-  p { width: 55%;
+  p { width: 62%;
       margin-right: 40px; }
 
-  footer { width: 55%;
+  footer { width: 62%;
            font-size: 1.1rem;
            text-align: right; }
+
+  @include mobile {
+    p, footer {
+      width: 100%;
+    }
+  }
+}
+
+
+.initial {
+  p {
+    &:first-child:first-letter {
+      float: left;
+      padding-right: 0.25rem;
+      line-height: 1;
+      font-size: 3.92rem;
+    }
+  }
 }
