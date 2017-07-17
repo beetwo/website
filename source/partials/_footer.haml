@@ -1,18 +1,32 @@
-#footer.ui.container
-  .ui.right.aligned.segment
-    %h1 Anneke Jannsen
-    .ui.items
-      .item
-        .content
-          %i.ui.twitter.icon
-          @die-janssen
-      .item
-        .content
-          %i.ui.mail.icon
-          hellö@die-janssen.de
-      .item
-        .content
-          %i.ui.home.icon
-          Irgendwo 3000
-          %br
-          4711 Utopia
+#footer.screen.ui.vertical.stripe.segment
+  .ui.container
+
+    .epigraph
+      %blockquote.initial= get_text('Contact')
+
+    .ui.two.column.grid
+      .column
+        
+            
+      -# .column
+      -#   .ui.items
+      -#     .item.email
+      -#       %a{:href => "mailto:#{data.en.contact.email}"}
+      -#         %i.ui.mail.icon
+      -#         %span.address= data.meta.contact.email
+  
+      -#     .item.phone
+      -#       %a{:href => "tel:#{data.en.contact.phone}"}
+      -#         %i.ui.phone.icon
+      -#         %span.address= data.meta.contact.phone
+    
+      -#     .item.address
+      -#       %a{:href => "#{data.en.contact.mapLink}", :target => "_blank"}
+      -#         %i.ui.home.icon
+      -#         #{data.meta.contact.address.street},
+      -#         = data.meta.contact.address.city
+
+      -# #imprint.column
+      -#   .name #{data.en.title} —#{data.en.role}
+      -#   .zvr ZVR: #{data.en.contact.ZVR}
+
