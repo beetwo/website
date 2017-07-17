@@ -5,8 +5,11 @@
     .projects.ui.three.column.doubling.imagez.grid
       - blog("projects").articles.each_with_index do |p, i|
         .column.project
-          -# %a.expand{:href => ("#expand-jump-#{i}")}
-          = image_tag(p.data.thumbnail, {:id => "expand-jump-#{i}", :class => "ui image expand"})
+          .overlay.frame.expand.raised
+            .image
+              = image_tag(p.data.thumbnail, {:id => "expand-jump-#{i}", :class => "ui image"})
+            .text= p.data.title
+            
           .expander
             .arrow-up
             .content
