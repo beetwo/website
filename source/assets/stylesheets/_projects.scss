@@ -2,6 +2,10 @@
   @extend .screen;
   // background: rgba($blue, 0.4);
 
+  .imagez.grid {
+    margin-top: 3rem;
+  }
+
   .project {
     pointer-events:none;
 

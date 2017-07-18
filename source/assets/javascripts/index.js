@@ -58,7 +58,8 @@ $(document)
     
     menu.init()
     imageGrid.init()
-
-    _.defer(function() { bloom('#bloom', 5)})
+    
+    bloom('#bloom', 5)
+    // _.defer(function() {})
   })
 

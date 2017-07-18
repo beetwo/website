@@ -1,4 +1,7 @@
-// Demo by Dan Rose.
+
+import transition from 'd3-transition'
+import {selectAll} from 'd3-selection'
+
 // See: http://www.sitepoint.com/recreating-google-images-search-layout-css
 
 function _resize() {
@@ -47,7 +50,18 @@ function init() {
     expander.slideUp()
   })
 
-  _.defer(function(){_resize()})
+  _.defer(function(){
+    _resize()
+
+    // make visible
+    selectAll('.imagez.grid > .column')
+      .transition()
+      .duration(1200)
+      .delay(function(n, i) {return i * 720})
+      .style('opacity', 1)
+
+
+  })
   $(window).on('resize', function(){_resize()})
 
 }
