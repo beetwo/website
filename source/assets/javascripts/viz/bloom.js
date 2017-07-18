@@ -2,6 +2,7 @@ import {select, selectAll} from 'd3-selection'
 import {scaleLinear, scalePow} from 'd3-scale'
 import {forceSimulation, forceCollide, forceX, forceY} from 'd3-force'
 import {easePolyOut} from 'd3-ease'
+import {timer} from 'd3-timer'
 import flowField from './flow-field'
 import moduloForce from './modulo-force'
 
@@ -12,31 +13,26 @@ let HEXAGON   = 'M-6.935577799999997 -59.9957423C-3.105163900000001 -62.20723276
 let PALLETE   = _.shuffle(["#5ca6b2",  "#a6c85d", "#ff6b67", "#ff9e4f", "#ffdb69"])
 // let PALLETE   = _.shuffle(["#00FFFE", "#a6c85d", "#5ca6b2", "#ff6b67", "#ff9e4f", "#ffdb69", "#655e7e"])
 let MAX_SCALE = 16
+let IDLE_TIMEOUT = 4000
+let POSITION_MAX_FORCE = 0.004
+let POSITION_MIN_FORCE = 0.0005
+let FLOW_FIELD_MAX_FORCE = 0.8
+// let FLOW_FIELD_MIN_FORCE = 0.002
+
 
 let primoΣ      = scaleLinear(),
     hexΣ        = scaleLinear(),
     colissionΣ  = scaleLinear()
 
 function color(index) { return _.nth(PALLETE, index) }
-function xFocus(w) { return 0.62 * w }
-function yFocus(h) { return 0.38 * h }
-
-// function _hexWidth(){ return $('#hex').width() }
 function _hexWidth(){ return $('#hex')[0].getBoundingClientRect().width }
 function _windowHeight(){ return $(window).height() }
 
-// obacht! dirty dirty hack. hard code the selectors which should be —and partially are— configurable
 function _totalHeight(){
-  // return $(document).height() - $('.pusher > .bloom.segment').last().outerHeight()
   let ε = $('.pusher').first()
   return ε.offset().top + ε.outerHeight() - _windowHeight()}
 
-//              _
-//  ___ __ __ _| |___ ___
-// (_-</ _/ _` | / -_|_-<
-// /__/\__\__,_|_\___/__/
-
-
+// called when the window is being resized. also called upon init
 function _resize(β) {
   // the svg spans the whole viewport
   let width     = $(window).width(),
@@ -132,9 +128,9 @@ function _initializeSimulation(β) {
         colissionΦ  = forceCollide()
                         .iterations(12)
                         .radius((δ) => { return δ.radius }),
-        xΦ          = forceX().strength(0.004),
-        yΦ          = forceY().strength(0.004),
-        flowΦ       = β.flowField.force(),
+        xΦ          = forceX().strength(POSITION_MAX_FORCE),
+        yΦ          = forceY().strength(POSITION_MAX_FORCE),
+        flowΦ       = β.flowField.force(FLOW_FIELD_MAX_FORCE),
         moduloΦ     = moduloForce()
 
     moduloΦ.padding(0.072)
@@ -166,6 +162,15 @@ function _initializeDOM(parentId, β) {
     let parent      = select(parentId),
         svg         = parent.append('svg'),
         defs        = svg.append('defs'),
+        blur        = defs.append('filter')
+                        .attr('id', 'gaussian-blur')
+                        .attr('x', '-50%')
+                        .attr('y', '-50%')
+                        .attr('width', '200%')
+                        .attr('height', '200%')
+                        .append('feGaussianBlur')
+                        .attr('in', 'SourceGraphic')
+                        .attr('stdDeviation', 0),
         group       = svg.append('g'),
         hex         = defs.append('path')
                         .attr('d', HEXAGON)
@@ -178,6 +183,7 @@ function _initializeDOM(parentId, β) {
                         .append('g')
                         .attr('id', (d, i) => { return 'hex-' + (d.id || i) })
                         .attr('class', 'hex')
+                        .attr('filter', 'url(#gaussian-blur)')
                         .each((δ, ι, η) => {
                           select(η[ι]).append('use')
                             .attr('xlink:href', '#hex')
@@ -193,6 +199,7 @@ function _initializeDOM(parentId, β) {
 
     β.parent    = parent
     β.svg       = svg
+    β.blur      = blur
     β.group     = group
     β.hex       = hex
     β.node      = node
@@ -215,6 +222,40 @@ function _initializeNodes(numSegments) {
                 .value()
     resolve(β)})}
 
+function _idleTimer(β) {
+  function _idleTimeout() {
+    β.idleTimer.stop()
+    β.blur
+      .transition()
+      // .duration(24000)
+      .duration(2000)
+      .attr('stdDeviation', 5)
+
+    β.xΦ.strength(POSITION_MIN_FORCE)
+    β.yΦ.strength(POSITION_MIN_FORCE)
+  }
+
+  function _resetTimeout() {
+    β.idleTimer.restart(_idleTimeout, IDLE_TIMEOUT) 
+    β.blur.interrupt()
+    β.blur
+      .transition()
+      .duration(400)
+      .attr('stdDeviation', 0)
+    β.xΦ.strength(POSITION_MAX_FORCE)
+    β.yΦ.strength(POSITION_MAX_FORCE)
+  }
+
+  // start the idle timer
+  // when no interaction (clicks, scroll…) takes place for a while
+  // the hexagons start to change. Upon the next event everythin snaps
+  // back to normal
+  β.idleTimer = timer(_idleTimeout, IDLE_TIMEOUT)
+
+  // listen for events that reset the idle timer
+  $(window).on('click', _resetTimeout)
+  $(window).on('scroll', _resetTimeout)
+}
 // initialize the bloomy thingiez in the background
 function init(parentId, numSegments) {
 
@@ -233,8 +274,7 @@ function init(parentId, numSegments) {
                     // start the simulation
                     β.simulation.on('tick', () => { β = ticked(β) })
 
-    })
-}
+                    _idleTimer(β)})}
 
 export default init
 

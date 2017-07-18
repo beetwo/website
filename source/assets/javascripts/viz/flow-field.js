@@ -3,10 +3,10 @@ import OpenSimplexNoise from 'open-simplex-noise'
 import {scaleLinear} from 'd3-scale'
 import util from '../util'
 
-let γ       = { render: false,
+let γ       = { render: true,
                 resolution: 8,
                 padding: 1,
-                strength: 1.4 },
+                strength: 1 },
 
     δΣ      = scaleLinear()
                 .domain([-1, 1])
