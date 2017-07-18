@@ -2,6 +2,10 @@
   @extend .screen;
   // background: rgba($blue, 0.4);
 
+  .ui.container {
+    height: 100%;
+  }
+
   .imagez.grid {
     margin-top: 3rem;
   }
@@ -17,5 +21,4 @@
      pointer-events: all; 
     }
   }
-
 }

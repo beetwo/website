@@ -6,7 +6,7 @@ import util from '../util'
 let γ       = { render: false,
                 resolution: 8,
                 padding: 1,
-                strength: 1 },
+                strength: 1.4 },
 
     δΣ      = scaleLinear()
                 .domain([-1, 1])

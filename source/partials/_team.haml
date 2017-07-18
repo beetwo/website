@@ -1,13 +1,41 @@
-#team.ui.vertical.stripe.segment
+#team.ui.vertical.segment
   .ui.container
     %h1=t(:team_headline) 
+
     .epigraph
       %blockquote.initial= get_text('Team')
 
-    .ui.items
-      - blog("team").articles.shuffle.each do |member|
-        .item.member
-          .image
-            = image_tag member.data.thumbnail
-          .content
-            = member.render(:layout => false)
+    -# .ui.items
+    -#   - blog("team").articles.shuffle.each do |member|
+    -#     .item.member
+    -#       .image
+    -#         = image_tag member.data.thumbnail
+    -#       .content
+    -#         = member.render(:layout => false)
+
+    .ui.three.column.doubling.imagez.grid
+      - blog("team").articles.shuffle.each_with_index do |m, i|
+        .column.project
+          .overlay.frame.expand.raised
+            .image
+              = image_tag(m.data.thumbnail, {:id => "expand-jump-#{i}", :class => "ui image"})
+            .text= m.data.title
+            
+          .expander
+            .arrow-up
+            .content
+              -# %a.ui.circular.icon.close.button{:href => ("#close-jump-#{i}")}
+              -#   %i.ui.close.icon
+              .ui.container
+                .ui.items
+                  .item
+                    .ui.large.image
+                      = image_tag(m.data.thumbnail)
+                    .content
+                      %p= m.render(:layout => false)
+                      -# %a.ui.compact.button{:target => '_blank', :href => p.href} 
+                      -#   learn more
+                      -#   %i.ui.angle.right.icon 
+
+.ui.container
+  .seperator
