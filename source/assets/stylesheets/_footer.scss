@@ -3,10 +3,11 @@ footer {
   position: relative;
 
   .item {
-    a {
-      @extend h2;
-      color: $black;
-    }
+    a { color: $black;
+        @extend h2;
+        @include textschatten($size: 4, $color: #ffffff);
+        font-family: 'Signika';
+        font-weight: 400; }
 
     margin-left: 12% !important;
 
