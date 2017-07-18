@@ -5,7 +5,7 @@
       %blockquote.initial= get_text('Team')
 
     .ui.items
-      - blog("team").articles.each do |member|
+      - blog("team").articles.shuffle.each do |member|
         .item.member
           .image
             = image_tag member.data.thumbnail

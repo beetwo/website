@@ -9,4 +9,4 @@ thumbnail: /assets/images/uploads/laura.jpg
 
 ----
 
-Luara is the fluffy one. She keeps an eye on everything and takes good care that thing aren't getting all too serious.
+Luara knows where everything's at. She also takes good care that thing aren't getting overly serious.
