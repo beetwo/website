@@ -11,13 +11,13 @@
           .overlay.frame.expand.raised
             .image
               = image_tag(p.data.thumbnail, {:id => "expand-jump-#{i}", :class => "ui image"})
-            .text= p.data.title
+            .content
+              %p.title= p.data.title
+              %i.ui.icon.angle.down
             
           .expander
             .arrow-up
             .content
-              -# %a.ui.circular.icon.close.button{:href => ("#close-jump-#{i}")}
-              -#   %i.ui.close.icon
               .ui.container
                 .ui.items
                   .item
@@ -25,9 +25,6 @@
                       = image_tag(p.data.thumbnail)
                     .content
                       %p= p.render(:layout => false)
-                      -# %a.ui.compact.button{:target => '_blank', :href => p.href} 
-                      -#   learn more
-                      -#   %i.ui.angle.right.icon 
 
 .ui.container
   .seperator

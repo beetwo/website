@@ -13,29 +13,17 @@
     -#       .content
     -#         = member.render(:layout => false)
 
-    .ui.three.column.doubling.stackable.imagez.grid
+    .ui.three.column.doubling.stackable.grid
       - blog("team").articles.shuffle.each_with_index do |m, i|
-        .column.project
-          .overlay.frame.expand.raised
+        .column.member
+          .overlay.frame.raised
             .image
               = image_tag(m.data.thumbnail, {:id => "expand-jump-#{i}", :class => "ui image"})
-            .text= m.data.title
+            .content.left
+              .title= m.data.title
+              .email
+                = link_to m.data.email, "mailto:#{m.data.email}"
+              .description= m.render(:layout => false)
             
-          .expander
-            .arrow-up
-            .content
-              -# %a.ui.circular.icon.close.button{:href => ("#close-jump-#{i}")}
-              -#   %i.ui.close.icon
-              .ui.container
-                .ui.items
-                  .item
-                    .ui.large.image
-                      = image_tag(m.data.thumbnail)
-                    .content
-                      %p= m.render(:layout => false)
-                      -# %a.ui.compact.button{:target => '_blank', :href => p.href} 
-                      -#   learn more
-                      -#   %i.ui.angle.right.icon 
-
 .ui.container
   .seperator

@@ -5,8 +5,26 @@
 
     padding-bottom: 3rem;
 
+    .title {
+      font-size: 2rem;
+      flex: 0 1 auto;
+    }
+
+    .email {
+      flex: 0 1 auto;
+      a {
+        font-size: 1rem;
+        color: $black;
+      }
+    }
+
+    .description {
+      font-size: 1rem;
+    }
+
     & > .image {
       @extend .raised;
+      pointer-events: none;
     
       @include mobile {
         width: 240px;    
