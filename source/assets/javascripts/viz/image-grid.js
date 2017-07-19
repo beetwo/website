@@ -56,8 +56,8 @@ function init() {
     // make visible
     selectAll('.imagez.grid > .column')
       .transition()
-      .duration(1200)
-      .delay(function(n, i) {return i * 720})
+      .duration(800)
+      .delay(function(n, i) {return i * 240})
       .style('opacity', 1)
 
 
