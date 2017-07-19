@@ -3,7 +3,7 @@ import OpenSimplexNoise from 'open-simplex-noise'
 import {scaleLinear} from 'd3-scale'
 import util from '../util'
 
-let γ       = { render: true,
+let γ       = { render: false,
                 resolution: 8,
                 padding: 1,
                 strength: 1 },

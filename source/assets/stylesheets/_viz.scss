@@ -10,6 +10,11 @@
   .hex {
     mix-blend-mode: multiply;
   }
+
+  circle {
+    fill:none;
+    stroke: $black;
+  }
 }     
 
 
