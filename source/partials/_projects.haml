@@ -5,7 +5,7 @@
     .epigraph
       %blockquote.initial= get_text('What we do and how we work')
 
-    .ui.three.column.doubling.imagez.grid
+    .ui.three.column.doubling.stackable.imagez.grid
       - blog("projects").articles.each_with_index do |p, i|
         .column.project
           .overlay.frame.expand.raised

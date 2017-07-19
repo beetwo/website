@@ -1,6 +1,7 @@
 
 import transition from 'd3-transition'
 import {selectAll} from 'd3-selection'
+import util from '../util'
 
 // See: http://www.sitepoint.com/recreating-google-images-search-layout-css
 
@@ -8,9 +9,15 @@ function _resize() {
     
   $('.imagez.grid .column').each(function(i, e) {
     let fontsize = parseFloat($(e).css('font-size').replace('px', '')),
-        left    = Math.ceil(e.getBoundingClientRect().left + fontsize),
+        left    = Math.ceil(e.getBoundingClientRect().left),
         width   = e.getBoundingClientRect().width,
         arrowX  = left + width/2 - $(window).width()/2 - fontsize
+
+    // dunno exactly where this comes from
+    // on non mobile displays the expander gets not aligned properly
+    // probably something to do with container padding or whatnot…
+    if(!util.isMobile()) left += fontsize
+
     // translate the .expander to be on the lefthand side of the screen
     $(e).find('.expander').css('transform', `translateX(${ -left }px)`)
     // translate the .arrow-up to be on the lefthand side of the screen
