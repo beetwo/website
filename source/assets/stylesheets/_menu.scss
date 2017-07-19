@@ -14,6 +14,11 @@
   z-index: 4;
 }
 
+#toc {
+  @extend .colored-background;
+  @extend .raised;
+}
+
 #iconset {
   margin-top: 0;
   margin-left: 0;

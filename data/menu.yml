@@ -4,7 +4,7 @@
   href:  '#team'
 - title: Projects
   href:  '#projects'
-- title: Partners
-  href:  '#partners'
+# - title: Partners
+#   href:  '#partners'
 - title: Contact
-  href: '#footer'
+  href: '#contact'

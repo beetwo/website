@@ -101,9 +101,16 @@ $widescreen-breakpoint:   1920px;
 //————————————————————————————————
 $menuItemSize: 1.5rem;
 
-// fluid typography
+// color animations
 //————————————————————————————————
-
+@keyframes changecolor {
+  0%    { background: $red }
+  25%   { background: $orange }
+  50%   { background: $yellow }
+  75%   { background: $green }
+  100%  { background: $blue }
+  // 100%  { background: $pink }
+}
 
 
 
