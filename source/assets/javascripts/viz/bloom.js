@@ -172,15 +172,15 @@ function _initializeDOM(parentId, β) {
     let parent      = select(parentId),
         svg         = parent.append('svg'),
         defs        = svg.append('defs'),
-        blur        = defs.append('filter')
-                        .attr('id', 'gaussian-blur')
-                        .attr('x', '-50%')
-                        .attr('y', '-50%')
-                        .attr('width', '200%')
-                        .attr('height', '200%')
-                        .append('feGaussianBlur')
-                        .attr('in', 'SourceGraphic')
-                        .attr('stdDeviation', 0),
+        // blur        = defs.append('filter')
+        //                 .attr('id', 'gaussian-blur')
+        //                 .attr('x', '-50%')
+        //                 .attr('y', '-50%')
+        //                 .attr('width', '200%')
+        //                 .attr('height', '200%')
+        //                 .append('feGaussianBlur')
+        //                 .attr('in', 'SourceGraphic')
+        //                 .attr('stdDeviation', 0),
         group       = svg.append('g'),
         hex         = defs.append('path')
                         .attr('d', HEXAGON)
@@ -193,7 +193,7 @@ function _initializeDOM(parentId, β) {
                         .append('g')
                         .attr('id', (d, i) => { return 'hex-' + (d.id || i) })
                         .attr('class', 'hex')
-                        .attr('filter', 'url(#gaussian-blur)')
+                        // .attr('filter', 'url(#gaussian-blur)')
                         .each((δ, ι, η) => {
                           select(η[ι]).append('use')
                             .attr('xlink:href', '#hex')
@@ -209,7 +209,7 @@ function _initializeDOM(parentId, β) {
 
     β.parent    = parent
     β.svg       = svg
-    β.blur      = blur
+    // β.blur      = blur
     β.group     = group
     β.hex       = hex
     β.node      = node
