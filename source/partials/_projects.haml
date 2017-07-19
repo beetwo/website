@@ -1,6 +1,9 @@
-#projects.ui.vertical.segment
+#projects.ui.vertical.stripe.segment
   .ui.container
-    %h1.headline=t(:projects_headline)
+    %h2.headline=t(:projects_headline)
+
+    .epigraph
+      %blockquote.initial= get_text('What we do and how we work')
 
     .ui.three.column.doubling.imagez.grid
       - blog("projects").articles.each_with_index do |p, i|

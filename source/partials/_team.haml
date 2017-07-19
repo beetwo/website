@@ -1,6 +1,6 @@
-#team.ui.vertical.segment
+#team.ui.vertical.stripe.segment
   .ui.container
-    %h1.headline=t(:team_headline) 
+    %h2.headline=t(:team_headline) 
 
     .epigraph
       %blockquote.initial= get_text('Team')
@@ -13,7 +13,7 @@
     -#       .content
     -#         = member.render(:layout => false)
 
-    .ui.three.column.doubling.imagez.grid
+    .ui.three.column.doubling.stackable.imagez.grid
       - blog("team").articles.shuffle.each_with_index do |m, i|
         .column.project
           .overlay.frame.expand.raised
