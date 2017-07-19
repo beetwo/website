@@ -6,5 +6,12 @@
   @include mobile {
     align-items:center;    
   }
+}
 
+#main-headline {
+  // display: none;
+   &.sticky {
+    @include textschatten($size: 4, $color: #ffffff);
+    z-index: 400;
+   }
 }

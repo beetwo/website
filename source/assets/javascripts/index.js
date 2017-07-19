@@ -1,6 +1,10 @@
 import bloom      from './viz/bloom'
 import menu       from './menu'
 import imageGrid  from './viz/image-grid'
+import {select}   from 'd3-selection'
+
+// import Waypoint from 'waypoints/lib/jquery.waypoints.js'
+require('waypoints/lib/jquery.waypoints.js')
 
 // require('./semantic-ui/accordion')
 // require('./semantic-ui/api')
@@ -27,6 +31,7 @@ require('./semantic-ui/sidebar')
 // require('./semantic-ui/visibility')
 // require('./semantic-ui/visit')
 
+
 // smooth scrolling
 // @see: https://css-tricks.com/snippets/jquery/smooth-scrolling/
 // ————————————————————————————————
@@ -42,24 +47,46 @@ function _scrollSmoothly() {
 
 function _interceptHyperlinks() {
   $('a').click(function(){
-    console.log('clickedy click!')
+    // console.log('clickedy click!')
     // prevent the default action:
     // return false
   })
 }
+
+function _sticky() {
+  let waypoint = new Waypoint({
+    element: document.getElementById('main-headline'),
+    handler: function(direction) {
+      if(direction === 'up') 
+        select(this.element)
+          .style('position', 'unset')
+          .style('top', 'unset')
+          .attr('class', '')
+
+      if(direction === 'down') 
+        select(this.element)
+          .style('position', 'fixed')
+          .style('top', '8px')
+          .attr('class', 'sticky')
+    }, offset: 16 })}
 
 function _resize() {}
 function _scroll() {}
 
 $(document)
   .ready(function () {
-    _scrollSmoothly()
-    _interceptHyperlinks()
+
+    // resetting the window scroll prevents a sticky/waypoint-bug
+    // that ocurrs when the side is being reloaded after scrolling
+    window.scrollTo(0, 0)
     
+    _scrollSmoothly()
+    // _interceptHyperlinks()
     menu.init()
     imageGrid.init()
     
     bloom('#bloom', 5)
-    // _.defer(function() {})
+
+    _.delay(_sticky, 200)
   })
 
