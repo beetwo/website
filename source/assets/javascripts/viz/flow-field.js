@@ -123,17 +123,18 @@ function update(β) {
                     .attr('x2', c.σ * c.s * Math.sin(c.δ))
                     .attr('y2', c.σ * c.s * Math.cos(c.δ))})}}
 
-
-function init(β) {
-  β.flowField         = {}
-  β.flowField.δNoise  = new OpenSimplexNoise(Date.now() + _.random(Date.now()))
-  β.flowField.σNoise  = new OpenSimplexNoise(Date.now() + _.random(Date.now()))
-  β.flowField.force   = _force(β)
+function init(β, δNoiseSeed, σNoiseSeed) {
+  β.flowField = {}
+  β.flowField.δNoiseSeed  = δNoiseSeed
+  β.flowField.δNoise      = new OpenSimplexNoise(δNoiseSeed)
+  β.flowField.σNoiseSeed  = σNoiseSeed
+  β.flowField.σNoise      = new OpenSimplexNoise(σNoiseSeed)
+  β.flowField.force       = _force(β)
 
   // defer the resize so that everything can initialize properly
   _.defer(() => {_resize(β)})
   $(window).on('resize', _.debounce(() => { _resize(β) }, 120))
 }
 
-export default {init:   init,
-                update: update}
+export default {init:     init,
+                update:   update}

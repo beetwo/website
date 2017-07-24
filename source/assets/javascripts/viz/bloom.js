@@ -6,7 +6,7 @@ import {timer} from 'd3-timer'
 import flowField from './flow-field'
 import moduloForce from './modulo-force'
 import store from 'store'
-import ű from '../util'
+import util from '../util'
 
 let TWEEN = require('@tweenjs/tween.js')
 
@@ -169,6 +169,22 @@ function _initializeFlowField(β) {
     flowField.init(β)
     resolve(β)})}
 
+function _initializeFlowField(β) {
+  console.log('initializing flow field')
+   let  δNoiseSeed  = Date.now() + _.random(Date.now()),
+        σNoiseSeed  = Date.now() + _.random(Date.now())
+  return new Promise((resolve) => {
+    flowField.init(β, δNoiseSeed, σNoiseSeed)
+    resolve(β)})}
+
+function _recreateFlowField(β, noise) {
+  console.log('recreating flow field')
+   let  δNoiseSeed  = noise.δNoiseSeed,
+        σNoiseSeed  = noise.σNoiseSeed
+  return new Promise((resolve) => {
+    flowField.init(β, δNoiseSeed, σNoiseSeed)
+    resolve(β)})}
+
 function _initializeDOM(parentId, β) {
   return new Promise((resolve) => {
     let parent      = select(parentId),
@@ -221,8 +237,7 @@ function _initializeDOM(parentId, β) {
 
 function _initializeNodes(numSegments) {
   return new Promise((resolve) => {
-    let β   = {},
-        δ   = 500  
+    let β   = {}
     β.nodes = _(numSegments)
                 .range()
                 .map((ι) => {
@@ -233,6 +248,9 @@ function _initializeNodes(numSegments) {
                           y:      _.random(0, 1024) } })
                 .value()
     resolve(β)})}
+
+function _recreateNodes(nodes) {
+  return new Promise((resolve) => {resolve({nodes: nodes})})}
 
 function _idleTimer(β) {
 
@@ -324,14 +342,12 @@ function _idleTimer(β) {
 // the bloom is initialized with the given settings
 function _interceptHyperlinks(β) {
   $('a').click(function(){
-    // console.log('clickedy click!', β)
-    console.log('ű', ű.pretty(β))
-
-
-    // prevent the default action:
-    // return false
-  })
-}
+    let nodes = β.nodes,
+        flowField = _.pick(β.flowField, ['δNoiseSeed', 'σNoiseSeed'])
+    store.set('bloom', 
+      { nodes:      nodes,
+        flowField:  flowField,
+        τ:          _.now() })})}
 
 
 // initialize the bloomy thingiez in the background
@@ -340,12 +356,14 @@ function init(parentId, numSegments) {
   // abort if the div with the given id isn't there
   if ($(parentId).length === 0) return
 
-  store.set('user', { name:'lowi' })
-  console.log('user', store.get('user'))
+  let storageBloom = store.get('bloom') || {}
+  // invalidate if the chache is old
+  if(storageBloom.τ + (12 * 1000) < _.now()) storageBloom = {}
+  let nodeΦ = storageBloom.nodes ? _recreateNodes(storageBloom.nodes) : _initializeNodes(numSegments)
 
-  _initializeNodes(numSegments)
+  nodeΦ
     .then( (β) => { return _initializeDOM(parentId, β) })
-    .then( (β) => { return _initializeFlowField(β) })
+    .then( (β) => { return storageBloom.flowField ? _recreateFlowField(β, storageBloom.flowField) : _initializeFlowField(β) })
     .then( (β) => { return _initializeSimulation(β) })
     .then( (β) => { return _resize(β) })
     .then( (β) => { // attach window handlers
