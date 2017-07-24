@@ -44,15 +44,6 @@ function _scrollSmoothly() {
         $('html, body').animate({scrollTop: target.offset().top}, 1400)
         return false }}})}
 
-
-function _interceptHyperlinks() {
-  $('a').click(function(){
-    // console.log('clickedy click!')
-    // prevent the default action:
-    // return false
-  })
-}
-
 function _sticky() {
   let waypoint = new Waypoint({
     element: document.getElementById('main-headline'),
@@ -81,7 +72,6 @@ $(document)
     window.scrollTo(0, 0)
     
     _scrollSmoothly()
-    // _interceptHyperlinks()
     menu.init()
     imageGrid.init()
     

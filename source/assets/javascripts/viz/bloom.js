@@ -5,6 +5,8 @@ import {easeQuadInOut} from 'd3-ease'
 import {timer} from 'd3-timer'
 import flowField from './flow-field'
 import moduloForce from './modulo-force'
+import store from 'store'
+import ű from '../util'
 
 let TWEEN = require('@tweenjs/tween.js')
 
@@ -312,6 +314,24 @@ function _idleTimer(β) {
   _animateTween()
 }
 
+// intercept hyperlinks and write the current state of the bloom
+// to local storage
+// this is used to provide continuity of the bloom animation
+// across different html sites.
+// when a link is clicked and the site is about to navigate to a new site
+// we wirite the data. Upon loading the new page we check
+// local storage. If bloom data exists and is not out of date
+// the bloom is initialized with the given settings
+function _interceptHyperlinks(β) {
+  $('a').click(function(){
+    // console.log('clickedy click!', β)
+    console.log('ű', ű.pretty(β))
+
+
+    // prevent the default action:
+    // return false
+  })
+}
 
 
 // initialize the bloomy thingiez in the background
@@ -319,6 +339,9 @@ function init(parentId, numSegments) {
 
   // abort if the div with the given id isn't there
   if ($(parentId).length === 0) return
+
+  store.set('user', { name:'lowi' })
+  console.log('user', store.get('user'))
 
   _initializeNodes(numSegments)
     .then( (β) => { return _initializeDOM(parentId, β) })
@@ -332,11 +355,8 @@ function init(parentId, numSegments) {
                     // start the simulation
                     β.simulation.on('tick', () => { β = ticked(β) })
 
-                    _idleTimer(β)
-
-
-
-                  })}
+                    _interceptHyperlinks(β)
+                    _idleTimer(β)})}
 
 export default init
 
