@@ -122,5 +122,11 @@ helpers do
   def get_text(title)
     blog("texts").articles.detect {|e| e.title == title}.render(:layout => false)
   end
+
+  def menu_link(path, anchor)
+    link = "#{anchor}" if path.eql? "index.html"
+    link = "/index.html#{anchor}" unless path.eql? "index.html"
+    link
+  end
 end
 
