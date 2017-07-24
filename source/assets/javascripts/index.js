@@ -69,7 +69,7 @@ $(document)
 
     // resetting the window scroll prevents a sticky/waypoint-bug
     // that ocurrs when the side is being reloaded after scrolling
-    window.scrollTo(0, 0)
+    // window.scrollTo(0, 0)
     
     _scrollSmoothly()
     menu.init()
