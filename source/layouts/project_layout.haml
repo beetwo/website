@@ -1,9 +1,10 @@
 = wrap_layout :layout do
   .ui.container
-    %h1#main-headline BeeTwo
+    %a#main-headline{:href => "/index.html"} BeeTwo
   .project.detail
-    .ui.text.container
-      %article
-        -# = image_tag current_page.data.thumbnail, {:class => "ui image"}
+    %article
+      .ui.fluid.container
+        = image_tag current_page.data.thumbnail, {:class => "ui image"}
+      .ui.text.container
         %h1= current_page.data.title
         = yield

@@ -24,8 +24,8 @@
                     .ui.large.image
                       = image_tag(p.data.thumbnail)
                     .content
-                      %p= p.render(:layout => false)
-                      = link_to "more", p.path
+                      %p= p.data.tagline
+                      = link_to "more", p.path, {:class => 'ui button'}
 
 .ui.container
   .seperator
