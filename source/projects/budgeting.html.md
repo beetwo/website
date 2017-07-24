@@ -2,6 +2,7 @@
 title: Peer Comparing Budgeting Tool
 date: 2017-07-14 18:58 UTC
 thumbnail: /assets/images/uploads/budgetrechner.jpg
+tagline: Advice on personal budgeting as a debt prevention measure
 ---
 
 Advice on personal budgeting as a debt prevention measure
