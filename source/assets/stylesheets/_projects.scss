@@ -16,10 +16,7 @@
     .expand {
       pointer-events: all;
     }
-
     
-              // %i
-
     & > .overlay > .content {
       & > p {
         font-size: 2rem;
@@ -40,45 +37,32 @@
 
     & > .expander > .content {
       pointer-events: all; 
-// margin: 0em 0em 0.5em;
+
+      .item {
+        display: flex;
+        align-items: center;
+
+        & > .content {
+          flex: 1 1 auto;
+        }
+      }
       
       p {
+        @extend h3;
         &:first-child {
           margin: 0 !important;
         }
       }
 
       a {
-          position: relative;
-          color: $white;
-          padding: 0.25rem 0.25rem;
-      
-          transition: all 0.1s ease;
-      
-          &::after {
-            @extend .colored-background;
-            content: "";
-            position: absolute;
-            z-index: -1;
-            left: 0;
-            bottom: 6px;
-            width: 100%;
-            height: 1px;
-            transition: all 0.1s ease;
-          }
-      
-          &:hover {
-            &::after {
-              bottom: 0;
-              width: 100%;
-              height: 100%;
-            }
-          }
-        }
+        margin-top: 1.5rem;
+        @extend .colored-background;
+        color: $black;
+      }
     }
   }
 }
 
 .project.detail {
-  margin-top: 6rem;
+  // margin-top: 6rem;
 }

@@ -53,7 +53,7 @@ a:not(.button) {
     bottom: 0;
     width: 100%;
     height: 1px;
-    transition: all 0.1s ease;
+    transition: all 0.25s ease;
   }
 
   &:hover {
@@ -64,6 +64,25 @@ a:not(.button) {
       width: 100%;
       height: 100%;
     }
+  }
+}
+
+
+a#main-headline {
+  @extend h1;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+
+   &.sticky {
+    @include textschatten($size: 4, $color: #ffffff);
+    z-index: 400;
+  }
+
+  &:before {
+    content: "\f104";
+    font-family: 'FontAwesome';
+    @extend h3;
+    margin-right: 0.5rem;
   }
 }
 
