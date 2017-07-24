@@ -17,9 +17,26 @@
       pointer-events: all;
     }
 
-    & > .overlay > .content > p {
-      font-size: 2rem;
+    
+              // %i
+
+    & > .overlay > .content {
+      & > p {
+        font-size: 2rem;
+      }
+      & > i.indicator {
+        @extend .ui;
+        @extend .icon;
+        @extend .big;
+        @extend .angle.down;
+        color: rgba($black, 0.81);
+
+        flex: 0 1 auto;
+        // transform: scaleY(0.5);
+      }
     }
+
+
 
     & > .expander > .content {
       pointer-events: all; 
@@ -29,8 +46,9 @@
         &:first-child {
           margin: 0 !important;
         }
+      }
 
-        & > a {
+      a {
           position: relative;
           color: $white;
           padding: 0.25rem 0.25rem;
@@ -57,7 +75,10 @@
             }
           }
         }
-      }
     }
   }
+}
+
+.project.detail {
+  margin-top: 6rem;
 }

@@ -13,7 +13,7 @@
               = image_tag(p.data.thumbnail, {:id => "expand-jump-#{i}", :class => "ui image"})
             .content
               %p.title= p.data.title
-              %i.ui.icon.angle.down
+              %i.indicator
             
           .expander
             .arrow-up
@@ -25,6 +25,7 @@
                       = image_tag(p.data.thumbnail)
                     .content
                       %p= p.render(:layout => false)
+                      = link_to "more", p.path
 
 .ui.container
   .seperator
