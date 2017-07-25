@@ -5,24 +5,20 @@
     .epigraph
       %blockquote.initial= get_text('What we do and how we work')
 
-    .ui.three.column.doubling.stackable.imagez.grid
-      - blog("projects").articles.each_with_index do |p, i|
+    .ui.three.column.doubling.stackable.grid
+      - blog("projects").articles.shuffle.each_with_index do |p, i|
         .column.project
-          .overlay.frame.expand.raised
+          .overlay.frame.raised
             .image
-              = image_tag(p.data.thumbnail, {:id => "expand-jump-#{i}", :class => "ui image"})
-            .content
-              %p.title= p.data.title
-              %i.indicator
-            
-          .expander
-            .arrow-up
-            .content
-              .ui.container
-                .ui.items
-                  .item
-                    .ui.large.image
-                      = image_tag(p.data.thumbnail)
-                    .content
-                      %p= p.data.tagline
-                      = link_to "more", p.path, {:class => 'ui button'}
+              = image_tag(p.data.thumbnail, {:class => "ui image"})
+            .content.left
+              .head
+                .title= p.data.title
+              .description= p.data.tagline
+              .extra
+                %a.ui.raised.circular.icon.button{:href => p.url}
+                  %i.ui.chevron.right.icon
+                
+
+
+         
