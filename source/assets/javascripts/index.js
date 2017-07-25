@@ -46,6 +46,8 @@ function _scrollSmoothly() {
         return false }}})}
 
 function _sticky() {
+  if($('#main-headline').length === 0) return
+
   let waypoint = new Waypoint({
     element: document.getElementById('main-headline'),
     handler: function(direction) {

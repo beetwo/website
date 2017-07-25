@@ -1,15 +1,30 @@
 = wrap_layout :layout do
   .ui.container
-    %a#main-headline{:href => "/index.html"} BeeTwo
+    %a#headline{:href => "/index.html"} BeeTwo
   .project.detail
-    %article
-      .ui.fluid.container
-        .ui.stackable.grid
-          .ten.wide.column.gallery
-            .carousel
-              - current_page.data.images.each do |i|
-                = image_tag i, {:class => "ui image"}
-          .six.wide.column.text
-            = yield
+    .article
+      .ui.container
+        .title#sub-headline= current_page.data.title
+
+      .ui.stackable.grid
+        .gallery.column.mobile.only
+          .carousel
+            - current_page.data.images.each do |i|
+              = image_tag i, {:class => "ui image"}
+
+        .gallery.column.sixteen.wide.tablet.only
+          .carousel
+            - current_page.data.images.each do |i|
+              = image_tag i, {:class => "ui image"}
+
+        .ten.wide.column.gallery.computer.large.screen.widescreen.only
+          .carousel
+            - current_page.data.images.each do |i|
+              = image_tag i, {:class => "ui image"}
+
+        .twelve.wide.centered.mobile.column.text.tablet.only
+          = yield
+
+        .six.wide.column.text.computer.large.screen.widescreen.only
+          = yield
         
-        .title= current_page.data.title
