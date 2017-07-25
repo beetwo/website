@@ -1,7 +1,7 @@
 ---
-title: Peer Comparing Budgeting Tool
+title: Hate Crime Reporting Platform
 date: 2011-01-01 00:00 UTC
-thumbnail: /assets/images/uploads/hatecrime.jpg
+thumbnail: /assets/images/uploads/hatecrime.png
 tagline: Collecting and reporting data on hate crimes in collaboration with the OSCE/ODIHR.
 ---
 
