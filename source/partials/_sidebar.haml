@@ -2,7 +2,9 @@
   .ui.segment
     .ui.items
       - data.menu.each do |m|
-        %a.item{:href => menu_link(current_page.path, m.href)}= m.title
+        .item
+          %a{:href => menu_link(current_page.path, m.href), "data-letters" => m.title }
+            = m.title
           
     
 

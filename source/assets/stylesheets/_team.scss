@@ -15,14 +15,6 @@
         font-size: 2rem;
         flex: 1 1 auto;
       }
-
-      a.email {
-        flex: 0 1 auto;
-        font-size: 1rem;
-        background: $black;
-        @extend .raised;
-        @extend .colored-text;
-      }
     }
 
     

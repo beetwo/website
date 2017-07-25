@@ -1,8 +1,9 @@
 import bloom      from './viz/bloom'
 import menu       from './menu'
 import imageGrid  from './viz/image-grid'
-import {select}   from 'd3-selection'
 import slick      from 'slick-carousel'
+import {select, selectAll} from 'd3-selection'
+
 
 // import Waypoint from 'waypoints/lib/jquery.waypoints.js'
 require('waypoints/lib/jquery.waypoints.js')
@@ -75,6 +76,21 @@ function _overlayClick() {
       e.preventDefault()
       return false  }})}
 
+function _colorChange() {
+
+  function _delay() {
+    let delay = _.random(180)
+    select(this)
+      .style('-webkit-animation-delay', (-delay + 's'))
+      .style('animation-delay', (-delay + 's'))}
+  
+  selectAll('.overlay .content .extra > a').each(_delay)
+  selectAll('.overlay .content').each(_delay)
+  selectAll('#sidebar').each(_delay)
+  // selectAll('#toc').each(_delay)
+}
+
+
 function _carousel() {
   console.log('_carousel')
   $('.carousel').slick({
@@ -95,6 +111,7 @@ $(document)
     _scrollSmoothly()
     _overlayClick()
     _carousel()
+    _colorChange()
     menu.init()
     imageGrid.init()
     
