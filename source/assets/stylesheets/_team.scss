@@ -5,18 +5,27 @@
 
     padding-bottom: 3rem;
 
-    .title {
-      font-size: 2rem;
+    .head {
+      display: flex;
+      width: 100%;
       flex: 0 1 auto;
-    }
+      margin-bottom: 1rem;
 
-    .email {
-      flex: 0 1 auto;
-      a {
+      .title {
+        font-size: 2rem;
+        flex: 1 1 auto;
+      }
+
+      a.email {
+        flex: 0 1 auto;
         font-size: 1rem;
-        color: $black;
+        background: $black;
+        @extend .raised;
+        @extend .colored-text;
       }
     }
+
+    
 
     .description {
       font-size: 1rem;

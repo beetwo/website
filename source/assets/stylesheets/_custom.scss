@@ -49,11 +49,17 @@
 
 .colored-background {
   animation-duration: 180s;
-  animation-name: changecolor;
+  animation-name: changecolorbackground;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 
+.colored-text {
+  animation-duration: 180s;
+  animation-name: changecolortext;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
 
 .overlay.frame {
   position: relative;
@@ -88,8 +94,12 @@
       margin-bottom: 0;
     }
 
+    a.ui.button {
+      flex: unset;
+    }
+
     i.icon {
-      flex: 0 1 auto;
+      pointer-events: none;
     }
   }
 

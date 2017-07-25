@@ -103,13 +103,20 @@ $menuItemSize: 1.5rem;
 
 // color animations
 //————————————————————————————————
-@keyframes changecolor {
+@keyframes changecolorbackground {
   0%    { background: $red }
   25%   { background: $orange }
   50%   { background: $yellow }
   75%   { background: $green }
   100%  { background: $blue }
-  // 100%  { background: $pink }
+}
+
+@keyframes changecolortext {
+  0%    { color: $red }
+  25%   { color: $orange }
+  50%   { color: $yellow }
+  75%   { color: $green }
+  100%  { color: $blue }
 }
 
 

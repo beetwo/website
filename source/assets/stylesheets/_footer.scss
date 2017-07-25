@@ -3,19 +3,28 @@ footer {
   position: relative;
 
   .item {
-    a { color: $black;
-        @extend h2;
-        // @include textschatten($size: 4, $color: #ffffff);
-        font-family: 'Signika';
-        font-weight: 200; 
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
+    a { 
+      color: $black;
+      @extend h2;
+      // @include textschatten($size: 4, $color: #ffffff);
+      font-family: 'Signika';
+      font-weight: 200; 
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
 
-        i.icon {
-          @extend h3;
-          font-family: 'FontAwesome';
-        }
+      i.icon {
+        @extend h3;
+        font-family: 'FontAwesome';
       }
+    }
+
+    margin-bottom: 2rem !important;
+    
+    &.address {
+      .city {
+        margin-left: 2.5rem;
+      }
+    }
 
     margin-left: 12% !important;
 
