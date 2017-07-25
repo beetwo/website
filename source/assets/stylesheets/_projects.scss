@@ -31,11 +31,19 @@
     .extra {
       align-self: flex-end;
       flex: 0 1 auto;
-    }
 
-    a {
-      background: $black;
-      @extend .colored-text;
+      & > a {
+        background: $black;
+        @extend .colored-text;
+        display: block;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        min-height: 1.5rem;
+        text-align: right;
+        padding: 1rem 0.5rem 1rem 0.5rem
+      }
     }
   }
 }

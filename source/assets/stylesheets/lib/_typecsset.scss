@@ -120,42 +120,21 @@ h1 {
     @extend %typecsset-vertical-rhythm;
     @include typecsset-font-size($h1-size);
     font-family: $display-font-family;
-    font-weight: $display-font-weight;
+    font-weight: $h1-font-weight;
 }
 
 h2 {
     @extend %typecsset-vertical-rhythm;
     @include typecsset-font-size($h2-size);
     font-family: $display-font-family;
-    font-weight: $display-font-weight;
+    font-weight: $h2-font-weight;
 }
 
 h3 {
     @extend %typecsset-vertical-rhythm;
     @include typecsset-font-size($h3-size);
     font-family: $display-font-family;
-    font-weight: $display-font-weight;
-}
-
-h4 {
-    @extend %typecsset-vertical-rhythm;
-    @include typecsset-font-size($h4-size);
-    font-family: $display-font-family;
-    font-weight: $display-font-weight;
-}
-
-h5 {
-    @extend %typecsset-vertical-rhythm;
-    @include typecsset-font-size($h5-size);
-    font-family: $display-font-family;
-    font-weight: $display-font-weight;
-}
-
-h6 {
-    @extend %typecsset-vertical-rhythm;
-    @include typecsset-font-size($h6-size);
-    font-family: $display-font-family;
-    font-weight: $display-font-weight;
+    font-weight: $h3-font-weight;
 }
 
 
