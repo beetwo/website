@@ -16,6 +16,8 @@
             .content.left
               .head
                 .title= m.data.title
-                %a.email.ui.raised.circular.icon.button{:href => "mailto:#{m.data.email}"}
-                  %i.ui.mail.icon
               .description= m.render(:layout => false)
+              .extra
+                %a{:href => "mailto:#{m.data.email}"}
+                  %i.ui.mail.icon
+                  = m.data.email
