@@ -128,5 +128,11 @@ helpers do
     link = "/index.html#{anchor}" unless path.eql? "index.html"
     link
   end
+
+  def project_images(project)
+    (0..3)
+      .map    { |i| project["image#{i}"]}
+      .select { |x| !x.nil? }
+  end
 end
 

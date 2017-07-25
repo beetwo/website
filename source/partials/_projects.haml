@@ -12,13 +12,14 @@
         .column.project
           .overlay.frame.raised
             .image
-              = image_tag(p.data.thumbnail, {:class => "ui image"})
+              = image_tag(p.data.titleimage, {:class => "ui image"})
             .content.left
               .head
                 .title= p.data.title
               .description= p.data.tagline
               .extra
-                %a.ui.raised.circular.icon.button{:href => p.url}
+                %a{:href => p.url}
+                  learn more
                   %i.ui.chevron.right.icon
                 
 
