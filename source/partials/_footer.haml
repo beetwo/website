@@ -22,10 +22,11 @@
       .item.address
         %a{:href => "#{data.meta.contact.mapLink}", :target => "_blank"}
           %i.ui.home.icon
-          #{data.meta.contact.address.street},
-          = data.meta.contact.address.city
+          %span.street #{data.meta.contact.address.street},
+          %br
+          %span.city #{data.meta.contact.address.city}
 
     #imprint
-      .name Beetwo —#{t(:tagline)}
+      .name BeeTwo —#{t(:tagline)}
       .zvr ZVR: #{data.meta.contact.ZVR}
 

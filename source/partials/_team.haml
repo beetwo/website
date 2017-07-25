@@ -20,10 +20,8 @@
             .image
               = image_tag(m.data.thumbnail, {:id => "expand-jump-#{i}", :class => "ui image"})
             .content.left
-              .title= m.data.title
-              .email
-                = link_to m.data.email, "mailto:#{m.data.email}"
+              .head
+                .title= m.data.title
+                %a.email.ui.raised.circular.icon.button{:href => "mailto:#{m.data.email}"}
+                  %i.ui.mail.icon
               .description= m.render(:layout => false)
-            
-.ui.container
-  .seperator
