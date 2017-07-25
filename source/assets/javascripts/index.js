@@ -61,6 +61,21 @@ function _sticky() {
           .attr('class', 'sticky')
     }, offset: 16 })}
 
+function _overlayClick() {
+  $('.overlay.frame').click(function(e) {
+
+    let isActive =  $(this).hasClass('active')
+    console.log('clikk', e.target, isActive)
+
+    if (!($(e.target).is('a'))) {
+      $('.overlay.frame').removeClass('active')
+      if(!isActive) $(this).addClass('active')
+      e.preventDefault()
+      return false
+    }
+  })
+}
+
 function _resize() {}
 function _scroll() {}
 
@@ -72,6 +87,7 @@ $(document)
     // window.scrollTo(0, 0)
     
     _scrollSmoothly()
+    _overlayClick()
     menu.init()
     imageGrid.init()
     
