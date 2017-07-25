@@ -2,9 +2,11 @@
   .ui.container
     %h2.headline=t(:projects_headline)
 
+  .ui.text.container
     .epigraph
       %blockquote.initial= get_text('What we do and how we work')
 
+  .ui.container
     .ui.three.column.doubling.stackable.grid
       - blog("projects").articles.shuffle.each_with_index do |p, i|
         .column.project

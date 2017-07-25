@@ -1,10 +1,16 @@
 #masthead {
   @extend .screen;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   align-items:flex-end;
 
   @include mobile {
     align-items:center;    
+
+    .ui.container {
+      margin-bottom: 4.5rem;
+    }
   }
 
   #main-headline {
@@ -13,5 +19,9 @@
       @include textschatten($size: 4, $color: #ffffff);
       z-index: 400;
     }
+  }
+
+  #tagline {
+    margin-bottom: 4.5rem;
   }
 }

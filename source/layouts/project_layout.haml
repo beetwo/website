@@ -4,7 +4,12 @@
   .project.detail
     %article
       .ui.fluid.container
-        = image_tag current_page.data.thumbnail, {:class => "ui image"}
-      .ui.text.container
-        %h1= current_page.data.title
-        = yield
+        .ui.stackable.grid
+          .ten.wide.column.gallery
+            .carousel
+              - current_page.data.images.each do |i|
+                = image_tag i, {:class => "ui image"}
+          .six.wide.column.text
+            = yield
+        
+        .title= current_page.data.title

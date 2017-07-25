@@ -11,6 +11,8 @@
 // @import "./lib/tufte";
 @import "./lib/modernscale";
 @import "./lib/typography";
+@import "./lib/slick";
+@import "./lib/slick-theme";
 
 @import "overrides";
 @import "custom";
@@ -35,6 +37,12 @@ body {
       background: transparent;
     }
   }
+}
+
+h1,
+h2,
+h3 {
+  font-family: $display-font-family;
 }
 
 a:not(.button) {

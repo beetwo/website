@@ -1,8 +1,9 @@
 %footer#contact.screen.ui.vertical.segment
-  .ui.container
+  .ui.text.container
     .epigraph
       %blockquote.initial= get_text('Contact')
 
+  .ui.text.container
     .ui.items
       .item.email
         %a{:href => "mailto:#{data.meta.contact.email}"}

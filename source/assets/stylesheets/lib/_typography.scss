@@ -24,13 +24,18 @@ hr { display: block;
      margin: 1rem 0;
      padding: 0; }
 
+h1, h2, h3 {
+  font-family: $display-font-family;
+}
+
 /* Chapter Epigraphs */
 div.epigraph { 
-  margin: 4.5rem 0; 
-  font-family: 'Calluna';
+  margin: 1.5rem 0 4.5rem 0; 
+  font-family: 'Source-Sans';
+  font-weight: 300;
 
   & > blockquote { 
-    margin-top: 3rem;
+    margin-top: 1.5rem;
     margin-bottom: 3rem; 
     margin-left: 0;
     margin-right: 0;
@@ -50,7 +55,7 @@ div.epigraph {
 blockquote { 
   font-size: 1.4rem; 
 
-  p { width: 62%;
+  p { width: 100%;
       // margin-right: 40px; 
     }
 

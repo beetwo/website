@@ -44,4 +44,46 @@
 
 .project.detail {
   // margin-top: 6rem;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  
+
+  article {
+    position: relative;  
+  }
+
+  .carousel {
+    margin-bottom: 3rem;
+  }
+
+  .title {
+    font-size: $h1-size;
+    @include textschatten($size: 4, $color: $white);
+    position: absolute;
+    right: 0;
+    top:0;
+  }
+
+  // .column.gallery {}
+  .column.text {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+
+    @include tablet {
+      padding-right: 1.5rem;
+      margin-top: 3rem !important;
+    }
+
+    @include computer {
+      padding-right: 3rem;
+    }
+
+    @include large-screen {
+      padding-right: 6rem;
+    }
+    @include widescreen {
+      padding-right: 6rem;
+    }
+  }
 }

@@ -1,7 +1,9 @@
 #masthead
   .ui.container
     %h1#main-headline BeeTwo
-    %h2=t(:tagline)
+    %h2#tagline=t(:tagline)
+
+  .ui.text.container
     .epigraph.hidden.mobile
       %blockquote.initial= get_text('introduction')
 

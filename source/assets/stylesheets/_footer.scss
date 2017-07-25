@@ -1,6 +1,8 @@
 footer {
 
   position: relative;
+  padding-top: 4.5rem !important;
+
 
   .item {
     a { 
@@ -14,7 +16,7 @@ footer {
 
       i.icon {
         @extend h3;
-        font-family: 'FontAwesome';
+        font-family: 'FontAwesome' !important;
       }
     }
 

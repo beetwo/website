@@ -2,6 +2,7 @@ import bloom      from './viz/bloom'
 import menu       from './menu'
 import imageGrid  from './viz/image-grid'
 import {select}   from 'd3-selection'
+import slick      from 'slick-carousel'
 
 // import Waypoint from 'waypoints/lib/jquery.waypoints.js'
 require('waypoints/lib/jquery.waypoints.js')
@@ -63,16 +64,24 @@ function _sticky() {
 
 function _overlayClick() {
   $('.overlay.frame').click(function(e) {
+    let isActive  = $(this).hasClass('active'),
+        isLink    = $(e.target).is('a')
 
-    let isActive =  $(this).hasClass('active')
-    console.log('clikk', e.target, isActive)
-
-    if (!($(e.target).is('a'))) {
+    if (!isLink) {
       $('.overlay.frame').removeClass('active')
       if(!isActive) $(this).addClass('active')
       e.preventDefault()
-      return false
-    }
+      return false  }})}
+
+function _carousel() {
+  console.log('_carousel')
+  $('.carousel').slick({
+    arrows: false,
+    dots: true,
+    infinite: true,
+    lazyLoad: 'ondemand',
+    autoplay: true,
+    autoplaySpeed: 4000,
   })
 }
 
@@ -81,13 +90,9 @@ function _scroll() {}
 
 $(document)
   .ready(function () {
-
-    // resetting the window scroll prevents a sticky/waypoint-bug
-    // that ocurrs when the side is being reloaded after scrolling
-    // window.scrollTo(0, 0)
-    
     _scrollSmoothly()
     _overlayClick()
+    _carousel()
     menu.init()
     imageGrid.init()
     

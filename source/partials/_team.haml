@@ -1,18 +1,12 @@
 #team.ui.vertical.stripe.segment
-  .ui.container
+  .ui.text.container
     %h2.headline=t(:team_headline) 
 
+  .ui.text.container
     .epigraph
       %blockquote.initial= get_text('Team')
 
-    -# .ui.items
-    -#   - blog("team").articles.shuffle.each do |member|
-    -#     .item.member
-    -#       .image
-    -#         = image_tag member.data.thumbnail
-    -#       .content
-    -#         = member.render(:layout => false)
-
+  .ui.container
     .ui.three.column.doubling.stackable.grid
       - blog("team").articles.shuffle.each_with_index do |m, i|
         .column.member

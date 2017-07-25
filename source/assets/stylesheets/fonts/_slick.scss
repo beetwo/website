@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'slick';
+  src:  resolve('#{$font-path}/slick/slick.eot');
+  src:  resolve('#{$font-path}/slick/slick.woff') format('woff'),
+        resolve('#{$font-path}/slick/slick.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+}
