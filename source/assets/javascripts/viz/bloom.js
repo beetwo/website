@@ -25,6 +25,11 @@ let IDLE_TIMEOUT = 1000 * 60 * 0.5
 let IDLE_AMINATION_DURATION = 1000 * 60 * 4
 let IDLE_BLUR = 2
 
+let OPACITY_TIMEOUT = 1000 * 1
+let OPACITY_AMINATION_DURATION = 1000  * 6.4
+let OPACITY_AMINATION_DURATION_FADE = 1000
+let MIN_OPACITY = 0.28
+
 let HEX_SIZE_TO_RADIUS_RATIO = 1.05
 
 // let FLOW_FIELD_MIN_FORCE = 0.002
@@ -180,9 +185,8 @@ function _initializeFlowField(β) {
     resolve(β)})}
 
 function _recreateFlowField(β, noise) {
-  console.log('recreating flow field')
-   let  δNoiseSeed  = noise.δNoiseSeed,
-        σNoiseSeed  = noise.σNoiseSeed
+  let δNoiseSeed  = noise.δNoiseSeed,
+      σNoiseSeed  = noise.σNoiseSeed
   return new Promise((resolve) => {
     flowField.init(β, δNoiseSeed, σNoiseSeed)
     resolve(β)})}
@@ -334,6 +338,51 @@ function _idleTimer(β) {
   _animateTween()
 }
 
+
+function _scrollHandler(β) {
+
+  function _opacityTimeout() {
+    β.node.interrupt()
+    β.node
+      .transition()
+      .ease(easeQuadInOut)
+      .delay(() => {return  _.random(1600, 2400)})
+      .duration(OPACITY_AMINATION_DURATION * _.random(0.72, 1.28, true))
+      .style('opacity', 1)
+
+    β.opacityTimer.stop()
+    β.opacityIdle = true}
+
+  function _resetTimeout() {
+    if(!β.opacityIdle) return 
+
+     // reset the transitions
+    β.node.interrupt()
+    β.node
+      .transition()
+      .ease(easeQuadInOut)
+      .duration(OPACITY_AMINATION_DURATION_FADE * _.random(0.72, 1.28, true))
+      .delay(() => {return  _.random(200, 800)})
+      .style('opacity', () => {return MIN_OPACITY * _.random(0.81, 1.19, true)})
+
+    β.opacityTimer.restart(_opacityTimeout, OPACITY_TIMEOUT) 
+    β.opacityIdle = false }
+  
+ 
+  // start the idle timer
+  // when no interaction (clicks, scroll…) takes place for a while
+  // the hexagons start to change. Upon the next event everythin snaps
+  // back to normal
+  β.opacityTimer = timer(_opacityTimeout, OPACITY_TIMEOUT)
+  β.opacityIdle  = false
+
+  // listen for events that reset the idle timer
+  // $(window).on('click', _resetTimeout)
+  $(window).on('scroll', _resetTimeout) 
+}
+
+
+
 // intercept hyperlinks and write the current state of the bloom
 // to local storage
 // this is used to provide continuity of the bloom animation
@@ -374,7 +423,8 @@ function init(parentId, numSegments) {
 
                     // start the simulation
                     β.simulation.on('tick', () => { β = ticked(β) })
-
+                    
+                    _scrollHandler(β)
                     _interceptHyperlinks(β)
                     _idleTimer(β)})}
 

@@ -13,6 +13,13 @@
     }
   }
 
+  @include tablet {
+    align-items:center;    
+    .ui.container {
+      margin-bottom: 4.5rem;
+    }
+  }
+
   a#main-headline {
      @extend h1;
   // display: none;

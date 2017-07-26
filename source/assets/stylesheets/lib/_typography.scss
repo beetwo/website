@@ -40,8 +40,16 @@ div.epigraph {
   & > blockquote { 
     margin-top: 1.5rem;
     margin-bottom: 3rem; 
-    margin-left: 0;
+    
     margin-right: 0;
+
+    width: 64%;
+    margin-left: 3rem;
+
+    @include mobile {
+      width: 100%;
+      margin-left: 0;
+    }
 
     & > footer { 
       font-style: normal; 

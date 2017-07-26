@@ -9,8 +9,8 @@
 
     a {
       @extend h2;
-      @extend .colored-text;
-      @include dropcap-outline($size: 2, $color: $black, $correction: 0);
+      color: $black;
+      font-weight: $menu-font-weight;
 
      &::after {
         background: $black;
@@ -26,6 +26,7 @@
       }
     
       &:hover {
+        @extend .colored-text;
         &::after {
           transform: translateX(-16%) !important;
         }
