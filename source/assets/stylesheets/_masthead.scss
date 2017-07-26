@@ -13,9 +13,14 @@
     }
   }
 
-  #main-headline {
+  a#main-headline {
      @extend h1;
   // display: none;
+
+    // &:hover {
+    //  @extend .colored-text;
+    // }
+    
     &.sticky {
       @include textschatten($size: 4, $color: #ffffff);
       z-index: 400;

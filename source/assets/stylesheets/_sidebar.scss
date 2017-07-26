@@ -6,5 +6,6 @@
 
   a {
     @extend h2;
+    @extend .fancy-link;
   }
 }

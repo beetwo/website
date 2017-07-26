@@ -7,13 +7,14 @@ a {
   transform: scale(1) rotate(0deg);
 
   &:hover {
+    color: $black;
     // @extend .raised-text;
-    transform: scale(1.1) rotate(4deg);
+    transform: scale(1.1) rotate(-4deg);
   }
 }
 
 
-a.fancy {
+.fancy-link {
   position: relative;
   color: $black;
   padding: 0.25rem 0.25rem;

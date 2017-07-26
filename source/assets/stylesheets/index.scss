@@ -65,10 +65,6 @@ a#back-link {
   @include textschatten($size: 4, $color: $white);
   z-index: 4;
 
-  &:hover {
-    @extend .colored-text;
-  }
-
   &::before {
     content: "\f104";
     font-family: 'FontAwesome';
