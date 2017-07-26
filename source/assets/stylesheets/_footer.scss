@@ -6,7 +6,7 @@ footer {
 
   .item {
     a { 
-      @extend h1;
+      @extend h2;
       // @include textschatten($size: 4, $color: #ffffff);
       font-family: 'Signika';
       // font-weight: 200; 
