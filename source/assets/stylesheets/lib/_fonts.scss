@@ -43,6 +43,16 @@
 //                       |_|
 @font-face {
   font-family: 'Monofur';
-  src: resolve('#{$font-path}/monofur/monofur.ttf') format('truetype');
+  src: resolve('#{$font-path}/monospace/monofur.ttf') format('truetype');
 }
+
+// //     _
+// //  __| |_ _ ___ _ __  __ __ _ _ __ ___
+// // / _` | '_/ _ \ '_ \/ _/ _` | '_ (_-<
+// // \__,_|_| \___/ .__/\__\__,_| .__/__/
+// //              |_|           |_|
+// @font-face {
+//   font-family: 'Dropcap';
+//   src: resolve('#{$font-path}/dropcaps/gillSansShadowed.ttf') format('truetype');
+// }
 
