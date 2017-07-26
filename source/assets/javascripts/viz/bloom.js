@@ -19,11 +19,13 @@ let PALLETE   = _.shuffle(["#5ca6b2",  "#a6c85d", "#ff6b67", "#ff9e4f", "#ffdb69
 let MAX_SCALE = 6
 let POSITION_MAX_FORCE = 0.0025
 let POSITION_MIN_FORCE = 0.0009
-let FLOW_FIELD_MAX_FORCE = 0.8
+let FLOW_FIELD_MAX_FORCE = 0.6
 
 let IDLE_TIMEOUT = 1000 * 60 * 0.5
 let IDLE_AMINATION_DURATION = 1000 * 60 * 4
 let IDLE_BLUR = 2
+
+let HEX_SIZE_TO_RADIUS_RATIO = 1.05
 
 // let FLOW_FIELD_MIN_FORCE = 0.002
 
@@ -102,10 +104,10 @@ function  ticked(β) {
       // η.radius = primoRadius
       if( i===0 ) {
         let primoRadius = $('.hex')[0].getBoundingClientRect().width/2
-        η.radius = primoRadius * 0.81
+        η.radius = primoRadius * HEX_SIZE_TO_RADIUS_RATIO
       } else {
         let radius = $('.hex')[1].getBoundingClientRect().width/2
-        η.radius = radius* 0.81 }})
+        η.radius = radius* HEX_SIZE_TO_RADIUS_RATIO }})
     
     β.node
       .each(function(δ, ι, η) {
@@ -268,7 +270,7 @@ function _idleTimer(β) {
                     let radius  = { ρ: η.radius },
                         τ       = new TWEEN.Tween(radius)
                                     .easing(TWEEN.Easing.Quadratic.InOut)
-                                    .to({ρ: β.hexRadius * (MAX_SCALE/2) * _.random(0.62, 0.81, true) }, IDLE_AMINATION_DURATION)
+                                    .to({ρ: β.hexRadius * (MAX_SCALE/2) * _.random(0.62, HEX_SIZE_TO_RADIUS_RATIO, true) }, IDLE_AMINATION_DURATION)
                                     .onUpdate(function() {
                                       η.radius = radius.ρ})
                     τ.start()
