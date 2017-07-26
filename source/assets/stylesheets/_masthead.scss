@@ -14,6 +14,7 @@
   }
 
   #main-headline {
+     @extend h1;
   // display: none;
     &.sticky {
       @include textschatten($size: 4, $color: #ffffff);
