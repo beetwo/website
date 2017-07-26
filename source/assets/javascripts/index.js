@@ -87,6 +87,7 @@ function _colorChange() {
   selectAll('.overlay .content .extra > a').each(_delay)
   selectAll('.overlay .content').each(_delay)
   selectAll('#sidebar').each(_delay)
+  selectAll('#sidebar a').each(_delay)
   selectAll('.dropped').each(_delay)
   selectAll('footer .item a').each(_delay)
   // selectAll('a').each(_delay)

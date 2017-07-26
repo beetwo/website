@@ -6,6 +6,7 @@
 
   a {
     @extend h2;
-    @extend .fancy-link;
+    @extend .colored-text;
+    @include dropcap-outline($size: 2, $color: $black, $correction: 0);
   }
 }
