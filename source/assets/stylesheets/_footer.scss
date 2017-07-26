@@ -6,13 +6,17 @@ footer {
 
   .item {
     a { 
-      color: $black;
-      @extend h2;
+      @extend h1;
       // @include textschatten($size: 4, $color: #ffffff);
       font-family: 'Signika';
-      font-weight: 200; 
+      // font-weight: 200; 
       padding-left: 0.5rem;
       padding-right: 0.5rem;
+
+      // color: $black;
+      @extend .colored-text;
+      // @extend .raised-text;
+      @include dropcap-outline($size: 2, $color: $black, $correction: 0);
 
       i.icon {
         @extend h3;

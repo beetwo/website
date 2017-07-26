@@ -88,17 +88,13 @@ function _colorChange() {
   selectAll('.overlay .content').each(_delay)
   selectAll('#sidebar').each(_delay)
   selectAll('.dropped').each(_delay)
-
-  console.log('.dropped', selectAll('.dropped'))
-
-  
+  selectAll('footer .item a').each(_delay)
   // selectAll('a').each(_delay)
   // selectAll('#toc').each(_delay)
 }
 
 
 function _carousel() {
-  console.log('_carousel')
   $('.carousel').slick({
     arrows: false,
     dots: true,
@@ -110,9 +106,6 @@ function _carousel() {
 }
 
 function _dropcap() {
-  
-  console.log('DROPCAP!', window.Dropcap)
-
   // @see: https://github.com/adobe-webplatform/dropcap.js
   // Drop cap letters need to be enclosed in an HTML element e.g.:
   //    <p>
