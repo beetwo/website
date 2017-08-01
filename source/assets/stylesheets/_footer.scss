@@ -6,17 +6,33 @@ footer {
 
   .item {
     a { 
-      color: $black;
       @extend h2;
       // @include textschatten($size: 4, $color: #ffffff);
       font-family: 'Signika';
-      font-weight: 200; 
+      font-weight: 400; 
       padding-left: 0.5rem;
       padding-right: 0.5rem;
+
+      // color: $black;
+      // @extend .colored-text;
+      // @extend .raised-text;
+      // @include dropcap-outline($size: 2, $color: $black, $correction: 0);
 
       i.icon {
         @extend h3;
         font-family: 'FontAwesome' !important;
+
+        &.huge {
+          @extend h1;
+        }
+      }
+
+      &:hover {
+        &::after {
+          bottom: 0;
+          width: 40%;
+          height: 40%;
+        }
       }
     }
 
@@ -25,6 +41,12 @@ footer {
     &.address {
       .city {
         margin-left: 2.5rem;
+      }
+    }
+
+    &.others {
+      a {
+        margin-top: 0;
       }
     }
 

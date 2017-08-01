@@ -13,8 +13,21 @@
     }
   }
 
-  #main-headline {
+  @include tablet {
+    align-items:center;    
+    .ui.container {
+      margin-bottom: 4.5rem;
+    }
+  }
+
+  a#main-headline {
+     @extend h1;
   // display: none;
+
+    // &:hover {
+    //  @extend .colored-text;
+    // }
+    
     &.sticky {
       @include textschatten($size: 4, $color: #ffffff);
       z-index: 400;

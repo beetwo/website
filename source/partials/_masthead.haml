@@ -1,13 +1,13 @@
 #masthead
   .ui.container
-    %h1#main-headline BeeTwo
+    = link_to "BeeTwo", "#masthead", {:id => "main-headline"}
     %h2#tagline=t(:tagline)
 
   .ui.text.container
     .epigraph.hidden.mobile
-      %blockquote.initial= get_text('introduction')
+      %blockquote.dropcap= get_text('introduction')
 
 .ui.container.hidden.tablet
   .epigraph
-    %blockquote.initial= get_text('introduction')
+    %blockquote.dropcap= get_text('introduction')
 

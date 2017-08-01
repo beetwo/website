@@ -2,8 +2,8 @@ import bloom      from './viz/bloom'
 import menu       from './menu'
 import imageGrid  from './viz/image-grid'
 import slick      from 'slick-carousel'
+import dropcap    from 'dropcap.js'
 import {select, selectAll} from 'd3-selection'
-
 
 // import Waypoint from 'waypoints/lib/jquery.waypoints.js'
 require('waypoints/lib/jquery.waypoints.js')
@@ -87,12 +87,15 @@ function _colorChange() {
   selectAll('.overlay .content .extra > a').each(_delay)
   selectAll('.overlay .content').each(_delay)
   selectAll('#sidebar').each(_delay)
+  selectAll('#sidebar a').each(_delay)
+  selectAll('.dropped').each(_delay)
+  // selectAll('footer .item a').each(_delay)
+  // selectAll('a').each(_delay)
   // selectAll('#toc').each(_delay)
 }
 
 
 function _carousel() {
-  console.log('_carousel')
   $('.carousel').slick({
     arrows: false,
     dots: true,
@@ -103,18 +106,37 @@ function _carousel() {
   })
 }
 
-function _resize() {}
-function _scroll() {}
+function _dropcap() {
+  // @see: https://github.com/adobe-webplatform/dropcap.js
+  // Drop cap letters need to be enclosed in an HTML element e.g.:
+  //    <p>
+  //      <span class="dropcap">T</span>HE Quick Brown Fox...
+  //    </p>
+  // This is required because the CSS Object Model does not expose write access 
+  // to the styling of pseudo-elements like ::first-letter; 
+  // until then, explicit markup is preferred in this version.
+  selectAll('.dropcap > p')
+    .each(function(d) {
+      let content = select(this).html(),
+          head    = _.head(content),
+          tail    = _(content)
+                      .tail()
+                      .join('')
+      select(this).html(`<span class="dropped">${head}</span>${tail}`)})
+
+  let dropcaps = document.querySelectorAll(".dropcap .dropped"); 
+  window.Dropcap.layout(dropcaps, 2); 
+}
 
 $(document)
   .ready(function () {
     _scrollSmoothly()
     _overlayClick()
     _carousel()
+    _dropcap()
     _colorChange()
     menu.init()
     imageGrid.init()
-    
     bloom('#bloom', 5)
 
     _.delay(_sticky, 200)

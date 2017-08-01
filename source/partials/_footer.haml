@@ -1,7 +1,7 @@
 %footer#contact.screen.ui.vertical.segment
   .ui.text.container
     .epigraph
-      %blockquote.initial= get_text('Contact')
+      %blockquote.dropcap= get_text('Contact')
 
   .ui.text.container
     .ui.items
@@ -15,10 +15,10 @@
       -#     %i.ui.slack.icon
       -#     %span.address= data.meta.contact.slack
 
-      .item.phone
-        %a{:href => "tel:#{data.meta.contact.phone}"}
-          %i.ui.phone.icon
-          %span.address= data.meta.contact.phone
+      -# .item.phone
+      -#   %a{:href => "tel:#{data.meta.contact.phone}"}
+      -#     %i.ui.phone.icon
+      -#     %span.address= data.meta.contact.phone
     
       .item.address
         %a{:href => "#{data.meta.contact.mapLink}", :target => "_blank"}
@@ -26,6 +26,13 @@
           %span.street #{data.meta.contact.address.street},
           %br
           %span.city #{data.meta.contact.address.city}
+
+
+      .item.others
+        %a{:href => "#{data.meta.contact.github}", :target => "_blank"}
+          %i.ui.huge.github.icon
+        %a{:href => "#{data.meta.contact.slack}", :target => "_blank"}
+          %i.ui.huge.slack.icon
 
     #imprint
       .name BeeTwo —#{t(:tagline)}

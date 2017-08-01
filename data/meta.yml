@@ -11,7 +11,8 @@ contact:
     city:   1o4o Wien
   phone:          '+43 664 5942988'
   email:          'hello@beetwo.at'
-  slack:          'beetwo.at'
+  slack:          'beetwo.slack.com'
+  github:         'https://github.com/orgs/beetwo'
   twitter_handle: '@BeeTwoHub'
   twitter_link:   'https://twitter.com/beetwohub'
   ZVR:            262117037

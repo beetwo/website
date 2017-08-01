@@ -3,8 +3,40 @@
   align-items: center;
   flex-direction: row;
   @extend .colored-background;
+  overflow: hidden;
 
-  a {
-    @extend h2;
+  .item {
+
+    a {
+      @extend h2;
+      color: $black;
+      font-weight: $menu-font-weight;
+
+     &::after {
+        background: $black;
+        content: "";
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        width: 128%;
+        height: 100%;
+        transition: all 0.25s ease;
+        transform: translateX(-125%) !important;
+      }
+    
+      &:hover {
+        @extend .colored-text;
+        &::after {
+          transform: translateX(-16%) !important;
+        }
+      }
+
+    }
+
   }
+
+ 
+
+
 }
