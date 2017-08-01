@@ -4,9 +4,9 @@
 
   .ui.text.container
     .epigraph
-      %blockquote.initial= get_text('What we do and how we work')
+      %blockquote.initial= get_text('What we do and how we work I')
 
-  .ui.container
+  .ui.container.gallery
     .ui.three.column.doubling.stackable.grid
       - blog("projects").articles.shuffle.each_with_index do |p, i|
         .column.project
@@ -21,6 +21,10 @@
                 %a{:href => p.url}
                   learn more
                   %i.ui.chevron.right.icon
+
+  .ui.text.container
+    .epigraph
+      %blockquote.initial= get_text('What we do and how we work II')
                 
 
 
