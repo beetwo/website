@@ -8,7 +8,7 @@
 
   .ui.container.gallery
     .ui.three.column.doubling.stackable.grid
-      - blog("projects").articles.shuffle.each_with_index do |p, i|
+      - blog("projects").articles.each_with_index do |p, i|
         .column.project
           .overlay.frame.raised
             .image
