@@ -3,7 +3,7 @@ title: Safe to Spend
 tagline: "…for clients of Zweite Sparkasse"
 titleimage: /assets/images/uploads/safe-to-spend_title.svg
 image0: /assets/images/uploads/safe-to-spend.svg
-date: '2001-01-01 00:00 UTC'
+date: '2015-03-01 00:00 UTC'
 ---
 
 The idea of „Safe to Spend“ is based on 

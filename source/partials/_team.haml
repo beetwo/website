@@ -7,7 +7,7 @@
       %blockquote.dropcap= get_text('Team')
 
   .ui.container
-    .ui.two.column.doubling.stackable.grid
+    .ui.three.column.doubling.stackable.grid
       - blog("team").articles.shuffle.each_with_index do |m, i|
         .column.member
           .overlay.frame.raised

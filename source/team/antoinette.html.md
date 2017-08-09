@@ -6,7 +6,7 @@ thumbnail: /assets/images/uploads/Antoinette.jpg
 email: antoinette@beetwo.at
 ---
 
-Antoinette hasn't started yet —so we can't say much about her. But we've heard very good things and are very eager to finally get to know her.
+Antoinette is the boss!
 
 
  

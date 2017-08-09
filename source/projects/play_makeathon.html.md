@@ -6,7 +6,7 @@ image0: /assets/images/uploads/toucanjacket.png
 image1: /assets/images/uploads/toucanjacket.png
 image2: /assets/images/uploads/toucanjacket.png
 image3: /assets/images/uploads/toucanjacket.png
-date: '2017-07-12 00:00 UTC'
+date: '2016-01-01 00:00 UTC'
 ---
 Toucan is an online emergency relief platform.  It enables communication among humanitarian actors in emergency situations. Toucan facilitates sharing Information and coordinating resources, whether supplying Food or urgent medical assistance.
 

@@ -3,7 +3,7 @@ title: Motmot
 tagline: An application for microfinance institutions.
 titleimage: /assets/images/uploads/motmot_title.jpg
 image0: /assets/images/uploads/motmot.png
-date: '2002-01-01 00:00 UTC'
+date: '2015-02-01 00:00 UTC'
 ---
 
 [Good.bee credit](http://www.goodbeecredit.ro/home-1-2.html) proves to be quite a success. 

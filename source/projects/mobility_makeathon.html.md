@@ -3,7 +3,7 @@ title: Mobility Makeathon
 tagline: Exploring digital manufacturing for wheelchair design.
 titleimage: /assets/images/uploads/mobility_title.jpg
 image0: /assets/images/uploads/mobility.png
-date: '2003-01-01 00:00 UTC'
+date: '2015-01-01 00:00 UTC'
 ---
 Over 65 million people worldwide need a wheelchair to lead an independent life 
 and play an active role in society. 

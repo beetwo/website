@@ -3,7 +3,7 @@ title: Caritas Coreation
 tagline: Adventures in co-creation
 titleimage: /assets/images/uploads/caritas_title.jpg
 image0: /assets/images/uploads/caritas.svg
-date: '20017-01-01 00:00 UTC'
+date: '2017-01-01 00:00 UTC'
 ---
 
 We listen to and co-create with social initiatives to gain a deep insight into societal challenges.
