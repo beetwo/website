@@ -74,7 +74,11 @@
     z-index: 3;
   }
 
- 
+  .text.container {
+    a {
+      text-decoration: underline;
+    }
+  }
 
   // .column.gallery {}
   // .column.text {
