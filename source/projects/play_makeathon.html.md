@@ -1,23 +1,28 @@
 ---
 title: Let's all Play!
-tagline: An online emergency relief platform.
-titleimage: /assets/images/uploads/toucan_title.jpg
-image0: /assets/images/uploads/toucanjacket.png
-image1: /assets/images/uploads/toucanjacket.png
-image2: /assets/images/uploads/toucanjacket.png
-image3: /assets/images/uploads/toucanjacket.png
+tagline: Exploring how people play.
+titleimage: /assets/images/uploads/play_title.jpg
+image0: /assets/images/uploads/play01.jpg
+image1: /assets/images/uploads/play02.jpg
+image2: /assets/images/uploads/play03.jpg
+image3: /assets/images/uploads/play04.jpg
 date: '2016-01-01 00:00 UTC'
 ---
-Toucan is an online emergency relief platform.  It enables communication among humanitarian actors in emergency situations. Toucan facilitates sharing Information and coordinating resources, whether supplying Food or urgent medical assistance.
 
-It was developed with the Input of NGOs working with refugees in Macedonia, Bosnia & Herzegovina, Serbia, and Croatia, and the International Director of Emergency Response at SOS-Children’s Village International.\
-[http://www.sos-childrensvillages.org/publications/news/sos-children-s-villages-and-erste-group-crowd-sour](http://www.sos-childrensvillages.org/publications/news/sos-children-s-villages-and-erste-group-crowd-sour)
+Hier fehlt noch text…
+One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. 
+He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, 
+slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover 
+it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the 
+size of the rest of him, waved about helplessly as he looked. "What's happened to me?" he thought. 
+It wasn't a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls. 
+A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - 
+and above it there hung a picture that he had recently cut out of an illustrated magazine and 
+housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, 
+raising a heavy fur muff that covered the whole of her lower arm towards the viewer. 
+Gregor then turned to look out the window at the dull weather.
 
-**Why Toucan?**
+----
 
-A lot of Tools exist for NGOs to communicate with each other, yet none are tailored to their needs.\
-Facebook and WhatsApp lead to Long communication threads, no priorisation of issues, no map view, no closing of issues, no safe environment.
-
-**Project Status:**
-
-Toucan is now in use in Greece for oranisations working with refugees.
+[![impact hub](/assets/images/uploads/logo-Impact-Hub-Cluj.png)](https://cluj.impacthub.ro/)
+[![design uni](/assets/images/uploads/logo-design-uni-Cluj.png)](https://www.uad.ro)

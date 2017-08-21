@@ -1,5 +1,5 @@
 ---
-title: Caritas Coreation
+title: Caritas co-creation
 tagline: Adventures in co-creation
 titleimage: /assets/images/uploads/caritas_title.jpg
 image0: /assets/images/uploads/caritas.svg
