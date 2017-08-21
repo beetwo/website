@@ -1,8 +1,8 @@
 ---
 title: Safe to Spend
 tagline: "…for clients of Zweite Sparkasse"
-titleimage: /assets/images/uploads/safe-to-spend_title.svg
-image0: /assets/images/uploads/safe-to-spend.svg
+titleimage: /assets/images/uploads/safe-to-spend_title.jpg
+image0: /assets/images/uploads/safe-to-spend.jpg
 date: '2015-03-01 00:00 UTC'
 ---
 

@@ -1,7 +1,8 @@
 ---
 title: Budgeting Tool
 date: '2017-01-01 00:00 UTC'
-titleimage: /assets/images/uploads/budgetrechner.jpg
+titleimage: /assets/images/uploads/budgetrechner-title.jpg
+image0: /assets/images/uploads/budgetrechner.jpg
 tagline: Advice on personal budgeting as a debt prevention measure
 
 ---

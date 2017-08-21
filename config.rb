@@ -56,7 +56,7 @@ activate :blog do |blog|
   blog.prefix     = "projects"
   blog.layout     = "project_layout"
   blog.sources    = "{title}.html"
-  # blog.permalink  = "projects/{title}.html"
+  blog.permalink  = "{title}.html"
 end
 
 activate :blog do |blog|
@@ -64,7 +64,7 @@ activate :blog do |blog|
   blog.prefix     = "team"
   blog.layout     = "team_layout"
   blog.sources    = "{title}.html"
-  # blog.permalink  = "projects/{title}.html"
+  blog.permalink  = "{title}.html"
 end
 
 activate :blog do |blog|
