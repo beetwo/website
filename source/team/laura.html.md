@@ -6,4 +6,4 @@ thumbnail: /assets/images/uploads/laura.jpg
 email: laura@beetwo.at
 ---
 
-Luara knows where everything's at. She also takes good care that thing aren't getting overly serious.
+Laura knows where everything's at. She also takes good care that thing aren't getting overly serious.
