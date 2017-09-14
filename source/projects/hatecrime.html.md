@@ -1,5 +1,5 @@
 ---
-title: Hate Crime Reporting Platform
+title: Hate Crime Incident Platform
 date: 2016-02-01 00:00 UTC
 titleimage: /assets/images/uploads/hatecrime.jpg
 image0: /assets/images/uploads/hatecrime01.jpg
