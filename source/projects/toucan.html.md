@@ -15,7 +15,7 @@ and the International Director of Emergency Response at
 
 **Why Toucan?**
 
-A lot of tools exist for NGOs to communicate with each other, yet none are tailored to their needs.\
+A lot of tools exist for NGOs to communicate with each other, yet none are tailored to their needs.
 Facebook and WhatsApp lead to long communication threads, no safe environment in which to communicate and a host of other issues.
 
 **Partners**
@@ -29,3 +29,4 @@ Toucan is being co-developed with our partners and currently used in Greece by o
 ![unhcr](/assets/images/uploads/unhcr.svg)
 ![echo 100](/assets/images/uploads/echo100.png)
 
+[toucan.beetwo.at](https://toucan.beetwo.at)
