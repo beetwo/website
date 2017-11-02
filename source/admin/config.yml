@@ -20,10 +20,10 @@ collections:
       - {label: "Title",          name: "title",      widget: "string" }
       - {label: "Tagline",        name: "tagline",    widget: "markdown" }
       - {label: "Title Image",    name: "titleimage", widget: "image" }
-      - {label: "Body Image 1",   name: "image0",     widget: "image" }
-      - {label: "Body Image 2",   name: "image1",     widget: "image" }
-      - {label: "Body Image 3",   name: "image2",     widget: "image" }
-      - {label: "Body Image 4",   name: "image3",     widget: "image" }
+      - {label: "Body Image 1",   name: "image0",     widget: "image", required: false }
+      - {label: "Body Image 2",   name: "image1",     widget: "image", required: false }
+      - {label: "Body Image 3",   name: "image2",     widget: "image", required: false }
+      - {label: "Body Image 4",   name: "image3",     widget: "image", required: false }
       - {label: "Body",           name: "body",       widget: "markdown" }
       - {label: "Publish Date",   name: "date",       widget: "datetime" }
 
