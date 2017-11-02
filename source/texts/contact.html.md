@@ -2,6 +2,7 @@
 date: 2017-07-16T11:06:01.044Z
 title: Contact
 ---
-Beetwo is hi-tech & high–minded. And yet, we’re very down to earth.
+Beetwo is hi-tech & high-minded. And yet, we’re very down to earth.
 If you like what you see, please get in touch so we can make our world a better place.
+
 
