@@ -4,5 +4,6 @@ title: Team
 ---
 
 Please allow us to introduce ourselves: We are a bunch of software developers, designers, and social scientists 
-who are united by something far greater than our knowledge and skills —our passion for social impact.
+who are united by something far greater than our knowledge and skills – our passion for social impact.
+
 
