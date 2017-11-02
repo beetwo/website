@@ -6,4 +6,5 @@ thumbnail: /assets/images/uploads/emanuel.jpg
 email: emanuel@beetwo.at
 ---
 
-Emanuel makes everything look pretty. And it's super nice to have him around.
+Emanuel makes everything look pretty. And it’s super nice to have him around.
+
