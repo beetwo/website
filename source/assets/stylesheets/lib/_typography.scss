@@ -42,9 +42,8 @@ div.epigraph {
     margin-bottom: 3rem; 
     
     margin-right: 0;
+    margin-left: 0;
 
-    width: 64%;
-    margin-left: 3rem;
 
     @include mobile {
       width: 100%;

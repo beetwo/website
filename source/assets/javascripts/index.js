@@ -122,10 +122,10 @@ function _dropcap() {
           tail    = _(content)
                       .tail()
                       .join('')
-      select(this).html(`<span class="dropped">${head}</span>${tail}`)})
+      select(this).html(`<span>${head}</span>${tail}`)})
 
-  let dropcaps = document.querySelectorAll(".dropcap .dropped"); 
-  window.Dropcap.layout(dropcaps, 2); 
+  // let dropcaps = document.querySelectorAll(".dropcap .dropped"); 
+  // window.Dropcap.layout(dropcaps, 2); 
 }
 
 $(document)
