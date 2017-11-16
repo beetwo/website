@@ -7,4 +7,5 @@ email: nicole@beetwo.at
 ---
 Laura knows where everything’s at. She also takes good care that things aren’t getting overly serious.
 
-Nicole
+Nicole has the big picture and the networks in mind. She also keeps a cool head and always has a smile to share.
+
