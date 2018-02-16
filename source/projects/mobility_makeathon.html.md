@@ -25,6 +25,7 @@ explored how digital manufacturing could revolutionise wheelchair design and hel
 [[embed url=http://www.youtube.com/watch?v=5PQsdiI6V1c]]
 
 
+
 Since February [HackOnWheels](https://www.disruptdisability.org) has continued innovating wheelchair design.
 
 
@@ -32,6 +33,7 @@ Since February [HackOnWheels](https://www.disruptdisability.org) has continued i
 
 [![disability performance](/assets/images/uploads/alliance-logo-disability-performance.png)](http://www.myability.org/)
 [![igw](/assets/images/uploads/logo_igwhci.png)](http://igw.tuwien.ac.at/hci/)
+
 
 
 
