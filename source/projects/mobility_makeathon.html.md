@@ -18,7 +18,7 @@ of Rachel Wallach and David Constantine attendees ranging from various fields of
 and countries came together to find new ways to make wheelchair production accessible to more 
 people and at a lower cost. Further informational talks were given by Peter Purgathofer and Stefan Kasberger.
 
-<iframe width="600" height="400" src="https://www.youtube.com/embed/5PQsdiI6V1c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="620" height="420" src="https://www.youtube.com/embed/5PQsdiI6V1c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 The Mobility Makeathon hosted by BeeTwo at the Happylab Vienna on the 19th and 20th February, 
 explored how digital manufacturing could revolutionise wheelchair design and help to transform millions of lives.
@@ -31,6 +31,7 @@ Since February [HackOnWheels](https://www.disruptdisability.org) has continued i
 
 [![disability performance](/assets/images/uploads/alliance-logo-disability-performance.png)](http://www.myability.org/)
 [![igw](/assets/images/uploads/logo_igwhci.png)](http://igw.tuwien.ac.at/hci/)
+
 
 
 
