@@ -26,7 +26,8 @@ Toucan is being co-developed with our partners and currently used in Greece by o
 ![erste stiftung](/assets/images/uploads/erste_stiftung.png)
 ![sos childrens village](/assets/images/uploads/sos.png)
 
-![unhcr](/assets/images/uploads/unhcr.svg)
+
 ![echo 100](/assets/images/uploads/echo100.png)
 
 [toucan.beetwo.at](https://toucan.beetwo.at)
+
