@@ -20,7 +20,7 @@ people and at a lower cost. Further informational talks were given by Peter Purg
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/5PQsdiI6V1c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-The Mobility Makeathon hosted by BeeTwo at the Happylab Vienna on the 19th and 20th February, 
+The Mobility Makeathon hosted by BeeTwo at the Happylab Vienna on the 19th and 20th February, 2016, 
 explored how digital manufacturing could revolutionise wheelchair design and help to transform millions of lives.
 
 
@@ -31,6 +31,7 @@ Since February [HackOnWheels](https://www.disruptdisability.org) has continued i
 
 [![disability performance](/assets/images/uploads/alliance-logo-disability-performance.png)](http://www.myability.org/)
 [![igw](/assets/images/uploads/logo_igwhci.png)](http://igw.tuwien.ac.at/hci/)
+
 
 
 
