@@ -1,11 +1,12 @@
 ---
 layout: team_layout
-title: Emanuel
+title: Maribel
 date: 2002-01-01T00:00:00.000Z
-thumbnail: /assets/images/uploads/IMG_8161_web.jpg
-email: emanuel@beetwo.at
+thumbnail: /assets/images/uploads/Maribel Koeniger portrait format.jpg
+email: 'maribel.koeniger [at] erstestiftung.org'
 ---
 
 Emanuel makes everything look pretty. And it’s super nice to have him around.
+
 
 
