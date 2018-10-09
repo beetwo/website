@@ -1,11 +1,12 @@
 ---
 layout: team_layout
-title: YOU
+title: Maribel
 date: 2018-10-08T15:30:16.791Z
-thumbnail: /assets/images/uploads/YOU.jpg
-email: team@beetwo.at
+thumbnail: /assets/images/uploads/Maribel Koeniger portrait format.jpg
+email: 'maribel.koeniger [at] erstestiftung.org'
 ---
-We are looking for you! Join our team as
+Maribel is a communication hero. She is deeply rooted in topics on civil society in Central and Eastern Europe and happy to share her experience and knowledge.
+
 
 
 
