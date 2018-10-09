@@ -6,7 +6,8 @@ thumbnail: /assets/images/uploads/Maribel Koeniger portrait format.jpg
 email: 'maribel.koeniger [at] erstestiftung.org'
 ---
 
-Emanuel makes everything look pretty. And it’s super nice to have him around.
+Maribel is a communication hero. She is deeply rooted in topics on civil society in Central and Eastern Europe and happy to share her experience and knowledge.
+
 
 
 
