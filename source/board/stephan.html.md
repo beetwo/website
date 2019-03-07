@@ -1,7 +1,7 @@
 ---
 layout: team_layout
 title: Stefan
-date: 2003-01-01T00:00:00.000Z
+date: '2019-03-04 00:00 UTC'
 thumbnail: /assets/images/uploads/Pic_Stefan_kl.jpg
 email: 'stefan.haebich [at] beeone.at'
 ---

@@ -1,7 +1,7 @@
 ---
 layout: team_layout
 title: Magdalena
-date: '2019-03-04 00:00 UTC'
+date: '2019-03-05 00:00 UTC'
 thumbnail: /assets/images/team/magdalena.jpg
 email: 'magdalena.theurl [at] beetwo.at'
 ---

@@ -1,7 +1,7 @@
 ---
 layout: team_layout
 title: Felix
-date: '2019-03-03 00:00 UTC'
+date: '2019-03-06 00:00 UTC'
 thumbnail: /assets/images/team/felix.jpg
 email: 'felix.schneider [at] beetwo.at'
 ---

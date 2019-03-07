@@ -1,7 +1,7 @@
 ---
 layout: team_layout
 title: Nicole
-date: 2017-11-16T16:06:35.372Z
+date: '2019-03-05 00:00 UTC'
 thumbnail: /assets/images/uploads/NT_npo_portrait-5_web.jpg
 email: 'nicole [at] beetwo.at'
 ---

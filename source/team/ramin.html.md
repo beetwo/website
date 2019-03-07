@@ -1,7 +1,7 @@
 ---
 layout: team_layout
 title: Ramin
-date: '2019-03-06 00:00 UTC'
+date: '2019-03-03 00:00 UTC'
 thumbnail: /assets/images/team/ramin.jpg
 email: 'ramin.amighi [at] beetwo.at'
 ---

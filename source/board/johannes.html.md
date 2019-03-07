@@ -1,7 +1,7 @@
 ---
 layout: team_layout
 title: Johannes
-date: 2017-11-16T16:21:09.467Z
+date: '2019-03-06 00:00 UTC'
 thumbnail: /assets/images/uploads/Johannes-Brodnig-Lupi-Spuma-800x800.jpg
 email: 'johannes [at] beetwo.at'
 ---
