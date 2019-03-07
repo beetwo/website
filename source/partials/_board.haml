@@ -1,14 +1,14 @@
 #team.ui.vertical.stripe.segment
   .ui.container
-    %h2.headline=t(:team_headline) 
+    %h2.headline=t(:board_headline) 
 
   .ui.text.container
     .epigraph
-      %blockquote.dropcap= get_text('Team')
+      %blockquote.dropcap= get_text('Board')
 
   .ui.container
     .ui.three.column.doubling.stackable.grid
-      - blog("team").articles.each_with_index do |m, i|
+      - blog("board").articles.shuffle.each_with_index do |m, i|
         .column.member
           .overlay.frame.raised
             .image

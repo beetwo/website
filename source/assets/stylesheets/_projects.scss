@@ -14,6 +14,50 @@
     margin-top: 3rem;
   }
 
+
+  @include mobile {
+    .column.project:first-child {
+      .ui.image {
+        overflow: hidden;
+      }
+      
+      img {
+        max-width: 318%;
+        margin: 0 -100%;
+      }
+    }
+  }
+  @include computer {
+    .column.project:first-child {
+  	  width: 100%;
+  	
+  	  img {
+  	    height: 236px;
+  	    width: 100%;
+  	  }
+    }
+  }
+  @include large-screen {
+    .column.project:first-child {
+  	  width: 100%;
+  	
+  	  img {
+  	    height: 236px;
+  	    width: 100%;
+  	  }
+    }
+  }
+  @include widescreen {
+    .column.project:first-child {
+  	  width: 100%;
+  	
+  	  img {
+  	    height: 236px;
+  	    width: 100%;
+  	  }
+    }
+  }
+  
   .project {
 
     .head {
@@ -30,7 +74,8 @@
 
     .description {
       // font-size: 1rem;
-    }
+    } 
+    
   }
 }
 

@@ -29,5 +29,3 @@ Toucan is being co-developed with our partners and currently used in Greece by o
 
 ![echo 100](/assets/images/uploads/echo100.png)
 
-[toucan.beetwo.at](https://toucan.beetwo.at)
-

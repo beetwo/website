@@ -68,6 +68,14 @@ activate :blog do |blog|
 end
 
 activate :blog do |blog|
+  blog.name       = "board"
+  blog.prefix     = "board"
+  blog.layout     = "team_layout"
+  blog.sources    = "{title}.html"
+  blog.permalink  = "{title}.html"
+end
+
+activate :blog do |blog|
   blog.name       = "texts"
   blog.prefix     = "texts"
   blog.sources    = "{title}.html"
