@@ -39,7 +39,6 @@ collections:
       - {label: "Featured Image", name: "thumbnail",  widget: "image" }
       - {label: "Email",           name: "email",       widget: "string" }
       - {label: "Body",           name: "body",       widget: "markdown" }
-      
 
   - name: "texts"
     label: "Texts"
