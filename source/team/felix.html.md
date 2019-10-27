@@ -1,10 +1,10 @@
 ---
 layout: team_layout
-title: Felix
+title: NN
 date: '2019-03-06 00:00 UTC'
-thumbnail: /assets/images/team/felix.jpg
-email: 'felix.schneider [at] beetwo.at'
+thumbnail: /assets/images/uploads/User-Pict-Profil.svg.png
+email: 'hello [at] beetwo.at'
 ---
+...
 
-Felix knows his way around in the digital world and has quite some experience in implementing digital solutions and social projects. At BeeTwo he supports the team and manages knowledge transfer between social, innovation and digital. 
 
