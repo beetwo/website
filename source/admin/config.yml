@@ -27,20 +27,20 @@ collections:
       - {label: "Body",           name: "body",       widget: "markdown" }
       - {label: "Publish Date",   name: "date",       widget: "datetime" }
 
-  - name: "team"
-    label: "Team"
-    folder: "source/team"
-    create: true
-    slug: "{{slug}}.html"
-    fields:
-      - {label: "Layout",         name: "layout",     widget: "hidden",   default: "team_layout"}
-      - {label: "Title",          name: "title",      widget: "string" }
-      - {label: "Publish Date",   name: "date",       widget: "datetime" }
-      - {label: "Featured Image", name: "thumbnail",  widget: "image" }
-      - {label: "Email",           name: "email",       widget: "string" }
-      - {label: "Body",           name: "body",       widget: "markdown" }
-      
-
+#  - name: "team"
+#    label: "Team"
+#    folder: "source/team"
+#     create: true
+#     slug: "{{slug}}.html"
+#     fields:
+#       - {label: "Layout",         name: "layout",     widget: "hidden",   default: "team_layout"}
+#       - {label: "Title",          name: "title",      widget: "string" }
+#       - {label: "Publish Date",   name: "date",       widget: "datetime" }
+#       - {label: "Featured Image", name: "thumbnail",  widget: "image" }
+#       - {label: "Email",           name: "email",       widget: "string" }
+#       - {label: "Body",           name: "body",       widget: "markdown" }
+#       
+# 
   - name: "texts"
     label: "Texts"
     folder: "source/texts"
