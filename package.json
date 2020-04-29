@@ -43,7 +43,7 @@
     "d3-timer": "^1.0.5",
     "d3-transition": "^1.1.0",
     "dropcap.js": "^1.0.1",
-    "jquery": "^3.1.1",
+    "jquery": "^3.5.0",
     "js-cookie": "^2.1.4",
     "lodash": "^4.17.2",
     "open-simplex-noise": "^1.4.0",
